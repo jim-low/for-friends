@@ -1,0 +1,37 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+}
+
+p {
+	text-align: center;
+	margin: 0;
+}
+
+.errNum {
+	margin-top: 4rem;
+	font-size: 15rem;
+}
+
+.short-desc {
+	font-size: 2rem;
+}
+
+span {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.long-desc {
+	margin-top: 1.5rem;
+	font-size: 1rem;
+}
