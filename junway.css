@@ -1,0 +1,82 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2d3436;
+}
+
+.rick-roll {
+    float: right;
+    margin: 10px;
+    padding: 1vh 1.5vw;
+    outline: none;
+    background: none;
+    border: 2px solid #EA2027;
+    background-color: #eb4d4b;
+    color: white;
+    text-transform: uppercase;
+    font-size: 120%;
+}
+
+.rick-roll:active {
+    opacity: 0.6;
+    transform: translateY(2px);
+}
+
+.container1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container1 button {
+    padding: 1vh 1.5vw;
+    outline: none;
+    background: none;
+    border: 3px solid #009432;
+    background-color: #6ab04c;
+    font-size: 150%;
+}
+
+.container1 button:active {
+    transform: translateY(2px);
+}
+
+.birthday {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: pink;
+}
+
+.birthday .card {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.birthday .card .header {
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.birthday .card .para1,
+.birthday .card .para2,
+.birthday .card .para3 {
+    position: relative;
+    top: 10px;
+    margin: 10px;
+    font-size: 150%;
+}
+
+.birthday .card .creds {
+    position: relative;
+    top: 50px;
+    font-size: 110%;
+}

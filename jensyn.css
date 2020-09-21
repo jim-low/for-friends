@@ -1,0 +1,112 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100vh;
+	font-family: sans-serif;
+}
+
+body {
+	background: linear-gradient(135deg, rgba(227,240,6,1) 0%, rgba(13,184,194,1) 50%, rgba(152,14,166,1) 100%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn {
+	transform: scale(2);
+	outline: none;
+	background: none;
+	border: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	color: white;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: rgba(221,212,212, .3);
+	transition: .25s linear;
+}
+
+.left-btn {
+	margin-right: 1rem;
+}
+
+.right-btn {
+	margin-left: 1rem;
+}
+
+#card {
+	background-color: rgba(103, 150, 221, 0.3);
+	color: white;
+	width: 23.5em;
+	height: 80%;
+	border: 2.5px solid rgba(91, 121, 219, 0.7);
+	position: relative;
+	border-radius: 15px;
+	display: flex;
+	justify-content: inherit;
+	align-items: inherit;
+	box-shadow: 1rem 1rem 25px 7.5px rgba(0,0,0, .5);
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	position: absolute;
+	width: 70%;
+	height: 80%;
+	display: none;
+}
+
+.card h2,
+.card p {
+	margin: 0;
+	padding: 0;
+}
+
+.card span {
+	display: block;
+	text-align: right;
+}
+
+.card .heading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 20%;
+}
+
+.card h2 {
+	font-size: 2rem;
+	text-transform: capitalize;
+}
+
+.card .para {
+	height: 80%;
+}
+
+.card p {
+	font-size: 1.5rem;
+	text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+	#card {
+		width: 20em;
+	}
+
+	.card p {
+		font-size: 1.25rem;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.card p {
+		font-size: 1.25rem;
+	}
+}

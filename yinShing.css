@@ -1,0 +1,52 @@
+#container{
+	text-align: center;
+}
+
+#box2 {
+	margin-top: 400px;
+	margin-right: 500px;
+}
+
+#box3 {
+	position: absolute;
+	top: 70px;
+	left: 10;
+}
+
+#box4 {
+	position: absolute;
+	left: 800px;
+	right: 10px;
+	top: 380px;
+}
+
+#box5 {
+	position: absolute;
+	top: 350px;
+	left: 50px;
+}
+
+#box6{
+	position: absolute;
+	top: 100px;
+	left: 850px;
+}
+
+#final-box {
+	position: absolute;
+	top: 250px;
+	left: 555px;
+}
+
+.para1{
+	margin-top: 230px;
+	margin-bottom: 0;
+	font-size: 50px;
+	font-style: italic;
+}
+
+.para2,
+.para3,
+.para4 {
+	font-size: 30px;
+}

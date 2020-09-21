@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50;
+    box-sizing: border-box;
+}
+
+.border{
+    border: thin solid black;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.invalid-input {
+    background-color: rgba(255,0,0,0.7);
+}
+
+.form {
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    padding: 1.5%;
+    background-color: #192a56;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+.form h1 {
+    font-size: 2em;
+    color: #00a8ff;
+}
+
+.form input[type="number"]::-webkit-outer-spin-button,
+.form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  
+}
+
+.form input[type="text"], .form input[type="number"] {
+    display: block;
+    margin: 15% 25%;
+    padding: 0.5rem 0;
+    width: 50%;
+    outline: none;
+    background: none;
+    border: none;
+    background-color: #273c75;
+    color: #00a8ff;
+    border: 2px solid #00a8ff;
+    text-align: center;
+}
+
+.form input[type="submit"] {
+    outline: none;
+    border: none;
+    background: none;
+    color: #00a8ff;
+    border: 2px solid #00a8ff;
+    padding: 5px 10px;
+}
+
+.form input[type="submit"]:hover {
+    background-color: rgba(0, 168, 255,0.2);
+}
+
+.form input[type="submit"]:active {
+    transform: translateY(2px);
+}
+
+.surprise-box {
+    display: none;
+    width: 40vw;
+    height: 60vh;
+    padding: 10px;
+    text-align: center;
+    color: go
+}
+
+.surprise-box p {
+    margin: 0;
+    margin-top: 1.2rem;
+}
+
+.surprise-box .heading {
+    font-size: 2rem;
+    font-style: italic;
+    font-family: fantasy;
+}
+
+.surprise-box .para1, .surprise-box .para2, .surprise-box .para3, .surprise-box .para4{
+    font-size: 1.5rem;
+}
+
+.surprise-box .creds {
+    margin-top: 3em;
+}
+
+@media only screen and (max-width: 480px){
+    .surprise-box {
+        display: none;
+        width: 300px;
+        height: 450px;
+        top: 40%;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .surprise-box p {
+        margin: 0;
+        margin-top: 0.5em;
+    }
+    
+    .surprise-box .heading {
+        font-size: 2rem;
+        font-style: italic;
+        font-family: fantasy;
+    }
+    
+    .surprise-box .para1, .surprise-box .para2, .surprise-box .para3, .surprise-box .para4{
+        font-size: 1.5em;
+    }
+    
+    .surprise-box .creds {
+        margin-top: 1em;
+    }
+}

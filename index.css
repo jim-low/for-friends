@@ -1,0 +1,70 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #5c5c5c;
+	width: 80%;
+	margin: 2rem auto;
+	color: white;
+}
+
+.pointer {
+	cursor: pointer;
+	border-bottom: thin solid white;
+}
+
+h1 {
+	text-align: center;
+	font-size: 5rem;
+	text-transform: capitalize;
+}
+
+.intro {
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.intro p {
+	font-size: 2rem;
+}
+
+.intro .init {
+	text-transform: capitalize;
+	display: block;
+	text-align: center;
+	font-size: 3rem;
+}
+
+.intro .p-s {
+	font-size: 1.25rem;
+}
+
+.selection {
+	margin: 0 auto;
+	padding: 0;
+	width: 80%;
+}
+
+.opt {
+	text-transform: capitalize;
+	font-size: 2rem;
+}
+
+.projects {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.publish {
+	margin-top: 10px;
+	font-size: 1.25rem;
+	text-transform: none;
+}
