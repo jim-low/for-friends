@@ -26,7 +26,7 @@ let friendsProjects =
 	[
 		{
 			projName: "undefined",
-			dateReleased: "7th October 2020",
+			dateReleased: "undefined",
 			link: "claudia.html"
 		}
 	],
