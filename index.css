@@ -72,3 +72,13 @@ h1 {
 	font-size: 1.25rem;
 	text-transform: none;
 }
+
+hr {
+	margin-top: 5em;
+}
+
+.reassure {
+	font-size: 2rem;
+	text-align: center;
+	margin: 3rem auto;
+}
