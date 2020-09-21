@@ -27,7 +27,7 @@ let friendsProjects =
 		{
 			projName: "undefined",
 			dateReleased: "undefined",
-			link: "claudia.html"
+			link: "error404.html"
 		}
 	],
 	[
