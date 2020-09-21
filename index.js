@@ -19,7 +19,7 @@ let friendsProjects =
 	[
 		{
 			projName: "a little surprise",
-			dateReleased: "27th July 2020",
+			dateReleased: "29th July 2020",
 			link: "shuetYee.html"
 		}
 	],
