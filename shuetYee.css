@@ -110,22 +110,22 @@ body {
         padding: 10px;
         text-align: center;
     }
-    
+
     .surprise-box p {
         margin: 0;
         margin-top: 0.5em;
     }
-    
+
     .surprise-box .heading {
         font-size: 2rem;
         font-style: italic;
         font-family: fantasy;
     }
-    
+
     .surprise-box .para1, .surprise-box .para2, .surprise-box .para3, .surprise-box .para4{
         font-size: 1.5em;
     }
-    
+
     .surprise-box .creds {
         margin-top: 1em;
     }

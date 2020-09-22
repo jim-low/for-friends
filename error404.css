@@ -6,9 +6,10 @@ html, body {
 }
 
 body {
+	width: 70vw;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	align-items: center;
 }
 
@@ -19,11 +20,11 @@ p {
 
 .errNum {
 	margin-top: 4rem;
-	font-size: 15rem;
+	font-size: 15vw;
 }
 
 .short-desc {
-	font-size: 2rem;
+	font-size: 2vw;
 }
 
 span {
@@ -33,5 +34,5 @@ span {
 
 .long-desc {
 	margin-top: 1.5rem;
-	font-size: 1rem;
+	font-size: 2vw;
 }

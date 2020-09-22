@@ -47,6 +47,7 @@ body {
 }
 
 .birthday {
+    position: relative;
     display: none;
     width: 100vw;
     height: 100vh;
@@ -55,9 +56,10 @@ body {
 
 .birthday .card {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 80%;
     text-align: center;
 }
 
@@ -71,7 +73,7 @@ body {
 .birthday .card .para3 {
     position: relative;
     top: 10px;
-    margin: 10px;
+    margin: 5px;
     font-size: 150%;
 }
 

@@ -1,5 +1,8 @@
-#container{
+#container {
+	position: relative;
 	text-align: center;
+	width: 95vw;
+	margin: 0 auto;
 }
 
 #box2 {
@@ -10,13 +13,12 @@
 #box3 {
 	position: absolute;
 	top: 70px;
-	left: 10;
+	left: 10%;
 }
 
 #box4 {
 	position: absolute;
-	left: 800px;
-	right: 10px;
+	left: 280px;
 	top: 380px;
 }
 
@@ -26,20 +28,20 @@
 	left: 50px;
 }
 
-#box6{
+#box6 {
 	position: absolute;
 	top: 100px;
-	left: 850px;
+	left: 250px;
 }
 
 #final-box {
 	position: absolute;
 	top: 250px;
-	left: 555px;
+	left: 189px;
 }
 
-.para1{
-	margin-top: 230px;
+.para1 {
+	margin-top: 20px;
 	margin-bottom: 0;
 	font-size: 50px;
 	font-style: italic;
