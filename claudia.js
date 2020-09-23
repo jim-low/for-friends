@@ -6,7 +6,7 @@ let msgType = document.querySelector(".message-type select")
 let submitBtn = document.querySelector(".submit-btn")
 let resetBtn = document.querySelector(".reset-btn")
 let cssEmptyInput = "background: rgba(241, 144, 144, 0.7); border-color: rgb(235, 75, 75);"
-name.value = "Jim"
+
 const emptyName = () => {
 	return name.value === ""
 }
