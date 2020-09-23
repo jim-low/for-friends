@@ -41,8 +41,6 @@ submitBtn.addEventListener("mousedown", () => {
 	}
 })
 
-
-
 resetBtn.addEventListener("mousedown", () => {
 	if(confirm("Reset form?")){
 		name.value = ""
