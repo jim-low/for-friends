@@ -6,7 +6,7 @@ input {
 	outline: none;
 }
 
-#form {
+.paper {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -21,7 +21,13 @@ input {
 	align-items: center;
 	background-color: #ddd8d8;
 	border-radius: 25px;
-	box-shadow: 15px 15px 30px 5px #918e8e;
+	box-shadow: 20px 15px 30px 5px #918e8e;
+}
+
+#message {
+	display: none;
+	justify-content: center;
+	align-items: center;
 }
 
 h2 {
@@ -84,4 +90,11 @@ button:hover {
 
 button:active {
 	transform: translateY(2px);
+}
+
+.msg {
+	font-size: 1.75rem;
+	width: 90%;
+	height: 90%;
+	overflow-y: auto;
 }
