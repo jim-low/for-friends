@@ -119,4 +119,5 @@ button:active {
 	width: 90%;
 	height: 90%;
 	overflow-y: auto;
+	line-height: 2.5rem;
 }
