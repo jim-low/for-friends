@@ -23,20 +23,6 @@ let friendsProjects =
 			link: "shuetYee.html"
 		}
 	],
-//	[
-//		{
-//			projName: "undefined",
-//			dateReleased: "undefined",
-//			link: "error404.html"
-//		}
-//	],
-//	[
-//		{
-//			projName: "birthday card",
-//			dateReleased: "19th September 2020",
-//			link: "jensyn.html"
-//		}
-//	],
 	[
 		{
 			projName: "stop bullshit",

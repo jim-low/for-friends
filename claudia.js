@@ -6,6 +6,8 @@ let msgType = document.querySelector(".message-type select")
 let submitBtn = document.querySelector(".submit-btn")
 let resetBtn = document.querySelector(".reset-btn")
 let cssEmptyInput = "background: rgba(241, 144, 144, 0.7); border-color: rgb(235, 75, 75);"
+let fadeOut = "animation: fadeOut 2s linear"
+let fadeIn = "animation: fadeIn 4s linear"
 
 const emptyName = () => {
 	return name.value === ""
@@ -35,20 +37,37 @@ let surpriseMessage = "this is surprise"
 const renderMessage = () => {
 	let level = Number(moodLevel.value)
 	let typeMsg = messages[msgType.value]
-	let msgContainer = document.querySelector(".msg")
+	let birthdayGirl = /claudia|qian|law/gi
+	let msgStructure
+
 	if(msgType.value !== "birthday"){
 		if(level <= 2){
-			msgContainer.innerHTML = typeMsg.bad
-		}else if (level === 3){
-			msgContainer.innerHTML = typeMsg.neutral
+			msgStructure = `<h2>dear ${name.value}</h2>
+							<p class="msg">
+								${typeMsg.bad}
+							</p>`
+		}else if(level === 3){
+			msgStructure = `<h2>dear ${name.value}</h2>
+							<p class="msg">
+								${typeMsg.neutral}
+							</p>`
 		}else {
-			msgContainer.innerHTML = typeMsg.good
+			msgStructure = `<h2>dear ${name.value}</h2>
+							<p class="msg">
+								${typeMsg.good}
+							</p>`
 		}
+	}else if(msgType.value === "birthday" && name.value.match(birthdayGirl)){
+		msgStructure = `<h2>dear ${name.value}</h2>
+							<p class="msg">
+								${surpriseMessage}
+							</p>`
 	}else {
-		msgContainer.innerHTML = surpriseMessage
+		alert("Birthday surprise not for you.")
+		return false
 	}
-	$("#form").fadeOut(3000);
-	$("#message").fadeIn(3000);
+	msg.innerHTML = msgStructure
+	return true
 }
 
 submitBtn.addEventListener("mousedown", () => {
@@ -56,10 +75,13 @@ submitBtn.addEventListener("mousedown", () => {
 		name.placeholder = "Please fill in this field."
 		name.style.cssText = cssEmptyInput
 	}else {
-		if(confirm("Confirm options")){
-			renderMessage()
-			form.style.display = "none"
-			msg.style.display = "flex"
+		if(confirm("Confirm options?")){
+			if(renderMessage()){
+				form.style.cssText += fadeOut
+				form.style.animationFillMode = "forwards"
+				msg.style.cssText += fadeIn
+				msg.style.display = "flex"
+			}
 		}
 	}
 })
