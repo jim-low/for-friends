@@ -115,9 +115,10 @@ button:active {
 }
 
 .msg {
-	font-size: 1.75rem;
+	font-size: 1.5rem;
 	width: 90%;
 	height: 90%;
 	overflow-y: auto;
 	line-height: 2.5rem;
+	text-align: justify;
 }
