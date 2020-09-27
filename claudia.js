@@ -9,8 +9,6 @@ let cssEmptyInput = "background: rgba(241, 144, 144, 0.7); border-color: rgb(235
 let fadeOut = "animation: fadeOut 2s linear"
 let fadeIn = "animation: fadeIn 4s linear"
 
-name.value = "claudia"
-
 const emptyName = () => {
 	return name.value === ""
 }
@@ -101,5 +99,18 @@ resetBtn.addEventListener("mousedown", () => {
 		name.style.cssText = cssNameInput
 		moodLevel.value = "3"
 		msgType.value = "comforting"
+	}
+})
+
+document.addEventListener("keypress", (e) => {
+	if(e.key === "Enter") {
+		if(confirm("Confirm options?")){
+			if(renderMessage()){
+				form.style.cssText += fadeOut
+				form.style.animationFillMode = "forwards"
+				msg.style.cssText += fadeIn
+				msg.style.display = "flex"
+			}
+		}
 	}
 })
