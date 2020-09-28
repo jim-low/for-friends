@@ -33,8 +33,8 @@ let friendsProjects =
 	[
 		{
 			projName: "custom message",
-			dateReleased: "undefined",
-			link: "error.html"
+			dateReleased: "28th September 2020",
+			link: "claudia.html"
 		}
 	]
 ]
