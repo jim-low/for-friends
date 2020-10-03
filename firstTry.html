@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTP-8">
+        <link href="firstTry.css" rel="stylesheet" type="text/css">
+	<script src="firstTry.js" defer></script>
+        <title>My First Attempt</title>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Logarithms</h1>
+            <div class="description">
+                Logarithms are the <strong>inverse functions</strong> for exponentials. They are also
+                a way of looking differently at exponentials or indices.Take for example 2<sup>5</sup>,
+                think of 5(the exponent) as time and 2(the base) as the growth rate.So 2<sup>5</sup> = 32,
+                or i can also say "If something is doubling(2) over the period of 5 times,the result will be 32".
+                What if i say 2<sup>0</sup>? Well 2<sup>0</sup> = 1 meaning that if i had an object that is doubling
+                but over a period of 0 times, the result(1) holds the definition of no change because it was not growing
+                over any period of time.Same goes to 2<sup>-1</sup>,in mathematics the negative sign is a simple way of
+                saying "opposite".Therefore we can say 2<sup>-1</sup> = 
+                <div class="fraction">
+                    <span style="display: inline;">1</span>
+                    <span style="display: none;"></span>
+                    <span style="border-top: thin solid grey;">2</span>
+                </div>
+                as "something that is doubling
+                backwards over a period of 1 is equal to one half" because the opposite of doubling is dividing.
+                Once you've grasped the concept here,let's head on over to learning about Logarithms.
+            </div>
+        </div>
+        <div id="main-content">
+            <div id="formulas">
+                <h2>Formulas</h2>
+                <ol>
+                    <li>
+                        log<sub>c</sub>a + log<sub>c</sub>b = log<sub>c</sub>(ab)
+                    </li>
+                    <li>
+                        log<sub>c</sub>a - log<sub>c</sub>b = log<sub>c</sub>
+                        <div class="fraction">
+                            <span>a</span>
+                            <span style="display: none;"></span>
+                            <span style="border-top: thin solid grey;">b</span>
+                        </div>
+                    </li>
+                    <li>
+                        log<sub>c</sub>(a<sup>b</sup>) = b log<sub>c</sub>a
+                    </li>
+                    <li>
+                        log<sub>a</sub>b =
+                        <div class="fraction">
+                            <span>log<sub>c</sub>a</span>
+                            <span style="display: none;"></span>
+                            <span style="border-top: thin solid grey;">log<sub>c</sub>b</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div id="add-info">
+                <h2>Additional Information</h2>
+                <ol>
+                    <li>
+                        log<sub>a</sub>b = c : the value of "a" must be &gt; 0,
+                        the value of "b" &ne; 0. Basically, value of "a" must be positive and
+                        "b" cannot be equal to 0. Whereas "c" can be in any range.
+                    </li>
+                    <li>
+                        log<sub>a</sub>(a<sup>b</sup>) = b
+                    </li>
+                    <li>
+                        a<sup>log<sub>a</sub>b</sup> = b
+                    </li>
+                    <li>
+                        log<sub>a</sub>b =
+                        <div class="fraction">
+                            <span>1</span>
+                            <span style="display: none;"></span>
+                            <span style="border-top: thin solid grey">log<sub>b</sub>a</span>
+                        </div>
+                    </li>
+                    <li>
+                        log<sub>a</sub>b = log<sub>c</sub>b &times; log<sub>a</sub>c
+                    </li>
+                </ol>
+            </div>
+            <div id="basics">
+                <h3>Basic operations using Logarithms</h3>
+                <ol>
+                <div class="question-statement">
+                    <li>
+                        Find the value of x if log<sub>3</sub>(3<sup>2x</sup> - 3<sup>x</sup> + 1) = x
+                    </li>
+                    <div class="question-explanation">
+                        <div class="dialog">
+                            At first this question may seem intimidating, but with a simple technique it will be made easy
+                        </div>
+                        <br>
+                        Firstly, we will substitute 3<sup>x</sup> = a.
+                        This will simplify the appearance of the equation,
+                        now lets break down the equation.
+                        <br>
+                        3<sup>2x</sup> = (3<sup>x</sup>)<sup>2</sup>
+                        <br>
+                        log<sub>3</sub>(3<sup>2x</sup> - 3<sup>x</sup> + 1) = x
+                        &rarr;
+                        3<sup>2x</sup> - 3<sup>x</sup> + 1 = 3<sup>x</sup>
+                        <br>
+                        Now we can substitute 3<sup>x</sup> = a without any trouble.
+                        <br>
+                        3<sup>2x</sup> - 3<sup>x</sup> + 1 = 3<sup>x</sup>
+                        &rarr;
+                        a<sup>2</sup> - a + 1 = a
+                        <br>
+                        And now we can treat it as a normal got 2 answers
+                        <br>
+                        a<sup>2</sup> - 2a + 1 = 0
+                        <br>
+                        (a - 1)<sup>2</sup> = 0
+                        <br>
+                        a - 1 = 0
+                        <br>
+                        a = 1
+                        <br>
+                        Now we substitute back a = 3<sup>x</sup>
+                        <br>
+                        3<sup>x</sup> = 1
+                        <br>
+                        Apply log<sub>3</sub> on both sides
+                        <br>
+                        x = log<sub>3</sub>1
+                        <br>
+                        x = 0 (<span style="font-style: italic;">solved</span>)
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="question-statement">
+                    <li>
+                        Find the value of x if
+                        log<sub>10</sub>&#8731;<span style="border-top: thin solid grey;">x</span>
+                        =
+                        &#8730;<span style="border-top: thin solid grey;">log<sub>10</sub>x</span>
+                    </li>
+                        <div class="dialog">
+                            Don't get startled easily just by witnessing an unfamiliar format
+                            in a question. We can easily solve this question with a simple method
+                            called "substitution". Let me show you how
+                        </div>
+                        <div class="question explanation">
+                            Firstly, lets simplify the log on the left side of the equation.
+                            <br>
+                            log<sub>10</sub>&#8731;<span style="border-top: thin solid grey;">x</span> &rarr; log<sub>10</sub>x
+                            <sup>
+                                <div class="fraction">
+                                    <span style="font-size: 8px;">1</span>
+                                    <span style="display:none; font-size:8px;"></span>
+                                    <span style="border-top: thin solid grey; font-size:8px">3</span>
+                                </div>
+                            </sup>
+                            &rarr;
+                            <div class="fraction">
+                                <span>1</span>
+                                <span style="display:none;"></span>
+                                <span style="border-top: thin solid grey;">3</span>
+                            </div>
+                            log<sub>10</sub>x
+                            <br>
+                            Now we have
+                            <div class="fraction">
+                                <span>1</span>
+                                <span style="display: none;"></span>
+                                <span style="border-top: thin solid grey;">3</span>
+                            </div>
+                            log<sub>10</sub>x = &#8730;<span style="border-top: thin solid grey;">log<sub>10</sub>x</span>
+                            <br>
+                            Substitute log<sub>10</sub>x = a
+                            <br>
+                            <div class="fraction">
+                                <span>1</span>
+                                <span style="display: none;"></span>
+                                <span style="border-top: thin solid grey;">3</span>
+                            </div>
+                            a = &#8730;<span style="border-top: thin solid grey;">a</span>
+                            <br>
+                            Square both sides to get rid of the square root
+                            <br>
+                            <div class="fraction">
+                                <span>1</span>
+                                <span style="display:none;"></span>
+                                <span style="border-top: thin solid grey;">9</span>
+                            </div>
+                            a<sup>2</sup> = a
+                            <br>
+                            Multiply both sides by 9 and divide both sides by a
+                            <br>
+                            <div class="fraction">
+                                <span>a<sup><strike>2</strike></sup></span>
+                                <span style="display:none;"></span>
+                                <span style="border-top:thin solid grey;"><strike>a</strike></span>
+                            </div>
+                            = 9 &rarr; a = 9
+                            <br>
+                            Now substitute back a = log<sub>10</sub>x and solve for x
+                            <br>
+                            log<sub>10</sub>x = 9
+                            &rarr;
+                            x = 10<sup>9</sup> (<span style="font-style: italic;">solved</span>)
+                        </div>
+                </div>
+                <br>
+                <br>
+                <div class="question-statement">
+                    <li>
+                        <div class="fraction">
+                            <span>log<sub>10</sub>8x</span>
+                            <span style="display:none;"></span>
+                            <span style="border-top:thin solid grey;">
+                                log<sub>10</sub> |7x + 3|
+                            </span>
+                        </div>
+                        = 1
+                    </li>
+                    <div class="dialog">
+                        Now don't be shocked that you are seeing a modulus with logarithm question.
+                        It is important to keep calm and think logically as well as conceptually.
+                        Let me show you how this question is done.
+                    </div>
+                    <div class="question explanation">
+                        Firstly we will multiply both sides by log<sub>10</sub> |7x + 3|.
+                        <br>
+                        log<sub>10</sub>8x = log<sub>10</sub> |7x + 3|
+                        <br>
+                        Since both sides have the same log base,we are save to assume that
+                        <br>
+                        8x = |7x + 3|
+                        <br>
+                        Now if you have a basic grasp of logarithmic concept.
+                        One of its properties is that logarithms can not have a number that is less than 1 as it's
+                        argument which is the value of b in log<sub>a</sub>b.You may refer back to
+                        <a href="#add-info">Additional Information</a> for a quick refresher.
+                        <br>
+                        Therefore,we will only take the positive value of the equation as such:
+                        <br>
+                        8x = 7x + 3 &rarr; x = 3 (<span style="font-style:italic;">solved</span>)
+                    </div>
+                </div>
+                </ol>
+            </div>
+            <div id="normal-questions">
+                <h3>Exercises</h3>
+                <div class="easy-questions">
+                    1.log<sub>3</sub>(28 - 3<sup>x</sup>) = 2<sup>log<sub>2</sub>(3 - x)</sup>
+                    <div id="incorrect-answer-1">
+
+                    </div>
+                    <div id="same-answer-1">
+
+                    </div>
+                    <div id="easy-1">
+                        x = <input id="easy-answer-1.1" type="text" size="3px">
+                        and
+                        <input id="easy-answer-1.2" type="text" size="3px">
+                        <div id="easy-check-1">
+                            <button type="button" onclick="checkAnswer1()">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    2.log<sub>5</sub>x - log<sub>25</sub>x + log<sub>&#8730;5</sub>x = -5
+                    <div id="incorrect-answer-2">
+
+                    </div>
+                    <div id="easy-2">
+                        x = <input id="easy-answer-2" type="text" size="3px">
+                        <div id="easy-check-2">
+                            <button onclick="checkAnswer2()"type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    3.Find the root of the equation
+                    2 + log<sub>10</sub>&#8730;<span style="border-top: .5px solid grey;">1 + x</span> + 3log<sub>10</sub>&#8730;<span style="border-top: .5px solid grey;">1 - x</span> = log<sub>10</sub>&#8730;<span style="border-top: .5px solid grey;">1 - x<sup><span style="font-size: 10px;">2</span></sup></span>
+                    <div id="incorrect-answer-3">
+
+                    </div>
+                    <div id="easy-3">
+                        x = <input id="easy-answer-3" type="text" size="3px">
+                        <div id="easy-check-3">
+                            <button onclick="checkAnswer3()"type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    4.Find the value of x for
+                    log<sub>2</sub>(log<sub>3</sub>(log<sub>4</sub>(3(5<sup>4x-10</sup>) - 11))) = 0
+                    <div id="incorrect-answer-4">
+
+                    </div>
+                    <div id="easy-4">
+                        x = <input id="easy-answer-4" type="text" size="3px">
+                        <div id="easy-check-4">
+                            <button onclick="checkAnswer4()"type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    5.Find the value of x for
+                    log<sub>2</sub>x + log<sub>4</sub>x + log<sub>16</sub>x =
+                    <div class="fraction">
+                        <span>21</span>
+                        <span style="display:none;"></span>
+                        <span style="border-top: thin solid grey;">4</span>
+                    </div>
+                    <div id="incorrect-answer-5">
+
+                    </div>
+                    <div id="easy-5">
+                        x = <input id="easy-answer-5" type="text" size="3px">
+                        <div id="easy-check-5">
+                            <button onclick="checkAnswer5()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    6.Find x if <span style="font-size: 30px;">(</span>
+                        <div class="fraction">
+                            <span>1</span>
+                            <span style="display:none;"></span>
+                            <span style="border-top: thin solid grey">2</span>
+                        </div>
+                    <span style="font-size:30px;">)</span>
+                    <sup>2x + 1</sup> = 1
+                    <div id="incorrect-answer-6">
+
+                    </div>
+                    <div id="easy-6">
+                        x = <input id="easy-answer-6" type="text" size="3px">
+                        <div id="easy-check-6">
+                            <button onclick="checkAnswer6()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    7.Find the value of x for 2x &times; b<sup>4log<sub>b</sub>x</sup> = 486
+                    <div id="incorrect-answer-7">
+
+                    </div>
+                    <div id="easy-7">
+                        x = <input id="easy-answer-7" type="text" size="3px">
+                        <div id="easy-check-7">
+                            <button onclick="checkAnswer7()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    8.Find the value of x for <span style="font-size: 30px;">(</span>
+                    <div class="fraction">
+                        <span>x</span>
+                        <span style="display:none;"></span>
+                        <span style="border-top: thin solid grey;">2</span>
+                    </div>
+                    <span style="font-size: 30px;">)</span>
+                    <sup>log<sub>2</sub>x</sup> = 8x
+                    <div id="incorrect-answer-8">
+
+                    </div>
+                    <div id="same-answer-8">
+
+                    </div>
+                    <div id="easy-8">
+                        x = <input id="easy-answer-8.1" type="text" size="3px">
+                        and
+                        <input id="easy-answer-8.2" type="text" size="3px">
+                        <div id="easy-check-8">
+                            <button onclick="checkAnswer8()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    9.Find the values of x for 3 - log<sub>3</sub>x = log<sub>x</sub>9
+                    <div id="incorrect-answer-9">
+
+                    </div>
+                    <div id="same-answer-9">
+
+                    </div>
+                    <div id="easy-9">
+                        x = <input id="easy-answer-9.1" type="text" size="3px">
+                        and
+                        <input id="easy-answer-9.2" type="text" size="3px">
+                        <div id="easy-check-9">
+                            <button onclick="checkAnswer9()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    10.Evaluate
+                    log<sub>2</sub>[&#8730;<span style="border-top:0.1px solid grey;">3 + <span style="font-size: 12.5px;">&#8730;<span style="border-top: thin solid grey;">5</span><span style="border-top: grey;"></span></span></span> - &#8730;<span style="border-top:0.1px solid grey;">3 - <span style="font-size: 12.5px;">&#8730;<span style="border-top: thin solid grey;">5</span><span style="border-top: grey;"></span></span></span>]
+                    <div id="incorrect-answer-10">
+
+                    </div>
+                    <div id="easy-10">
+                        x = <input id="easy-answer-10" type="text" size="3px">
+                        <div id="easy-check-10">
+                            <button onclick="checkAnswer10()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    11.Solve 2(3<sup>x</sup>) &#8804; 4<sup>x</sup>. Give your answer to 3 decimal points
+                    <div id="incorrect-answer-11">
+
+                    </div>
+                    <div id="easy-11">
+                        x &#8805; <input id="easy-answer-11" type="text" size="3px">
+                        <div id="easy-check-11">
+                            <button type="button" onclick="checkAnswer11()">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="easy-questions">
+                    12.Find all solutions for the equation
+                    (log<sub>2</sub>(2x))<sup>2</sup> + log<sub>2</sub>x + log<sub>2</sub>(4x) = log<sub>3</sub>(9<sup>4</sup>)
+                    <div id="incorrect-answer-12">
+
+                    </div>
+                    <div id="same-answer-12">
+
+                    </div>
+                    <div id="easy-12">
+                        x = <input id="easy-answer-12.1" type="text" size="3px">
+                        and
+                        <input id="easy-answer-12.2" type="text" size="3px">
+                        <div id="easy-check-12">
+                            <button type="button" onclick="checkAnswer12()">check answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="hot-questions">
+                <h3>HOTS Questions</h3> <!-- YOU AINT EVEN FINISHED WITH THIS LIST -->
+                <div class="difficult-questions">
+                    1.If log<sub>10</sub>x + log<sub>10</sub>x<sup>2</sup> +
+                    log<sub>10</sub>x<sup>3</sup> + log<sub>10</sub>x<sup>4</sup> +....= n(n+1),
+                    find the value of x.
+                    <div id="incorrect-answer-a">
+
+                    </div>
+                    <div id="difficult-1">
+                        x = <input id="difficult-answer-a" type="text" size="3px">
+                        <div id="difficult-check-1">
+                            <button onclick="checkAnswerA()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="difficult-questions">
+                    2.In an arithmetic progression: sin(&#x3B8;),2cos(&#x3B8;) and 2sin(&#x3B8;)
+                    are three consecutive terms.Find the value of &#x3B8; in radian.
+                    (Give your answer to 3 decimal points)
+                    <div id="incorrect-answer-b">
+
+                    </div>
+                    <div id="difficult-2">
+                        &#x3B8; = <input id="difficult-answer-b" type="text" size="3px">
+                        <div id="difficult-check-2">
+                            <button onclick="checkAnswerB()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="difficult-questions">
+                    3.Simplify the equation
+                    <div class="fraction">
+                        <span>1</span>
+                        <span style="display: none;"></span>
+                        <span style="border-top: thin solid grey;">log<sub>xy</sub>(xyz)</span>
+                    </div>
+                    +
+                    <div class="fraction">
+                        <span>1</span>
+                        <span style="display: none;"></span>
+                        <span style="border-top: thin solid grey">log<sub>yz</sub>(xyz)</span>
+                    </div>                                                       
+                    +
+                    <div class="fraction">
+                        <span>1</span>
+                        <span style="display:none;"></span>
+                        <span style="border-top: thin solid grey;">log<sub>xz</sub>(xyz)</span>
+                    </div>
+                    <div id="incorrect-answer-c">
+
+                    </div>
+                    <div id="difficult-3">
+                        <div class="fraction">
+                            <span>1</span>
+                            <span style="display: none;"></span>
+                            <span style="border-top: thin solid grey;">log<sub>xy</sub>(xyz)</span>
+                        </div>
+                        +
+                        <div class="fraction">
+                            <span>1</span>
+                            <span style="display: none;"></span>
+                            <span style="border-top: thin solid grey;">log<sub>yz</sub>(xyz)</span>
+                        </div>
+                        +
+                        <div class="fraction">
+                            <span>1</span>
+                            <span style="display: none;"></span>
+                            <span style="border-top: thin solid grey;">log<sub>xz</sub>(xyz)</span>
+                        </div>
+                        =
+                        <input id="difficult-answer-c" type="text" size="3px">
+                        <div id="difficult-check-3">
+                            <button onclick="checkAnswerC()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="difficult-questions">
+                    4.If
+                    <div class="fraction">
+                        <span>log x</span>
+                        <span style="display: none;"></span>
+                        <span style="border-top: thin solid grey;">a + b - 2c</span>
+                    </div>
+                    =
+                    <div class="fraction">
+                        <span>log y</span>
+                        <span style="display: none;"></span>
+                        <span style="border-top: thin solid grey;">b + c - 2a</span>
+                    </div>
+                    =
+                    <div class="fraction">
+                        <span>log z</span>
+                        <span style="display: none;"></span>
+                        <span style="border-top: thin solid grey;">c + a - 2b</span>
+                    </div>
+                    , find the value of xyz.
+                    <div id="incorrect-answer-d">
+                        
+                    </div>
+                    <div id="difficult-4">
+                        xyz = <input id="difficult-answer-d" type="text" size="3px">
+                        <div id="difficult-check-4">
+                            <button onclick="checkAnswerD()" type="button">check answer</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="difficult-questions">
+                    5.Find the value of x for
+                    log<sub>2</sub>(&#8730;<span style="border-top: thin solid grey;">x</span> + 1) = log<sub>3</sub>x
+                    <div id="incorrect-answer-e">
+
+                    </div>
+                    <div id="difficult-5">
+                        x = <input id="difficult-answer-e" type="text" size="3px">
+                        <div id="difficult-check-5">
+                            <button type="button" onclick="checkAnswerE()">check answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html> 

@@ -1,0 +1,101 @@
+body {
+	background: rgb(9, 6, 59);
+	color: grey;
+}
+
+#header {
+	border-bottom: 3px double grey;
+}
+
+.fraction {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	letter-spacing: 0.001em;
+	text-align: center;
+}
+
+.fraction > span {
+	display: block;
+	padding: .1em;
+}
+
+.dialog {
+	color: lightslategray;
+	font-style:italic;
+}
+
+#easy-check-2,
+#easy-check-1,
+#easy-check-3,
+#easy-check-4,
+#easy-check-5,
+#easy-check-6,
+#easy-check-7,
+#easy-check-8,
+#easy-check-9,
+#easy-check-10,
+#easy-check-11,
+#easy-check-12,
+#difficult-check-1,
+#difficult-check-2,
+#difficult-check-3,
+#difficult-check-4,
+#difficult-check-5 {
+	display: inline;
+}
+
+#incorrect-answer-1,
+#incorrect-answer-2,
+#incorrect-answer-3,
+#incorrect-answer-4,
+#incorrect-answer-5,
+#incorrect-answer-6,
+#incorrect-answer-7,
+#incorrect-answer-8,
+#incorrect-answer-9,
+#incorrect-answer-10,
+#incorrect-answer-11,
+#incorrect-answer-12,
+#incorrect-answer-a,
+#incorrect-answer-b,
+#incorrect-answer-c,
+#incorrect-answer-d,
+#incorrect-answer-e {
+	color: darkred;
+	font-style: italic;
+	text-transform: uppercase;
+}
+
+#easy-check-1,
+#easy-check-2,
+#easy-check-3,
+#easy-check-4,
+#easy-check-5,
+#easy-check-6,
+#easy-check-7,
+#easy-check-8,
+#easy-check-9,
+#easy-check-10,
+#easy-check-11,
+#easy-check-12,
+#difficult-check-1,
+#difficult-check-2,
+#difficult-check-3,
+#difficult-check-4,
+#difficult-check-5{
+	color: darkgreen;
+	font-style: italic;
+}
+
+input {
+	background: rgba(9, 20, 71, 0.664);
+	border-color: rgba(9, 20, 71, 0.664);
+	color: grey;
+}
+
+button {
+	background: rgba(9, 20, 71, 0.664);
+	border-color: rgba(9, 20, 71, 0.664);
+	color: grey;
+}
