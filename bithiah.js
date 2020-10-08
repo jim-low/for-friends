@@ -1,7 +1,6 @@
 let card = document.getElementById("card")
 let leftBtn = document.querySelector(".left-btn")
 let rightBtn = document.querySelector(".right-btn")
-let zIndex = 1
 let pageView = 1
 let pageContent = [
 	{
