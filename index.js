@@ -79,3 +79,4 @@ for(let i = 0; i < projects.length; i++){
 		projects[i].innerHTML += projectStructure
 	}
 }
+console.log("Hello world")
