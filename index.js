@@ -1,5 +1,5 @@
 let selection = document.querySelector(".selection")
-let friendsList = ['bithiah tang kai yuin','cheng yin shing','chong shuet yee','ng jun way', 'claudia law', 'chloe sim yu xi']
+let friendsList = ['bithiah tang kai yuin','cheng yin shing','chong shuet yee','ng jun way', 'claudia law', 'chloe sim yu xi', "kok yen ni"]
 let friendsProjects = 
 [
 	[
@@ -42,6 +42,13 @@ let friendsProjects =
 			projName: "first try",
 			dateReleased: "13th April 2020",
 			link: "firstTry.html"
+		}
+	],
+	[
+		{
+			projName: "simple wishes",
+			dateReleased: "10th October 2020",
+			link: "yenni.html"
 		}
 	]
 ]
