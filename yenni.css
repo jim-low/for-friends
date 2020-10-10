@@ -1,0 +1,86 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html, body, .surprise {
+	min-height: 100vh;
+	height: auto;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeIn {
+	0%, 50% {
+		opacity: 0%;
+	}
+
+	100% {
+		opacity: 100%;
+	}
+}
+
+.btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	text-transform: capitalize;
+}
+
+.surprise {
+	display: none;
+	cursor: auto;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+}
+
+.msgs {
+	width: 80%;
+	margin: 0 auto;
+	height: auto;
+	min-height: 100vh;
+	position: relative;
+}
+
+h1 {
+	margin: 3.5% 0;
+	font-style: italic;
+	font-size: clamp(3rem, 5vw, 6rem);
+}
+
+p {
+	margin: 0;
+	margin-bottom: 2.5%;
+	font-size: clamp(2rem, 3vw, 3rem);
+}
+
+small {
+	position: absolute;
+	display: block;
+	text-align: center;
+	width: 100%;
+	bottom: 2%;
+	font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+}
+
+@media only screen and (max-width: 720px) {
+	.msgs {
+		width: 95%;
+	}
+}
