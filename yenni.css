@@ -32,7 +32,6 @@ html, body, .surprise {
 }
 
 .btn {
-	display: none;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -42,7 +41,7 @@ html, body, .surprise {
 }
 
 .surprise {
-	display: flex;
+	display: none;
 	cursor: auto;
 	text-align: center;
 	flex-direction: column;
