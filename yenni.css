@@ -66,8 +66,8 @@ h1 {
 
 p {
 	margin: 0;
-	margin-bottom: 2.5%;
-	font-size: clamp(1.75rem, 3vw, 3rem);
+	margin-top: 4.5%;
+	font-size: clamp(1.25rem, 3vw, 3rem);
 }
 
 small {
@@ -82,5 +82,11 @@ small {
 @media only screen and (max-width: 720px) {
 	.msgs {
 		width: 95%;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.msgs {
+		text-align: justify;
 	}
 }
