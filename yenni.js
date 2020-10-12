@@ -9,9 +9,9 @@ btn.addEventListener("click", () => {
 })
 
 setInterval(() => {
-	if(angle > 360){ 
+	if(angle > 359){ 
 		angle = 0
 	}
 	angle += 10
-	surprise.style.cssText += `background: linear-gradient(${angle}deg, rgba(255,102,204,1) 0%, #dd85d7 50%, rgba(255,102,204,1) 100%);`
-}, 10);
+	surprise.style.cssText += `background: linear-gradient(${angle}deg, rgba(255,192,203,1) 0%,  rgba(214,126,230, 1) 50%, rgba(255,192,203,1) 100%);`
+}, 20);
