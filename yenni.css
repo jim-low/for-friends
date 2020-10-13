@@ -64,19 +64,27 @@ h1 {
 	font-size: clamp(2.5rem, 5vw, 6rem);
 }
 
+.paras {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 70vh;
+}
+
 p {
 	margin: 0;
-	margin-top: 4.5%;
-	font-size: clamp(1.5rem, 2.5vw, 3rem);
+	margin-bottom: 4.5%;
+	font-size: clamp(1.5rem, 3vh, 3rem);
 }
 
 small {
-	position: absolute;
 	display: block;
 	text-align: center;
 	width: 100%;
-	bottom: 2%;
-	font-size: clamp(.7rem, 1.5vw, 1.5rem);
+	margin-top: 10%;
+	font-size: clamp(1rem, 1.5vw, 1.75rem);
 }
 
 @media only screen and (max-width: 720px) {
