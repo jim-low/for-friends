@@ -14,4 +14,4 @@ setInterval(() => {
 	}
 	angle += 10
 	surprise.style.cssText += `background: linear-gradient(${angle}deg, rgba(255,192,203,1) 0%,  rgba(214,126,230, 1) 50%, rgba(255,192,203,1) 100%);`
-}, 20);
+}, 30);
