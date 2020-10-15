@@ -49,6 +49,11 @@ let friendsProjects =
 			projName: "simple wishes",
 			dateReleased: "10th October 2020",
 			link: "yenni.html"
+		},
+		{
+			projName: "quotes app",
+			dateReleased: "official page soon",
+			link: "error404.html"
 		}
 	]
 ]
