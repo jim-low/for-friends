@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="quoteApp.css">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<script src="quoteApp.js" defer></script>
+		<title>Quotes</title>
+	</head>
+	<body>
+		<h1>quotes from books</h1>
+		<div class="quotesCont">
+			<button class="addBtn">
+				<i class="fas fa-plus"></i>
+			</button>
+			<ol class="quotesList">
+				<li class="quoteComponent">
+					<p class="quoteInfo">
+						<span class="quote">"integrate with the best, differentiate from the rest"</span>
+						<span class="book">from: jim</span>
+						<span class="author">written by: jim lmao</span>
+						<span class="edited inactive">last edited: </span>
+					</p>
+					<div class="up-rm">
+						<button class="upBtn">update</button>
+						<button class="rmBtn">remove</button>
+					</div>
+				</li>
+				<li class="quoteComponent">
+					<p class="quoteInfo">
+						<span class="quote">"to be or not to be"</span>
+						<span class="book">from: william shakespeare</span>
+						<span class="author">written by: idk, prolly jim too lmao</span>
+						<span class="edited inactive">last edited: </span>
+					</p>
+					<div class="up-rm">
+						<button class="upBtn">update</button>
+						<button class="rmBtn">remove</button>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="updateCont inactive">
+			<div class="updateSect">
+				<div class="selection">
+					<label for="part">Which part would you like to edit?</label>
+					<select name="part" id="part">
+						<option value="none" style="display: none;"></option>
+						<option value="quote">quote</option>
+						<option value="book">book</option>
+						<option value="author">author</option>
+						<option value="all">all</option>
+					</select>
+				</div>
+				<div class="newInput inactive">
+					<input type="text" class="quote" placeholder="New quote value">
+					<input type="text" class="book" placeholder="New book value">
+					<input type="text" class="author" placeholder="New author value">
+				</div>
+				<div class="submitBtn">
+					<button>
+						submit
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
