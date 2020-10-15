@@ -41,7 +41,7 @@ const updateBtns = () => {
 }
 
 addBtn.addEventListener("click", () => {
-	let prompts = getInfo()
+	let prompts = getQuoteInfo()
 	console.log(prompts);
 
 	if (!prompts.includes(null)) {
