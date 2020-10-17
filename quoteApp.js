@@ -7,28 +7,28 @@ let submitBtn = document.querySelector(".submitBtn button")
 let toUpdates = []
 
 const init = () => {
-	if (sessionStorage.getItem("quotesCount") === null) {
-		sessionStorage.setItem("quotesCount", "1")
+	if (localStorage.getItem("quotesCount") === null) {
+		localStorage.setItem("quotesCount", "1")
 	}
 
 	renderQuotes()
 }
 
 const renderQuotes = () => {
-	let num = Number(sessionStorage.getItem("quotesCount"))
+	let num = Number(localStorage.getItem("quotesCount"))
 	for (let i = 1; i <= num; i++) {
-		if (sessionStorage.getItem(`quote${i}`) !== null && sessionStorage.getItem(`quote${i}`) !== "null") {
+		if (localStorage.getItem(`quote${i}`) !== null && localStorage.getItem(`quote${i}`) !== "null") {
 			let quoteComp = `
 				<li class="quoteComponent comp${i}">
 					<div class="quoteInfo">
 						<p class="quote">
-							<span class="update">${sessionStorage.getItem(`quote${i}`)}</span>
+							<span class="update">${localStorage.getItem(`quote${i}`)}</span>
 						</p>
 						<p class="book">
-							from: <span class="update">${sessionStorage.getItem(`book${i}`)}</span>
+							from: <span class="update">${localStorage.getItem(`book${i}`)}</span>
 						</p>
 						<p class="author">
-							written by: <span class="update">${sessionStorage.getItem(`author${i}`)}</span>
+							written by: <span class="update">${localStorage.getItem(`author${i}`)}</span>
 						</p>
 					</div>
 					<div class="up-rm">
@@ -44,7 +44,7 @@ const renderQuotes = () => {
 }
 
 const getQuoteInfo = () => {
-	let quoteNum = Number(sessionStorage.getItem("quotesCount"))
+	let quoteNum = Number(localStorage.getItem("quotesCount"))
 
 	let quote = prompt("Enter quote")
 	while (quote === "") {
@@ -65,9 +65,9 @@ const getQuoteInfo = () => {
 	if(quote === null || book === null || author === null) {
 		console.log(("do nothing lmao"));
 	}else {
-		sessionStorage.setItem(`quote${quoteNum}`, quote)
-		sessionStorage.setItem(`book${quoteNum}`, book)
-		sessionStorage.setItem(`author${quoteNum}`, author)	
+		localStorage.setItem(`quote${quoteNum}`, quote)
+		localStorage.setItem(`book${quoteNum}`, book)
+		localStorage.setItem(`author${quoteNum}`, author)	
 	}
 
 	return [quote, book, author]
@@ -114,9 +114,9 @@ const updateBtns = () => {
 		btn.addEventListener("click", () => {
 			if (confirm("Confirm action?")) {
 				let num = Number(btn.parentNode.parentNode.classList[1].slice(4))
-				sessionStorage.removeItem(`quote${num}`)
-				sessionStorage.removeItem(`book${num}`)
-				sessionStorage.removeItem(`author${num}`)
+				localStorage.removeItem(`quote${num}`)
+				localStorage.removeItem(`book${num}`)
+				localStorage.removeItem(`author${num}`)
 				btn.parentNode.parentNode.remove()
 			}
 		})
@@ -125,7 +125,7 @@ const updateBtns = () => {
 
 addBtn.addEventListener("click", () => {
 	let prompts = getQuoteInfo()
-	let quotes = Number(sessionStorage.getItem("quotesCount"))
+	let quotes = Number(localStorage.getItem("quotesCount"))
 
 	if (!prompts.includes(null)) {
 		let quoteComp = `
@@ -149,7 +149,7 @@ addBtn.addEventListener("click", () => {
 			`
 		quotesList.innerHTML += quoteComp
 		quotes++
-		sessionStorage.setItem("quotesCount", quotes.toString())
+		localStorage.setItem("quotesCount", quotes.toString())
 		updateBtns()
 	}
 })
@@ -161,9 +161,9 @@ submitBtn.addEventListener("click", () => {
 			toUpdates[i].innerHTML = newInputs[i].value
 		}
 	}
-	sessionStorage.setItem(`quote${num}`, toUpdates[0].innerText)
-	sessionStorage.setItem(`book${num}`, toUpdates[1].innerText)
-	sessionStorage.setItem(`author${num}`, toUpdates[2].innerText)
+	localStorage.setItem(`quote${num}`, toUpdates[0].innerText)
+	localStorage.setItem(`book${num}`, toUpdates[1].innerText)
+	localStorage.setItem(`author${num}`, toUpdates[2].innerText)
 	upCont.classList.add("inactive")
 })
 
