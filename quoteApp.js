@@ -3,7 +3,8 @@ const quotesList = document.querySelector(".quotesList")
 const upCont = document.querySelector(".updateCont")
 let upSelect = document.querySelector(".selection select")
 let newInputs = document.querySelectorAll(".newInput input")
-let submitBtn = document.querySelector(".submitBtn button")
+let submitBtn = document.querySelector(".btns .submit")
+let cancelBtn = document.querySelector(".btns .cancel")
 let toUpdates = []
 
 const init = () => {
@@ -166,6 +167,8 @@ submitBtn.addEventListener("click", () => {
 	localStorage.setItem(`author${num}`, toUpdates[2].innerText)
 	upCont.classList.add("inactive")
 })
+
+cancelBtn.addEventListener("click", () => upCont.classList.add("inactive"))
 
 document.addEventListener("keydown", (e) => {
 	if (e.key === "Escape") {

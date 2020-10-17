@@ -186,7 +186,13 @@ input::placeholder {
 	padding-bottom: 5px;
 }
 
-.submitBtn button {
+.btns {
+	width: 60%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btns button {
 	padding: 0 .5em;
 	border-radius: 1.5em;
 	display: flex;
@@ -202,7 +208,7 @@ input::placeholder {
 	cursor: pointer;
 }
 
-.submitBtn button:hover {
+.btns button:hover {
 	background-color: rgb(240, 128, 146);
 	border-color: rgb(241, 106, 140);
 }
