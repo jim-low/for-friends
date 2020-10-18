@@ -55,6 +55,7 @@ li {
 
 .quoteInfo .quote {
 	text-transform: none;
+	font-weight: bold;
 }
 
 .quoteInfo .quote::before {
