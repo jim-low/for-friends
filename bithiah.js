@@ -1,8 +1,8 @@
-let card = document.getElementById("card")
-let leftBtn = document.querySelector(".left-btn")
-let rightBtn = document.querySelector(".right-btn")
+const card = document.getElementById("card")
+const leftBtn = document.querySelector(".left-btn")
+const rightBtn = document.querySelector(".right-btn")
 let pageView = 1
-let pageContent = [
+const pageContent = [
 	{
 		title: "birthday card",
 		para: "From: Jim <br> To: Bithiah"
@@ -21,7 +21,7 @@ let pageContent = [
 	}
 ]
 
-let NUM_OF_PAGES = pageContent.length
+const NUM_OF_PAGES = pageContent.length
 
 for(let i = 0; i < NUM_OF_PAGES; i++){
 	let cardStructure = 
