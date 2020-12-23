@@ -9,10 +9,6 @@ let cssEmptyInput = "background: rgba(241, 144, 144, 0.7); border-color: rgb(235
 let fadeOut = "animation: fadeOut 2s linear"
 let fadeIn = "animation: fadeIn 4s linear"
 
-const emptyName = () => {
-	return name.value === ""
-}
-
 let messages = 
 {
 	comforting: {
@@ -77,7 +73,7 @@ const renderMessage = () => {
 }
 
 submitBtn.addEventListener("mousedown", () => {
-	if(emptyName()){
+	if(name.value === ""){
 		name.placeholder = "Please fill in this field."
 		name.style.cssText = cssEmptyInput
 	}else {
