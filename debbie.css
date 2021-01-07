@@ -104,3 +104,50 @@ body {
     }
 }
 
+@keyframes moveDown {
+    from {
+        top: 0%;
+    }
+
+    to {
+        top: 55%;
+    }
+}
+
+@keyframes moveUp {
+    from {
+        top: 55%;
+    }
+
+    to {
+        top: 0%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .card {
+        top: 40%;
+    }
+    .front, .inner .page {
+        width: 90vw;
+        height: 35vh;
+    }
+    .front img {
+        top: 1.5%;
+    }
+    .front p.desc {
+        top: 60%;
+    }
+    .front p.click-me {
+        top: 80%;
+    }
+    .inner .left {
+        height: 20vh;
+    }
+    .inner .right {
+        height: 60vh;
+    }
+    .inner {
+        flex-direction: column;
+    }
+}
