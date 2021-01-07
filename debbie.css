@@ -1,7 +1,106 @@
 body {
-    background-color: #222;
+    background-color: #eee;
 }
 
-@media only screen and (max-width: 480px) {
+.card {
+    width: auto;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.front, .inner {
+    height: 100%;
+}
+
+.front {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    position: relative;
+    border: 1px solid white;
+}
+
+.front img, .front p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.front img {
+    top: 2.5%;
+}
+
+.front, .inner .page {
+    color: white;
+    background-color: #111;
+}
+
+.front p {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.15em;
+}
+
+.front p.desc {
+    top: 50%;
+}
+
+.front p.click-me {
+    top: 70%;
+    font-size: 1em;
+}
+
+.inner {
+    width: auto;
+    display: none;
+}
+
+.inner .page {
+    position: relative;
+    padding: 1em;
+    width: 25vw;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
+}
+
+.inner span {
+    text-transform: capitalize;
+}
+
+.inner .left {
+    z-index: 2;
+}
+
+.inner .right {
+    text-align: justify;
+}
+
+@keyframes moveLeft {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0%;
+    }
+}
+
+@keyframes moveRight {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 50%;
+    }
 }
 
