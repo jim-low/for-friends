@@ -1,5 +1,5 @@
 let selection = document.querySelector(".selection")
-let friendsList = ['bithiah tang kai yuin','cheng yin shing','chong shuet yee','ng jun way', 'claudia law', 'chloe sim yu xi', "kok yen ni"]
+let friendsList = ['bithiah tang kai yuin','cheng yin shing','chong shuet yee','ng jun way', 'claudia law', 'chloe sim yu xi', "kok yen ni", "debbie ong"]
 let friendsProjects = 
 [
 	[
@@ -55,7 +55,14 @@ let friendsProjects =
 			dateReleased: "17th October 2020",
 			link: "quoteApp.html"
 		}
-	]
+	],
+    [
+        {
+            projName: "BTS Card",
+            dateReleased: "7th January 2021",
+            link: "debbie.html"
+        }
+    ]
 ]
 
 for(let i = 0; i < friendsList.length; i++){
