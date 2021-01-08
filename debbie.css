@@ -16,12 +16,11 @@ body {
 }
 
 .front {
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 25vw;
+    width: 30vw;
     position: relative;
     border: 1px solid white;
 }
@@ -39,6 +38,7 @@ body {
 .front, .inner .page {
     color: white;
     background-color: #111;
+    cursor: pointer;
 }
 
 .front p {
@@ -64,7 +64,7 @@ body {
 .inner .page {
     position: relative;
     padding: 1em;
-    width: 25vw;
+    width: 30vw;
     border: 1px solid #fff;
     display: flex;
     justify-content: center;
@@ -126,28 +126,35 @@ body {
 
 @media only screen and (max-width: 480px) {
     .card {
-        top: 40%;
+        top: 30%;
+        transform: translate(-50%, -30%);
     }
+
     .front, .inner .page {
-        width: 90vw;
-        height: 35vh;
+        width: 70vw;
     }
-    .front img {
-        top: 1.5%;
+
+    .front {
+        height: 50%;
     }
-    .front p.desc {
-        top: 60%;
+
+    .front .desc {
+        display: none;
     }
-    .front p.click-me {
-        top: 80%;
-    }
-    .inner .left {
-        height: 20vh;
-    }
-    .inner .right {
-        height: 60vh;
-    }
+
     .inner {
         flex-direction: column;
     }
+
+    .inner .page {
+        height: auto;
+        font-size: clamp(.9rem, 1.25vw, 1.15rem);
+    }
 }
+
+@media only screen and (max-width: 1200px) {
+    .front, .inner .page {
+        width: 45vw;
+    }
+}
+
