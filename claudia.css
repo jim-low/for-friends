@@ -1,167 +1,167 @@
 input {
-	outline: none;
+    outline: none;
 }
 
 .paper {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 35%;
-	height: 35em;
-	border: 2.5px solid #929292;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	background-color: #ddd8d8;
-	border-radius: 25px;
-	box-shadow: 20px 15px 30px 5px #918e8e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 35em;
+    border: 2.5px solid #929292;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ddd8d8;
+    border-radius: 25px;
+    box-shadow: 20px 15px 30px 5px #918e8e;
 }
 
 @keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
+    0% {
+        opacity: 0;
+    }
 
-	50% {
-		display: block;
-		opacity: 0;
-	}
+    50% {
+        display: block;
+        opacity: 0;
+    }
 
-	100% {
-		opacity: 1;
-	}
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOut {
-	from {
-		display: block;
-		opacity: 1;
-	}
+    from {
+        display: block;
+        opacity: 1;
+    }
 
-	to {
-		opacity: 0;
-	}
+    to {
+        opacity: 0;
+    }
 }
 
 #message {
-	display: none;
-	justify-content: center;
-	align-items: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 h2 {
-	font-size: 2rem;
-	text-transform: capitalize;
-	margin-bottom: 0;
+    font-size: 2rem;
+    text-transform: capitalize;
+    margin-bottom: 0;
 }
 
 .row {
-	width: 70%;
-	text-align: center;
+    width: 70%;
+    text-align: center;
 }
 
 .name input {
-	position: relative;
-	width: 100%;
-	text-align: center;
-	font-size: 1.25rem;
-	height: 2em;
-	background: none;
-	border: none;
-	border-bottom: 2px solid rgb(118, 118, 118);
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 1.25rem;
+    height: 2em;
+    background: none;
+    border: none;
+    border-bottom: 2px solid rgb(118, 118, 118);
 }
 
 .slider-container input,
 .good-bad {
-	margin: 0;
-	width: 100%;
+    margin: 0;
+    width: 100%;
 }
 
 .good-bad {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .btns {
-	width: 50%;
-	margin: 0 auto;
-	display: flex;
-	justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 button {
-	border: none;
-	background: none;
-	outline: none;
-	cursor: pointer;
-	text-transform: capitalize;
-	font-size: 1.25rem;
-	border: 2.5px solid #929292;
-	background-color: #ddd8d8;
-	width: 4em;
-	border-radius: 10px;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 1.25rem;
+    border: 2.5px solid #929292;
+    background-color: #ddd8d8;
+    width: 4em;
+    border-radius: 10px;
 }
 
 button:hover {
-	border-color: #686868;
-	background-color: #c5c5c5;
+    border-color: #686868;
+    background-color: #c5c5c5;
 }
 
 button:active {
-	transform: translateY(2px);
+    transform: translateY(2px);
 }
 
 .msg {
-	font-size: 1.5rem;
-	width: 90%;
-	height: 90%;
-	overflow-y: auto;
-	line-height: 2.5rem;
-	text-align: justify;
+    font-size: 1.5rem;
+    width: 90%;
+    height: 90%;
+    overflow-y: auto;
+    line-height: 2.5rem;
+    text-align: justify;
 }
 
 @media only screen and (max-width: 1024px) {
-	h2 {
-		font-size: 1.5rem;
-	}
+    h2 {
+        font-size: 1.5rem;
+    }
 
-	.msg {
-		font-size: 1.25rem;
-	}
+    .msg {
+        font-size: 1.25rem;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-	#form,
-	#message {
-		width: 50%;
-	}
+    #form,
+    #message {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 425px) {
-	#form,
-	#message {
-		width: 80%;
-	}
+    #form,
+    #message {
+        width: 80%;
+    }
 
-	.btns {
-		width: 55%;
-	}
+    .btns {
+        width: 55%;
+    }
 }
 
 @media only screen and (max-width: 366px) {
-	#form,
-	#message {
-		width: 90%;
-	}
+    #form,
+    #message {
+        width: 90%;
+    }
 
-	h2 {
-		font-size: 1.25rem;
-	}
+    h2 {
+        font-size: 1.25rem;
+    }
 
-	.btns {
-		width: 60%;
-	}
+    .btns {
+        width: 60%;
+    }
 }

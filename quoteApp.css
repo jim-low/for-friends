@@ -1,242 +1,242 @@
 body {
-	background-color: pink;
+    background-color: pink;
 }
 
 h1 {
-	text-transform: capitalize;
-	text-align: center;
+    text-transform: capitalize;
+    text-align: center;
 }
 
 .quotesCont {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 50%;
-	margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
 }
 
 button.addBtn {
-	cursor: pointer;
-	float: right;
-	outline: none;
-	background: none;
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 20%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.25rem;
-	border: .1em solid rgb(222, 140, 238);
-	background: linear-gradient(145deg, rgba(251,79,236,1) 10%, rgba(223,150,206,1) 60%);
-	color: rgba(0, 0, 0, .8)
+    cursor: pointer;
+    float: right;
+    outline: none;
+    background: none;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    border: .1em solid rgb(222, 140, 238);
+    background: linear-gradient(145deg, rgba(251,79,236,1) 10%, rgba(223,150,206,1) 60%);
+    color: rgba(0, 0, 0, .8)
 }
 
 button.addBtn:hover {
-	transform: scale(1.25);
-	transition: .25s;
+    transform: scale(1.25);
+    transition: .25s;
 }
 
 .quotesList {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	margin-top: 7.5%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 7.5%;
 }
 
 li {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid #000;
-	padding: 0 10px;
-	text-transform: capitalize;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    padding: 0 10px;
+    text-transform: capitalize;
 }
 
 .quoteInfo .quote {
-	text-transform: none;
-	font-weight: bold;
+    text-transform: none;
+    font-weight: bold;
 }
 
 .quoteInfo .quote::before {
-	content: "“";
+    content: "“";
 }
 
 .quoteInfo .quote::after {
-	content: "”";
+    content: "”";
 }
 
 li:nth-of-type(even) {
-	background-color: rgb(221, 149, 161);
+    background-color: rgb(221, 149, 161);
 }
 
 .quoteInfo {
-	width: 80%;
-	padding: 1.25em;
+    width: 80%;
+    padding: 1.25em;
 }
 
 .quoteInfo > p {
-	margin: 0;
+    margin: 0;
 }
 
 .quoteInfo .quote {
-	font-size: clamp(1rem, 1.85vw, 3.25rem);
-	margin-bottom: 10px;
+    font-size: clamp(1rem, 1.85vw, 3.25rem);
+    margin-bottom: 10px;
 }
 
 .quoteInfo .book,
 .quoteInfo .author {
-	font-size: clamp(.75rem, 1.75vw, 2.75rem);
+    font-size: clamp(.75rem, 1.75vw, 2.75rem);
 }
 
 .up-rm {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15%;
 }
 
 .up-rm button {
-	outline: none;
-	background: none;
-	border: .2em solid #000;
-	border-radius: 1em;
-	cursor: pointer;
-	padding: .2em .5em;
-	font-size: clamp(.75rem, 1.25vw, 2.5rem);
+    outline: none;
+    background: none;
+    border: .2em solid #000;
+    border-radius: 1em;
+    cursor: pointer;
+    padding: .2em .5em;
+    font-size: clamp(.75rem, 1.25vw, 2.5rem);
 }
 
 .up-rm .upBtn {
-	margin-bottom: 1.2em;
-	text-transform: capitalize;
-	border-color: rgb(216, 137, 150);
-	background-color: rgb(204, 80, 100);
-	color: white;
+    margin-bottom: 1.2em;
+    text-transform: capitalize;
+    border-color: rgb(216, 137, 150);
+    background-color: rgb(204, 80, 100);
+    color: white;
 }
 
 .up-rm .upBtn:hover {
-	background-color: rgba(221, 68, 94, 0.5);
+    background-color: rgba(221, 68, 94, 0.5);
 }
 
 .up-rm .rmBtn {
-	border-color: rgb(223, 45, 14);
-	background-color: rgb(219, 54, 54);
-	color: white;
-	text-transform: uppercase;
+    border-color: rgb(223, 45, 14);
+    background-color: rgb(219, 54, 54);
+    color: white;
+    text-transform: uppercase;
 }
 
 .up-rm .rmBtn:hover {
-	background-color: rgba(238, 48, 48, 0.7);
+    background-color: rgba(238, 48, 48, 0.7);
 }
 
 .updateCont.inactive {
-	display: none;
+    display: none;
 }
 
 .updateCont {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background-color: rgba(27, 27, 27, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(27, 27, 27, 0.7);
 }
 
 .updateSect {
-	width: 60vmin;
-	height: 60vmin;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: rgb(236, 142, 165);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
+    width: 60vmin;
+    height: 60vmin;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(236, 142, 165);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .selection {
-	text-align: center;
+    text-align: center;
 }
 
 .newInput {
-	width: 80%;
+    width: 80%;
 }
 
 input {
-	outline: none;
-	background: none;
-	border: none;
-	text-align: center;
-	border-bottom: 1px solid #000;
-	margin-bottom: 15%;
-	width: 100%;
-	font-size: clamp(1rem, 2vw, 1.5rem);
+    outline: none;
+    background: none;
+    border: none;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    margin-bottom: 15%;
+    width: 100%;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 input::placeholder {
-	color: rgb(75, 75, 75);
+    color: rgb(75, 75, 75);
 }
 
 .selection select {
-	outline: none;
+    outline: none;
 }
 
 .newInput input {
-	padding-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 .btns {
-	width: 60%;
-	display: flex;
-	justify-content: space-between;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .btns button {
-	padding: 0 .5em;
-	border-radius: 1.5em;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	outline: none;
-	border: none;
-	background: none;
-	border: clamp(2.5px, .25vw, 3.5px) solid rgb(236, 92, 128);
-	font-size: clamp(1.25rem, 1.75vw, 2rem);
-	text-transform: capitalize;
-	background-color: rgb(218, 91, 112);
-	cursor: pointer;
+    padding: 0 .5em;
+    border-radius: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background: none;
+    border: clamp(2.5px, .25vw, 3.5px) solid rgb(236, 92, 128);
+    font-size: clamp(1.25rem, 1.75vw, 2rem);
+    text-transform: capitalize;
+    background-color: rgb(218, 91, 112);
+    cursor: pointer;
 }
 
 .btns button:hover {
-	background-color: rgb(240, 128, 146);
-	border-color: rgb(241, 106, 140);
+    background-color: rgb(240, 128, 146);
+    border-color: rgb(241, 106, 140);
 }
 
 @media only screen and (max-width: 860px) {
-	.quotesCont {
-		width: 80%;
-	}
+    .quotesCont {
+        width: 80%;
+    }
 }
 
 @media only screen and (max-width: 570px) {
-	.updateSect {
-		width: 70%;
-		height: 60%;
-	}
+    .updateSect {
+        width: 70%;
+        height: 60%;
+    }
 }
 
 @media only screen and (max-width: 560px) {
-	.quotesCont {
-		width: 95%;
-	}
-	
-	.quoteInfo {
-		width: 60%;
-	}
+    .quotesCont {
+        width: 95%;
+    }
 
-	.up-rm {
-		width: 30%;
-	}
+    .quoteInfo {
+        width: 60%;
+    }
+
+    .up-rm {
+        width: 30%;
+    }
 }

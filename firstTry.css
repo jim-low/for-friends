@@ -1,28 +1,28 @@
 body {
-	background: rgb(9, 6, 59);
-	color: grey;
+    background: rgb(9, 6, 59);
+    color: grey;
 }
 
 #header {
-	border-bottom: 3px double grey;
+    border-bottom: 3px double grey;
 }
 
 .fraction {
-	display: inline-block;
-	position: relative;
-	vertical-align: middle;
-	letter-spacing: 0.001em;
-	text-align: center;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    letter-spacing: 0.001em;
+    text-align: center;
 }
 
 .fraction > span {
-	display: block;
-	padding: .1em;
+    display: block;
+    padding: .1em;
 }
 
 .dialog {
-	color: lightslategray;
-	font-style:italic;
+    color: lightslategray;
+    font-style:italic;
 }
 
 #easy-check-2,
@@ -42,7 +42,7 @@ body {
 #difficult-check-3,
 #difficult-check-4,
 #difficult-check-5 {
-	display: inline;
+    display: inline;
 }
 
 #incorrect-answer-1,
@@ -62,9 +62,9 @@ body {
 #incorrect-answer-c,
 #incorrect-answer-d,
 #incorrect-answer-e {
-	color: darkred;
-	font-style: italic;
-	text-transform: uppercase;
+    color: darkred;
+    font-style: italic;
+    text-transform: uppercase;
 }
 
 #easy-check-1,
@@ -84,18 +84,18 @@ body {
 #difficult-check-3,
 #difficult-check-4,
 #difficult-check-5{
-	color: darkgreen;
-	font-style: italic;
+    color: darkgreen;
+    font-style: italic;
 }
 
 input {
-	background: rgba(9, 20, 71, 0.664);
-	border-color: rgba(9, 20, 71, 0.664);
-	color: grey;
+    background: rgba(9, 20, 71, 0.664);
+    border-color: rgba(9, 20, 71, 0.664);
+    color: grey;
 }
 
 button {
-	background: rgba(9, 20, 71, 0.664);
-	border-color: rgba(9, 20, 71, 0.664);
-	color: grey;
+    background: rgba(9, 20, 71, 0.664);
+    border-color: rgba(9, 20, 71, 0.664);
+    color: grey;
 }

@@ -1,104 +1,104 @@
 *, *::before, *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html, body, .surprise {
-	min-height: 100vh;
-	height: auto;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	font-family: sans-serif;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
 }
 
 @keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 1;
+    }
 
-	100% {
-		opacity: 0;
-	}
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes fadeIn {
-	0%, 50% {
-		opacity: 0%;
-	}
+    0%, 50% {
+        opacity: 0%;
+    }
 
-	100% {
-		opacity: 100%;
-	}
+    100% {
+        opacity: 100%;
+    }
 }
 
 .btn {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	cursor: pointer;
-	text-transform: capitalize;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    text-transform: capitalize;
 }
 
 .surprise {
-	display: none;
-	cursor: auto;
-	text-align: center;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	font-size: 2rem;
+    display: none;
+    cursor: auto;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
 
 .msgs {
-	width: 80%;
-	margin: 0 auto;
-	height: auto;
-	min-height: 100vh;
-	position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
 }
 
 h1 {
-	margin: 3.5% 0;
-	font-style: italic;
-	font-size: clamp(2.5rem, 5vw, 6rem);
+    margin: 3.5% 0;
+    font-style: italic;
+    font-size: clamp(2.5rem, 5vw, 6rem);
 }
 
 .paras {
-	width: 90%;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	height: 50vh;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50vh;
 }
 
 p {
-	margin: 0;
-	margin-bottom: 4.5%;
-	font-size: clamp(1.5rem, 3vh, 3rem);
+    margin: 0;
+    margin-bottom: 4.5%;
+    font-size: clamp(1.5rem, 3vh, 3rem);
 }
 
 small {
-	display: block;
-	text-align: center;
-	width: 100%;
-	margin-top: 10%;
-	font-size: clamp(1rem, 1.5vw, 1.75rem);
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 10%;
+    font-size: clamp(1rem, 1.5vw, 1.75rem);
 }
 
 @media only screen and (max-width: 720px) {
-	.msgs {
-		width: 95%;
-	}
+    .msgs {
+        width: 95%;
+    }
 }
 
 @media only screen and (max-width: 480px) {
-	.paras {
-		height: 70vh;
-	}
+    .paras {
+        height: 70vh;
+    }
 
-	p {
-		text-align: justify;
-	}
+    p {
+        text-align: justify;
+    }
 }
