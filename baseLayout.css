@@ -12,3 +12,8 @@ html, body {
     font-family: sans-serif;
 }
 
+/* general styles to use */
+.capitalize {
+    text-transform: capitalize;
+}
+
