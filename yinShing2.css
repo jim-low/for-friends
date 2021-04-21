@@ -1,0 +1,21 @@
+@keyframes gradient-change {
+    from {
+        background: linear-gradient(139deg, rgba(196,61,104,1) 0%, rgba(153,73,11,1) 100%);
+    }
+
+    to {
+        background: linear-gradient(139deg, rgba(152,61,196,1) 0%, rgba(11,138,153,1) 100%);
+    }
+}
+
+.background-wrapper {
+    width: 100vw;
+    /* animation: gradient-change 1s linear infinite alternate; */
+}
+
+.birthday-word {
+    margin: 0;
+    text-align: center;
+    letter-spacing: 2.25px;
+}
+
