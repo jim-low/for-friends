@@ -8,6 +8,20 @@
     }
 }
 
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px purple;
+    }
+
+    50% {
+        text-shadow: 0 0 15px purple;
+    }
+
+    100% {
+        text-shadow: 0 0 5px purple;
+    }
+}
+
 @keyframes enlarge {
     0% {
         font-size: 0;
@@ -34,9 +48,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(139deg, rgba(196,61,104,1) 25%, rgba(11,138,153,1) 50%, rgba(152,61,196,1) 75%, rgba(153,73,11,1) 100%);
+    background: linear-gradient(139deg, rgba(242,102,102,1) 0%, rgba(255,183,88,1) 25%, rgba(110,235,255,1) 50%, rgba(246,235,106,1) 75%, rgba(255,207,207,1) 100%);
     background-size: 600% 100%;
-    animation: gradient-change 10s linear alternate infinite;
+    animation: gradient-change 5s linear infinite alternate;
 }
 
 .birthday-word {
@@ -45,7 +59,7 @@
     text-align: center;
     letter-spacing: 2.25px;
     font-size: 0;
-    color: #EEEEEE;
+    color: #EE71E2;
 }
 
 .word3 {
