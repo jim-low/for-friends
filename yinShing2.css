@@ -66,3 +66,19 @@
     font-style: italic;
 }
 
+@media only screen and (max-width: 480px) {
+    @keyframes enlarge {
+        0% {
+            font-size: 0;
+        }
+
+        50% {
+            font-size: 5vw;
+        }
+
+        100% {
+            font-size: 12vw;
+        }
+    }
+}
+
