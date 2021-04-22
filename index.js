@@ -1,5 +1,5 @@
 let selection = document.querySelector(".selection")
-let friendsList = ['bithiah tang kai yuin','cheng yin shing','chong shuet yee','ng jun way', 'claudia law', 'chloe sim yu xi', "kok yen ni", "debbie ong"]
+let friendsList = ["bithiah tang kai yuin","cheng yin shing","chong shuet yee","ng jun way", "claudia law", "chloe sim yu xi", "kok yen ni", "debbie ong"]
 let friendsProjects =
     [
         [
