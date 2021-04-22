@@ -8,8 +8,14 @@
     }
 }
 
+@font-face {
+    font-family: brightly;
+    src: url('./fonts/Brightly Crush - Playful Typeface/1. Regular/2. TTF/Brightly Crush.ttf');
+}
+
 .background-wrapper {
     width: 100vw;
+    height: 100vh;
     /* animation: gradient-change 1s linear infinite alternate; */
 }
 
@@ -17,5 +23,6 @@
     margin: 0;
     text-align: center;
     letter-spacing: 2.25px;
+    font-family: brightly;
 }
 
