@@ -12,5 +12,8 @@ function setAnimations(initDur) {
     }
 }
 
-setAnimations(2);
+// will play animation after half a second
+setTimeout(() => {
+    setAnimations(2);
+}, 500);
 
