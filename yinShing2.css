@@ -17,6 +17,10 @@
     width: 100vw;
     height: 100vh;
     /* animation: gradient-change 1s linear infinite alternate; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .birthday-word {
