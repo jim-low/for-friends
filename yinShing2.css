@@ -8,6 +8,22 @@
     }
 }
 
+@keyframes enlarge {
+    0% {
+        transform: translateY(-50px);
+        font-size: 0;
+    }
+
+    50% {
+        font-size: 3.5vw;
+    }
+
+    100% {
+        transform: translateY(0);
+        font-size: 7vw;
+    }
+}
+
 @font-face {
     font-family: brightly;
     src: url('./fonts/Brightly Crush - Playful Typeface/1. Regular/2. TTF/Brightly Crush.ttf');
@@ -16,7 +32,6 @@
 .background-wrapper {
     width: 100vw;
     height: 100vh;
-    /* animation: gradient-change 1s linear infinite alternate; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,9 +39,14 @@
 }
 
 .birthday-word {
+    font-family: brightly;
     margin: 0;
     text-align: center;
     letter-spacing: 2.25px;
-    font-family: brightly;
+    font-size: 0;
+}
+
+.word3 {
+    font-style: italic;
 }
 
