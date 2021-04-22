@@ -44,6 +44,5 @@ function surpriseTime(){
         "<span class=\"para4\">If you need any help at all, just give me a call. <p style=\"font-style: italic;\">- Jim</p></span>";
 
     document.body.style.backgroundColor = "pink";
-    // document.body.style.backgroundImage = "url('balloon_birthday.png')";
     document.body.style.backgroundSize = "1370px 700px";
 }
