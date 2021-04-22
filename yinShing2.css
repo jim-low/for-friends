@@ -10,7 +10,6 @@
 
 @keyframes enlarge {
     0% {
-        transform: translateY(-50px);
         font-size: 0;
     }
 
@@ -19,7 +18,6 @@
     }
 
     100% {
-        transform: translateY(0);
         font-size: 7vw;
     }
 }
