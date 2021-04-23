@@ -18,7 +18,7 @@ let friendsProjects =
             {
                 projName: "animated surprise",
                 dateReleased: "22nd April 2020",
-                link: "./yinShing2.html"
+                link: "yinShing2.html"
             }
         ],
         [
@@ -93,7 +93,7 @@ for(let i = 0; i < projects.length; i++){
         let projectStructure =
             `<li class="project project${i + 1}">
             <div class="name">
-            <a href="${currentPerson.link}">${currentPerson.projName}</a>
+            <a href="./html/${currentPerson.link}">${currentPerson.projName}</a>
             </div>
             <div class="publish">
             Published on <span class="date">${currentPerson.dateReleased}</span>
