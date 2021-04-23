@@ -1,3 +1,7 @@
+html, body {
+    overflow: hidden;
+}
+
 @keyframes gradient-change {
     from {
         background-position: 0%;
@@ -38,7 +42,13 @@
 
 @font-face {
     font-family: brightly;
-    src: url('./fonts/Brightly Crush - Playful Typeface/1. Regular/2. TTF/Brightly Crush.ttf');
+    src: url('../fonts/Brightly Crush - Playful Typeface/1. Regular/2. TTF/Brightly Crush.ttf');
+}
+
+#balls-canvas {
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 
 .background-wrapper {
@@ -60,6 +70,7 @@
     letter-spacing: 2.25px;
     font-size: 0;
     color: #6DD9DF;
+    user-select: none;
 }
 
 .word3 {
