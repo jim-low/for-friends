@@ -96,5 +96,9 @@ canvas.addEventListener('click', e => {
     console.log(balls);
 });
 
+document.querySelector('.feature-hint').addEventListener('click', _ => {
+    document.querySelector('.feature-hint').remove();
+});
+
 animate();
 
