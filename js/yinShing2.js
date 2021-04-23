@@ -100,5 +100,10 @@ document.querySelector('.feature-hint').addEventListener('click', _ => {
     document.querySelector('.feature-hint').remove();
 });
 
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
 animate();
 
