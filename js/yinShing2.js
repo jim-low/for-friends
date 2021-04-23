@@ -55,7 +55,7 @@ class Ball {
 
     draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.stroke();
@@ -73,7 +73,6 @@ class Ball {
     }
 
     update() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.bounce();
         this.draw();
     }
@@ -82,6 +81,7 @@ class Ball {
 function animate() {
     requestAnimationFrame(animate);
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     balls.forEach(ball => {
         ball.draw();
         ball.update();
