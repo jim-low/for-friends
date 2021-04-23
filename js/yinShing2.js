@@ -21,32 +21,47 @@ setTimeout(() => {
 const canvas = document.getElementById('balls-canvas');
 const ctx = canvas.getContext('2d');
 
-const MAX_SPEED = 50;
-const MIN_SPEED = 10;
+const MAX_RADIUS = 20;
+const MIN_RADIUS = 10;
+const MAX_SPEED = 8;
+const MIN_SPEED = 3;
+const colors = [
+    'rgba(255, 135, 135, 0.7)',
+    'rgba(248, 238, 87, 0.7)',
+    'rgba(75, 232, 245, 0.7)',
+    'rgba(250, 129, 248, 0.7)',
+    'rgba(252, 173, 107, 0.7)',
+];
+
+const balls = [];
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 class Ball {
-    constructor(x, y, radius, speed) {
+    constructor(x, y, radius) {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.speed = speed;
+
+        this.color = colors[Math.floor(Math.random() * colors.length)];
 
         this.dx = (Math.random() * MAX_SPEED) + MIN_SPEED;
+        this.dx *= Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1;
+
         this.dy = (Math.random() * MAX_SPEED) + MIN_SPEED;
+        this.dy *= Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1;
     }
 
     draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-        context.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-        context.fill();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
         ctx.stroke();
     }
 
-    move() {
+    bounce() {
         if(this.x + this.radius > canvas.width || this.x - this.radius < 0)
             this.dx *= -1;
 
@@ -59,8 +74,27 @@ class Ball {
 
     update() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        this.move();
+        this.bounce();
         this.draw();
     }
 }
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    balls.forEach(ball => {
+        ball.draw();
+        ball.update();
+    });
+}
+
+canvas.addEventListener('click', e => {
+    let x = e.clientX;
+    let y = e.clientY;
+    let radius = Math.floor(Math.random() * MAX_RADIUS) + MIN_RADIUS;
+    balls.push(new Ball(x, y, radius));
+    console.log(balls);
+});
+
+animate();
 
