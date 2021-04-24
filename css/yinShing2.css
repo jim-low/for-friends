@@ -18,7 +18,7 @@ html, body {
     }
 
     50% {
-        text-shadow: 0 0 10px #87FFFA;
+        text-shadow: 0 0 15px #87FFFA;
     }
 
     100% {
@@ -70,7 +70,7 @@ html, body {
     text-align: center;
     letter-spacing: 2.25px;
     font-size: 0;
-    color: #6DD9DF;
+    color: #6B9BFC;
     user-select: none;
 }
 
