@@ -26,14 +26,16 @@ const MIN_RADIUS = 10;
 const MAX_SPEED = 8;
 const MIN_SPEED = 3;
 const colors = [
-    'rgba(255, 135, 135, 0.7)',
-    'rgba(248, 238, 87, 0.7)',
-    'rgba(75, 232, 245, 0.7)',
-    'rgba(250, 129, 248, 0.7)',
-    'rgba(252, 173, 107, 0.7)',
+    'rgba(255, 135, 135, 0.8)',
+    'rgba(248, 238, 87, 0.8)',
+    'rgba(75, 232, 245, 0.8)',
+    'rgba(250, 129, 248, 0.8)',
+    'rgba(252, 173, 107, 0.8)',
 ];
 
 const balls = [];
+const friction = 0.99;
+const gravity = 1;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -58,7 +60,7 @@ class Ball {
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
         ctx.fillStyle = this.color;
         ctx.fill();
-        ctx.stroke();
+        // ctx.stroke();
     }
 
     bounce() {
@@ -66,7 +68,9 @@ class Ball {
             this.dx *= -1;
 
         if(this.y + this.radius > canvas.height || this.y - this.radius < 0)
-            this.dy *= -1;
+            this.dy *= (-1 * friction);
+        else
+            this.dy += gravity;
 
         this.x += this.dx;
         this.y += this.dy;
