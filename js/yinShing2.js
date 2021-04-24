@@ -67,7 +67,7 @@ class Ball {
         if(this.x + this.radius > canvas.width || this.x - this.radius < 0)
             this.dx *= -1;
 
-        if(this.y + this.radius > canvas.height || this.y - this.radius < 0)
+        if(this.y + this.radius + gravity > canvas.height || this.y - this.radius < 0)
             this.dy *= (-1 * friction);
         else
             this.dy += gravity;
