@@ -1,6 +1,6 @@
 let form = document.querySelector("#form")
 let msg = document.querySelector("#message")
-let name = document.querySelector(".name input")
+let inputName = document.querySelector(".name input")
 let moodLevel = document.querySelector(".mood input")
 let msgType = document.querySelector(".message-type select")
 let submitBtn = document.querySelector(".submit-btn")
@@ -47,22 +47,22 @@ const renderMessage = () => {
     let birthdayGirl = /claudia|qian|law/gi
     let msgStructure
 
-    if(!name.value.match(birthdayGirl) && msgType.value === "birthday"){
+    if(!inputName.value.match(birthdayGirl) && msgType.value === "birthday"){
         alert("This section is not available to you.")
         return false
     }else {
         if(level <= 2){
-            msgStructure = `<h2>dear ${name.value},</h2>
+            msgStructure = `<h2>dear ${inputName.value},</h2>
                 <p class="msg">
                 ${typeMsg.bad}
                 </p>`
         }else if(level === 3){
-            msgStructure = `<h2>dear ${name.value},</h2>
+            msgStructure = `<h2>dear ${inputName.value},</h2>
                 <p class="msg">
                 ${typeMsg.neutral}
                 </p>`
         }else {
-            msgStructure = `<h2>dear ${name.value},</h2>
+            msgStructure = `<h2>dear ${inputName.value},</h2>
                 <p class="msg">
                 ${typeMsg.good}
                 </p>`
@@ -73,9 +73,9 @@ const renderMessage = () => {
 }
 
 submitBtn.addEventListener("mousedown", () => {
-    if(name.value === ""){
-        name.placeholder = "Please fill in this field."
-        name.style.cssText = cssEmptyInput
+    if(inputName.value === ""){
+        inputName.placeholder = "Please fill in this field."
+        inputName.style.cssText = cssEmptyInput
     }else {
         if(confirm("Confirm options?")){
             if(renderMessage()){
@@ -90,9 +90,9 @@ submitBtn.addEventListener("mousedown", () => {
 
 resetBtn.addEventListener("mousedown", () => {
     if(confirm("Reset form?")){
-        name.value = ""
-        name.placeholder = "Your Name"
-        name.style.cssText = cssNameInput
+        inputName.value = ""
+        inputName.placeholder = "Your Name"
+        inputName.style.cssText = cssNameInput
         moodLevel.value = "3"
         msgType.value = "comforting"
     }
