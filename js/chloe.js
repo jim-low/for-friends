@@ -5,11 +5,12 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 class Heart {
-    constructor(x, y, size, color, velocity) {
+    constructor(x, y, height, radius, color, velocity) {
         this.x = x;
         this.y = y;
-        this.size = size;
-        this.radius = Math.hypot(this.size, this.size)/2;
+
+        this.height = height;
+        this.radius = radius;
         this.velocity = velocity;
 
         this.color = color;
@@ -17,21 +18,36 @@ class Heart {
     }
 
     draw() {
+        let startX = this.x;
+        let startY = this.y - this.height;
+        let xCtrlPtRaito = 1.75;
+        let yCtrlPtRaito = this.height/2;
+
         ctx.fillStyle = `rgba(255, 0, 0, ${this.opacity})`;
+        ctx.strokeStyle = `rgba(0, 0, 0, ${this.opacity})`;
+        ctx.lineWidth = .5;
+
         ctx.beginPath();
+        ctx.moveTo(startX, startY);
 
-        ctx.moveTo(this.x, this.y);
+        // right side of the heart
+        ctx.arc(startX+this.radius, startY, this.radius, Math.PI, Math.PI*2);
+        ctx.quadraticCurveTo(
+            startX + (this.radius*xCtrlPtRaito), startY + yCtrlPtRaito,
+            this.x, this.y
+        );
 
-        ctx.lineTo(this.x + this.size, this.y - this.size);
-        ctx.lineTo(this.x, this.y - (this.size*2));
-        ctx.lineTo(this.x - this.size, this.y - (this.size*2) + this.size);
-        ctx.lineTo(this.x, this.y);
+        ctx.moveTo(startX, startY);
+
+        // left side of the heart
+        ctx.arc(startX-this.radius, startY, this.radius, 0, Math.PI, true);
+        ctx.quadraticCurveTo(
+            startX - (this.radius*xCtrlPtRaito), startY + yCtrlPtRaito,
+            this.x, this.y
+        );
+
         ctx.fill();
-
-        ctx.arc(this.x-(this.size/2), this.y-(3*this.size)/2, this.radius, 0, Math.PI*2);
-        ctx.arc(this.x+(this.size/2), this.y-(3*this.size)/2, this.radius, 0, Math.PI*2);
-        ctx.fill();
-
+        ctx.stroke();
         ctx.closePath();
     }
 
