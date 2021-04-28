@@ -16,7 +16,7 @@ let friendsProjects =
                 link: "yinShing.html"
             },
             {
-                projName: "animated surprise",
+                projName: "balls surprise",
                 dateReleased: "22nd April 2020",
                 link: "yinShing2.html"
             }
