@@ -64,3 +64,27 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
+let hearts = [];
+addEventListener('click', e => {
+    const HEART_COUNT = 5;
+    let angle = (Math.PI*2)/HEART_COUNT;
+    for(let i = 0; i < HEART_COUNT; ++i) {
+        hearts.push(new Heart(e.clientX, e.clientY, 15, 15, {
+            x: Math.cos(angle * i),
+            y: Math.sin(angle * i)
+        }));
+    }
+});
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    hearts.forEach(heart => {
+        heart.draw();
+        heart.update();
+    });
+}
+
+animate();
+
