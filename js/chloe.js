@@ -5,7 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 class Heart {
-    constructor(x, y, height, radius, color, velocity) {
+    constructor(x, y, height, radius, velocity) {
         this.x = x;
         this.y = y;
 
@@ -13,7 +13,6 @@ class Heart {
         this.radius = radius;
         this.velocity = velocity;
 
-        this.color = color;
         this.opacity = 1;
     }
 
@@ -69,7 +68,7 @@ addEventListener('click', e => {
     const HEART_COUNT = 5;
     let angle = (Math.PI*2)/HEART_COUNT;
     for(let i = 0; i < HEART_COUNT; ++i) {
-        hearts.push(new Heart(e.clientX, e.clientY, 15, 15, {
+        hearts.push(new Heart(e.clientX, e.clientY, 15, 5, {
             x: Math.cos(angle * i),
             y: Math.sin(angle * i)
         }));
