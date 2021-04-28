@@ -17,7 +17,7 @@ let friendsProjects =
             },
             {
                 projName: "balls surprise",
-                dateReleased: "22nd April 2020",
+                dateReleased: "22nd April 2021",
                 link: "yinShing2.html"
             }
         ],
