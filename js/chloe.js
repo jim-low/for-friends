@@ -77,8 +77,7 @@ addEventListener('click', e => {
 
 function animate() {
     requestAnimationFrame(animate);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     hearts.forEach(heart => {
         heart.draw();
         heart.update();
