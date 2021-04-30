@@ -1,4 +1,4 @@
-const canvas = document.getElementById('chloe-canvas');
+const canvas = document.getElementById('hearts-canvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
