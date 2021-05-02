@@ -99,6 +99,18 @@ addEventListener('click', e => {
     }
 });
 
+function spawnHeart() {
+    const height = 60;
+    const radius = 20;
+    let x = getRandomNum(radius, canvas.width - radius);
+    let y = getRandomNum(height, canvas.height);
+    console.log(`x: ${x}, y: ${y}`);
+    hearts.push(new Heart(x, y, height, radius, {x: 0, y: 0}));
+    setTimeout(spawnHeart, getRandomNum(1000, 2000));
+}
+
 animate();
 setTimeout(init, 1000);
+// setTimeout(spawnHearts, 7500);
+spawnHeart();
 
