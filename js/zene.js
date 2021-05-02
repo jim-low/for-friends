@@ -40,10 +40,10 @@ class Particle {
 }
 
 class Bubble {
-    constructor(x, radius, color) {
+    constructor(x, y, radius, color) {
         this.radius = radius;
         this.x = x;
-        this.y = canvas.height + this.radius;
+        this.y = y;
         this.floatSpeed = MAX_RADIUS/this.radius;
         this.color = color;
     }
