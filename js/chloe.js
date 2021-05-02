@@ -18,7 +18,8 @@ function init() {
 
 function animate() {
     requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(248, 131, 121)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     hearts.forEach(heart => {
         heart.draw();
         heart.update();
