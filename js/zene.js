@@ -80,6 +80,15 @@ class Bubble {
     }
 }
 
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bubbles.forEach(bubble => {
+        bubble.draw();
+        bubble.update();
+    });
+}
+
 function spawnBubble() {
     let radius = getRandomNum(MIN_RADIUS, MAX_RADIUS);
     let x = getRandomNum(radius, canvas.width - radius);
@@ -88,5 +97,6 @@ function spawnBubble() {
     setTimeout(spawnBubble, 550);
 }
 
+animate();
 spawnBubble();
 
