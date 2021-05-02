@@ -93,7 +93,7 @@ function spawnBubble() {
     let radius = getRandomNum(MIN_RADIUS, MAX_RADIUS);
     let x = getRandomNum(radius, canvas.width - radius);
     let y = canvas.height + radius;
-    bubbles.push(new Bubble(x, y, radius, 'aqua'));
+    bubbles.push(new Bubble(x, y, radius, 'red'));
     setTimeout(spawnBubble, 250);
 }
 
