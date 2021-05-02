@@ -100,6 +100,9 @@ addEventListener('click', e => {
 });
 
 function spawnHeart() {
+    // TODO: solve issues:
+    // - hearts popping out with margin from bottom of page
+    // - hearts  popping out too fast onto page
     const height = 60;
     const radius = 20;
     let x = getRandomNum(radius, canvas.width - radius);
