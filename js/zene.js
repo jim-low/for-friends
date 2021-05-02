@@ -5,8 +5,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const gravity = 0.99;
-const MIN_RADIUS = 10;
-const MAX_RADIUS = 30;
+const MIN_RADIUS = 15;
+const MAX_RADIUS = 40;
 
 let bubbles = [];
 let particles = [];
@@ -49,7 +49,7 @@ class Bubble {
         this.radius = radius;
         this.x = x;
         this.y = y;
-        this.floatSpeed = MAX_RADIUS/this.radius;
+        this.speed = MAX_RADIUS/this.radius;
         this.color = color;
     }
 
@@ -75,7 +75,7 @@ class Bubble {
     }
 
     update() {
-        this.y -= this.floatSpeed;
+        this.y -= this.speed;
         this.draw();
     }
 }
@@ -93,8 +93,8 @@ function spawnBubble() {
     let radius = getRandomNum(MIN_RADIUS, MAX_RADIUS);
     let x = getRandomNum(radius, canvas.width - radius);
     let y = canvas.height + radius;
-    bubbles.push(new Bubble(x, y, radius, 'red'));
-    setTimeout(spawnBubble, 550);
+    bubbles.push(new Bubble(x, y, radius, 'aqua'));
+    setTimeout(spawnBubble, 250);
 }
 
 animate();
