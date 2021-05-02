@@ -31,7 +31,7 @@
 }
 
 #hearts-canvas {
-    z-index: 1;
+    z-index: -1;
 }
 
 .front-layer {
@@ -40,7 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F88379;
+    background: transparent;
 }
 
 .msg, .block {
