@@ -1,8 +1,33 @@
 const canvas = document.getElementById('hearts-canvas');
 const ctx = canvas.getContext('2d');
 
+let hearts = [];
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
+function init() {
+    const message = document.querySelector('.msg')
+    const block = document.querySelector('.block')
+    message.style.animation = 'descend 2s linear forwards';
+    block.style.animation = 'descend 2s linear forwards';
+    setTimeout(() => {
+        block.style.animation += ', thin 2s linear forwards';
+    }, 2500);
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    hearts.forEach(heart => {
+        heart.draw();
+        heart.update();
+    });
+}
+
+function getRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min)) - min;
+}
 
 class Heart {
     constructor(x, y, height, radius, velocity) {
@@ -63,7 +88,6 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
-let hearts = [];
 addEventListener('click', e => {
     const HEART_COUNT = 5;
     let angle = (Math.PI*2)/HEART_COUNT;
@@ -75,14 +99,6 @@ addEventListener('click', e => {
     }
 });
 
-function animate() {
-    requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    hearts.forEach(heart => {
-        heart.draw();
-        heart.update();
-    });
-}
-
 animate();
+setTimeout(init, 1000);
 
