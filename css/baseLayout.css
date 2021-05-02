@@ -17,6 +17,21 @@ html, body {
     src: url('../fonts/Brightly Crush - Playful Typeface/1. Regular/2. TTF/Brightly Crush.ttf');
 }
 
+@font-face {
+    font-family: baskerville;
+    src: url('../fonts/Baskerville/BaskervilleBT.ttf');
+}
+
+@font-face {
+    font-family: baskerville-italic;
+    src: url('../fonts/Baskerville/BaskervilleBoldItalicBT.ttf');
+}
+
+@font-face {
+    font-family: baskerville-bold;
+    src: url('../fonts/Baskerville/baskerville bold bt.ttf');
+}
+
 /* general styles to use */
 .capitalize {
     text-transform: capitalize;
