@@ -40,11 +40,6 @@ html, body {
     }
 }
 
-@font-face {
-    font-family: brightly;
-    src: url('../fonts/Brightly Crush - Playful Typeface/1. Regular/2. TTF/Brightly Crush.ttf');
-}
-
 #balls-canvas {
     top: 0;
     left: 0;
