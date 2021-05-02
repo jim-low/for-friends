@@ -12,6 +12,11 @@ html, body {
     font-family: sans-serif;
 }
 
+@font-face {
+    font-family: brightly;
+    src: url('../fonts/Brightly Crush - Playful Typeface/1. Regular/2. TTF/Brightly Crush.ttf');
+}
+
 /* general styles to use */
 .capitalize {
     text-transform: capitalize;
