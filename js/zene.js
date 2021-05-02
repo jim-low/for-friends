@@ -5,10 +5,15 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const gravity = 0.99;
+const MIN_RADIUS = 10;
 const MAX_RADIUS = 30;
 
-let circles = [];
+let bubbles = [];
 let particles = [];
+
+function getRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
 class Particle {
     constructor(x, y, radius, velocity) {
@@ -74,4 +79,14 @@ class Bubble {
         this.draw();
     }
 }
+
+function spawnBubble() {
+    let radius = getRandomNum(MIN_RADIUS, MAX_RADIUS);
+    let x = getRandomNum(radius, canvas.width - radius);
+    let y = canvas.height + radius;
+    bubbles.push(new Bubble(x, y, radius, 'red'));
+    setTimeout(spawnBubble, 550);
+}
+
+spawnBubble();
 
