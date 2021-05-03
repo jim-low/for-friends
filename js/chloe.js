@@ -105,10 +105,10 @@ function spawnHeart() {
     let x = getRandomNum(radius*2, canvas.width - (radius*2));
     let y = getRandomNum(height + 20, canvas.height);
     hearts.push(new Heart(x, y, height, radius, {x: 0, y: 0}));
-    setTimeout(spawnHeart, 150);
+    setTimeout(spawnHeart, 50);
 }
 
 animate();
 setTimeout(init, 1000);
-setTimeout(spawnHeart, 6000);
+setTimeout(spawnHeart, 4000);
 
