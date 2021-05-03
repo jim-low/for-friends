@@ -10,25 +10,6 @@ const HEART_RADIUS = 20;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-function init() {
-    const message = document.querySelector('.container')
-    const block = document.querySelector('.block')
-    message.style.animation = 'descend 2s linear forwards';
-    setTimeout(() => {
-        block.style.animation = 'thin 2s linear forwards';
-    }, 2500);
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-    ctx.fillStyle = 'rgba(248, 131, 121)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    hearts.forEach(heart => {
-        heart.draw();
-        heart.update();
-    });
-}
-
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -87,6 +68,39 @@ class Heart {
     }
 }
 
+function init() {
+    const message = document.querySelector('.container')
+    const block = document.querySelector('.block')
+    message.style.animation = 'descend 2s linear forwards';
+    setTimeout(() => {
+        block.style.animation = 'thin 2s linear forwards';
+    }, 2500);
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.fillStyle = 'rgba(248, 131, 121)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    hearts.forEach(heart => {
+        heart.draw();
+        heart.update();
+    });
+}
+
+
+function spawnHeart() {
+    let x = getRandomNum(HEART_RADIUS*2, canvas.width - (HEART_RADIUS*2));
+    let y = getRandomNum(HEART_HEIGHT + 20, canvas.height);
+    hearts.push(new Heart(x, y, HEART_HEIGHT, HEART_RADIUS, {x: 0, y: 0}));
+
+    if(initialTime > 50) {
+        initialTime -= 75;
+    } else
+        initialTime = 50;
+
+    setTimeout(spawnHeart, initialTime);
+}
+
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -102,20 +116,6 @@ addEventListener('click', e => {
         }));
     }
 });
-
-
-function spawnHeart() {
-    let x = getRandomNum(HEART_RADIUS*2, canvas.width - (HEART_RADIUS*2));
-    let y = getRandomNum(HEART_HEIGHT + 20, canvas.height);
-    hearts.push(new Heart(x, y, HEART_HEIGHT, HEART_RADIUS, {x: 0, y: 0}));
-
-    if(initialTime > 50) {
-        initialTime -= 75;
-    } else
-        initialTime = 50;
-
-    setTimeout(spawnHeart, initialTime);
-}
 
 animate();
 setTimeout(init, 1000);
