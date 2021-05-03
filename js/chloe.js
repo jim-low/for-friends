@@ -68,10 +68,10 @@ class Heart {
     }
 }
 
+const container = document.querySelector('.container')
+const block = document.querySelector('.block')
 function init() {
-    const message = document.querySelector('.container')
-    const block = document.querySelector('.block')
-    message.style.animation = 'descend 2s linear forwards';
+    container.style.animation = 'descend 2s linear forwards';
     setTimeout(() => {
         // TODO: fix bug where a thin line from block element is still visible after animation
         block.style.animation = 'thin 2s ease-out forwards';
@@ -96,8 +96,16 @@ function animate() {
 
 
 function spawnHeart() {
-    let x = getRandomNum(HEART_RADIUS*2, canvas.width - (HEART_RADIUS*2));
-    let y = getRandomNum(HEART_HEIGHT + 20, canvas.height);
+    const containerX = container.getBoundingClientRect().x;
+    const containerY = container.getBoundingClientRect().y;
+    let x = getRandomNum(HEART_RADIUS*4, canvas.width - (HEART_RADIUS*4));
+    let y = getRandomNum(HEART_HEIGHT + 40, canvas.height - (HEART_HEIGHT + 40));
+
+    while(x >= containerX && x <= containerX + container.clientWidth && y >= containerY && y <= containerY + container.clientHeight) {
+        x = getRandomNum(HEART_RADIUS*4, canvas.width - (HEART_RADIUS*4));
+        y = getRandomNum(HEART_HEIGHT + 40, canvas.height - (HEART_HEIGHT + 40));
+    }
+
     hearts.push(new Heart(x, y, HEART_HEIGHT, HEART_RADIUS, {x: 0, y: 0}));
     setTimeout(spawnHeart, MIN_TIME);
 }
