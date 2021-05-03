@@ -73,6 +73,7 @@ function init() {
     const block = document.querySelector('.block')
     message.style.animation = 'descend 2s linear forwards';
     setTimeout(() => {
+        // TODO: fix bug where a thin line from block element is still visible after animation
         block.style.animation = 'thin 2s ease-out forwards';
     }, 2500);
 }
