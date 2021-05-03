@@ -42,7 +42,7 @@ class Particle {
 
     update() {
         this.velocity.y += gravity;
-        this.opacity -= 0.05;
+        this.opacity -= 0.03;
 
         this.x += this.velocity.x;
         this.y += this.velocity.y;
@@ -98,7 +98,6 @@ function animate(objArr) {
 
 function updateCanvas() {
     requestAnimationFrame(updateCanvas);
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     animate(bubbles);
