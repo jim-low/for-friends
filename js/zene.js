@@ -8,6 +8,11 @@ const gravity = 0.99;
 const MIN_RADIUS = 15;
 const MAX_RADIUS = 40;
 
+let mouse = {
+    x: null,
+    y: null
+};
+
 let bubbles = [];
 let particles = [];
 
@@ -20,8 +25,7 @@ class Particle {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.velocity.x = velocity.x;
-        this.velocity.y = velocity.y;
+        this.velocity = velocity;
     }
 
     draw() {
@@ -67,9 +71,9 @@ class Bubble {
         const MAX_PARTICLES = 5;
         const angle = (Math.PI*2)/MAX_PARTICLES;
         for(let i = 0; i < MAX_PARTICLES; ++i) {
-            particles.push(new Particle(this.x, this.y, 5, {
+            particles.push(new Particle(this.x, this.y, 2, {
                 x: Math.cos(angle * i),
-                y: Math.sin(angle * i)
+                y: getRandomNum(5, 10) * -1
             }));
         }
     }
@@ -78,6 +82,10 @@ class Bubble {
         this.y -= this.speed;
         this.draw();
     }
+}
+
+function withinCircle(bubbleObj) {
+    return Math.hypot(bubbleObj.x - mouse.x, bubbleObj.y - mouse.y) < bubbleObj.radius;
 }
 
 function animate(objArr) {
@@ -101,6 +109,21 @@ function spawnBubble() {
     bubbles.push(new Bubble(x, y, radius, 'red'));
     setTimeout(spawnBubble, 250);
 }
+
+addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+});
+
+addEventListener('click', () => {
+    for(let i = 0; i < bubbles.length; ++i) {
+        if(withinCircle(bubbles[i])) {
+            bubbles[i].burst();
+            bubbles.splice(i, 1);
+            break;
+        }
+    }
+});
 
 updateCanvas();
 spawnBubble();
