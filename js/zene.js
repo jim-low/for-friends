@@ -112,6 +112,11 @@ function spawnBubble() {
     setTimeout(spawnBubble, 250);
 }
 
+addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
 addEventListener('mousemove', e => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
