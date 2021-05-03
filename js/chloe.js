@@ -26,7 +26,7 @@ function animate() {
 }
 
 function getRandomNum(min, max) {
-    return Math.floor(Math.random() * (max - min)) - min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
 class Heart {
@@ -100,13 +100,10 @@ addEventListener('click', e => {
 });
 
 function spawnHeart() {
-    // TODO: solve issues:
-    // - hearts popping out with margin from bottom of page
-    // - hearts  popping out too fast onto page (solved)
     const height = 60;
     const radius = 20;
-    let x = getRandomNum(radius, canvas.width - radius);
-    let y = getRandomNum(height, canvas.height);
+    let x = getRandomNum(radius*2, canvas.width - (radius*2));
+    let y = getRandomNum(height + 20, canvas.height);
     hearts.push(new Heart(x, y, height, radius, {x: 0, y: 0}));
     setTimeout(spawnHeart, 150);
 }
