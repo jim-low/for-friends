@@ -4,8 +4,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const gravity = 0.99;
-const MIN_RADIUS = 15;
+const gravity = 0.50;
+const MIN_RADIUS = 20;
 const MAX_RADIUS = 40;
 
 let mouse = {
@@ -26,22 +26,23 @@ class Particle {
         this.y = y;
         this.radius = radius;
         this.velocity = velocity;
+
+        this.opacity = 1;
     }
 
     draw() {
-        // ctx.strokeStyle = 'black';
-        // ctx.fillStyle = 'black';
+        ctx.fillStyle = `rgba(224, 224, 224, ${this.opacity})`;
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
         ctx.closePath();
 
-        ctx.stroke();
         ctx.fill();
     }
 
     update() {
         this.velocity.y += gravity;
+        this.opacity -= 0.05;
 
         this.x += this.velocity.x;
         this.y += this.velocity.y;
@@ -73,7 +74,7 @@ class Bubble {
         for(let i = 0; i < MAX_PARTICLES; ++i) {
             particles.push(new Particle(this.x, this.y, 2, {
                 x: Math.cos(angle * i),
-                y: getRandomNum(5, 10) * -1
+                y: getRandomNum(3, 8) * -1
             }));
         }
     }
@@ -97,7 +98,9 @@ function animate(objArr) {
 
 function updateCanvas() {
     requestAnimationFrame(updateCanvas);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     animate(bubbles);
     animate(particles);
 }
@@ -106,7 +109,7 @@ function spawnBubble() {
     let radius = getRandomNum(MIN_RADIUS, MAX_RADIUS);
     let x = getRandomNum(radius, canvas.width - radius);
     let y = canvas.height + radius;
-    bubbles.push(new Bubble(x, y, radius, 'red'));
+    bubbles.push(new Bubble(x, y, radius, '#40A4FF'));
     setTimeout(spawnBubble, 250);
 }
 
