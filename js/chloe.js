@@ -7,12 +7,11 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 function init() {
-    const message = document.querySelector('.msg')
+    const message = document.querySelector('.container')
     const block = document.querySelector('.block')
     message.style.animation = 'descend 2s linear forwards';
-    block.style.animation = 'descend 2s linear forwards';
     setTimeout(() => {
-        block.style.animation += ', thin 2s linear forwards';
+        block.style.animation = 'thin 2s linear forwards';
     }, 2500);
 }
 
@@ -108,13 +107,11 @@ function spawnHeart() {
     const radius = 20;
     let x = getRandomNum(radius, canvas.width - radius);
     let y = getRandomNum(height, canvas.height);
-    console.log(`x: ${x}, y: ${y}`);
     hearts.push(new Heart(x, y, height, radius, {x: 0, y: 0}));
     setTimeout(spawnHeart, getRandomNum(1000, 2000));
 }
 
 animate();
 setTimeout(init, 1000);
-// setTimeout(spawnHearts, 7500);
-spawnHeart();
+setTimeout(spawnHearts, 7500);
 
