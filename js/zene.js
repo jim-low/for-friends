@@ -80,13 +80,18 @@ class Bubble {
     }
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    bubbles.forEach(bubble => {
-        bubble.draw();
-        bubble.update();
+function animate(objArr) {
+    objArr.forEach(obj => {
+        obj.draw();
+        obj.update();
     });
+}
+
+function updateCanvas() {
+    requestAnimationFrame(updateCanvas);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    animate(bubbles);
+    animate(particles);
 }
 
 function spawnBubble() {
@@ -97,6 +102,6 @@ function spawnBubble() {
     setTimeout(spawnBubble, 250);
 }
 
-animate();
+updateCanvas();
 spawnBubble();
 
