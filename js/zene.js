@@ -7,6 +7,11 @@ canvas.height = window.innerHeight;
 const gravity = 0.50;
 const MIN_RADIUS = 20;
 const MAX_RADIUS = 40;
+const colors = [
+    '#89CFF0',
+    '#DFC3FA',
+    '#E5CDFB',
+];
 
 let mouse = {
     x: null,
@@ -18,6 +23,10 @@ let particles = [];
 
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRandomColor() {
+    return colors[Math.floor(Math.random() * colors.length)];
 }
 
 class Particle {
