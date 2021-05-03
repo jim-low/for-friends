@@ -8,9 +8,12 @@ const gravity = 0.50;
 const MIN_RADIUS = 20;
 const MAX_RADIUS = 40;
 const colors = [
-    '#89CFF0',
-    '#DFC3FA',
-    '#E5CDFB',
+    'rgba(137, 207, 240, 1)',
+    'rgba(64, 164, 255, 1)',
+    'rgba(65, 209, 211, 1)',
+    'rgba(192, 137, 244, 1)',
+    'rgba(229, 205, 251, 1)',
+    'rgba(175, 25, 211, 1)',
 ];
 
 let mouse = {
@@ -117,7 +120,7 @@ function spawnBubble() {
     let radius = getRandomNum(MIN_RADIUS, MAX_RADIUS);
     let x = getRandomNum(radius, canvas.width - radius);
     let y = canvas.height + radius;
-    bubbles.push(new Bubble(x, y, radius, '#40A4FF'));
+    bubbles.push(new Bubble(x, y, radius, getRandomColor()));
     setTimeout(spawnBubble, 250);
 }
 
