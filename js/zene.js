@@ -33,17 +33,18 @@ function getRandomColor() {
 }
 
 class Particle {
-    constructor(x, y, radius, velocity) {
+    constructor(x, y, radius, color, velocity) {
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.velocity = velocity;
 
+        this.color = color;
         this.opacity = 1;
     }
 
     draw() {
-        ctx.fillStyle = `rgba(224, 224, 224, ${this.opacity})`;
+        ctx.fillStyle = this.color.slice(0, this.color.length - 2) + this.opacity + ")";
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
@@ -84,7 +85,7 @@ class Bubble {
         const MAX_PARTICLES = 5;
         const angle = (Math.PI*2)/MAX_PARTICLES;
         for(let i = 0; i < MAX_PARTICLES; ++i) {
-            particles.push(new Particle(this.x, this.y, 2, {
+            particles.push(new Particle(this.x, this.y, 2, this.color, {
                 x: Math.cos(angle * i),
                 y: getRandomNum(3, 8) * -1
             }));
