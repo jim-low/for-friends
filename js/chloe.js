@@ -126,6 +126,10 @@ addEventListener('click', e => {
     }
 });
 
+document.querySelector('.feature-hint').addEventListener('click', _ => {
+    document.querySelector('.feature-hint').remove();
+});
+
 animate();
 setTimeout(init, 1000);
 setTimeout(spawnHeart, 4000);
