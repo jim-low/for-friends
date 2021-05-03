@@ -73,7 +73,7 @@ function init() {
     const block = document.querySelector('.block')
     message.style.animation = 'descend 2s linear forwards';
     setTimeout(() => {
-        block.style.animation = 'thin 2s linear forwards';
+        block.style.animation = 'thin 2s ease-out forwards';
     }, 2500);
 }
 
