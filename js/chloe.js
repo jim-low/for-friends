@@ -77,13 +77,19 @@ function init() {
     }, 2500);
 }
 
+function checkState(heartObj, index) {
+    if(heartObj.opacity <= 0)
+        hearts.splice(index, 1);
+}
+
 function animate() {
     requestAnimationFrame(animate);
     ctx.fillStyle = 'rgba(248, 131, 121)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    hearts.forEach(heart => {
+    hearts.forEach((heart, idx) => {
         heart.draw();
         heart.update();
+        checkState(heart, idx);
     });
 }
 
