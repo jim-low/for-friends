@@ -2,6 +2,7 @@ const canvas = document.getElementById('hearts-canvas');
 const ctx = canvas.getContext('2d');
 
 let hearts = [];
+let initialTime = 1000;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -99,13 +100,20 @@ addEventListener('click', e => {
     }
 });
 
+
 function spawnHeart() {
     const height = 60;
     const radius = 20;
     let x = getRandomNum(radius*2, canvas.width - (radius*2));
     let y = getRandomNum(height + 20, canvas.height);
     hearts.push(new Heart(x, y, height, radius, {x: 0, y: 0}));
-    setTimeout(spawnHeart, 50);
+
+    if(initialTime > 50) {
+        initialTime -= 75;
+    } else
+        initialTime = 50;
+
+    setTimeout(spawnHeart, initialTime);
 }
 
 animate();
