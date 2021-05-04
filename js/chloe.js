@@ -74,7 +74,7 @@ function init() {
     container.style.animation = 'descend 2s linear forwards';
     setTimeout(() => {
         // TODO: fix bug where a thin line from block element is still visible after animation
-        block.style.animation = 'thin 2s ease-out forwards';
+        block.style.animation = 'thin 2s ease-in-out forwards';
     }, 2500);
 }
 
