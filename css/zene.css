@@ -46,6 +46,7 @@
     color: white;
     display: inline;
     position: relative;
+    font-size: 5vw;
 }
 
 .left-wish {
@@ -57,5 +58,16 @@
     right: var(--start-pos);
     animation: right-slide 2s ease-in-out forwards;
     animation-delay: 1s;
+}
+
+@media only screen and (max-width: 450px) {
+    .placeholder {
+        width: 70%;
+        text-align: center;
+    }
+
+    .birthday-wish {
+        font-size: 7vw;
+    }
 }
 
