@@ -102,10 +102,19 @@ function withinCircle(bubbleObj) {
     return Math.hypot(bubbleObj.x - mouse.x, bubbleObj.y - mouse.y) < bubbleObj.radius;
 }
 
+function checkStatus(obj, index) {
+    if(obj.y + obj.radius < 0)
+        bubbles.splice(index, 1);
+
+    if(obj.opacity < 0)
+        particles.splice(index, 1);
+}
+
 function animate(objArr) {
-    objArr.forEach(obj => {
+    objArr.forEach((obj, idx) => {
         obj.draw();
         obj.update();
+        checkStatus(obj, idx);
     });
 }
 
