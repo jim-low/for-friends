@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 
 const gravity = 0.50;
 const MIN_RADIUS = 20;
-const MAX_RADIUS = 40;
+let maxRadius = canvas.width/25;
 const colors = [
     'rgba(137, 207, 240, 1)',
     'rgba(64, 164, 255, 1)',
@@ -67,7 +67,7 @@ class Bubble {
         this.radius = radius;
         this.x = x;
         this.y = y;
-        this.speed = MAX_RADIUS/this.radius;
+        this.speed = maxRadius/this.radius;
         this.color = color;
     }
 
@@ -127,7 +127,7 @@ function updateCanvas() {
 }
 
 function spawnBubble() {
-    let radius = getRandomNum(MIN_RADIUS, MAX_RADIUS);
+    let radius = getRandomNum(MIN_RADIUS, maxRadius);
     let x = getRandomNum(radius, canvas.width - radius);
     let y = canvas.height + radius;
     bubbles.push(new Bubble(x, y, radius, getRandomColor()));
@@ -137,6 +137,9 @@ function spawnBubble() {
 addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    maxRadius = canvas.width/25;
+    bubbles.length = 0;
+    particles.length = 0;
 });
 
 addEventListener('mousemove', e => {
