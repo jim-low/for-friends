@@ -1,21 +1,61 @@
+:root {
+    --start-pos: -600%;
+}
+
+@keyframes right-slide {
+    from {
+        right: var(--start-pos);
+    }
+
+    to {
+        right: 0;
+    }
+}
+
+@keyframes left-slide {
+    from {
+        left: var(--start-pos);
+    }
+
+    to {
+        left: 0;
+    }
+}
+
 #bubbles-canvas {
     z-index: -1;
 }
 
-.wish {
+.front-layer {
     position: absolute;
-    top: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.placeholder {
+    width: auto;
+    position: absolute;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
 }
 
 .birthday-wish {
-    text-align: center;
     color: white;
+    display: inline;
+    position: relative;
+}
+
+.left-wish {
+    left: var(--start-pos);
+    animation: left-slide 2s ease-in-out forwards;
+}
+
+.right-wish {
+    right: var(--start-pos);
+    animation: right-slide 2s ease-in-out forwards;
+    animation-delay: 1s;
 }
 
