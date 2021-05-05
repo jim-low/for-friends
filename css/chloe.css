@@ -1,6 +1,6 @@
 :root {
     --container-width: 50%;
-    --container-height: 15%;
+    --container-height: 5em;
     --initial-pos: -10%;
 }
 
@@ -66,6 +66,7 @@
     height: auto;
     text-align: center;
     font-family: baskerville-italic;
+    font-size: 4vw;
 }
 
 .block {
