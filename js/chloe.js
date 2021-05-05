@@ -80,6 +80,7 @@ function init() {
 }
 
 function checkState(heartObj, index) {
+    // TODO: fix bug where animation is jittery when heart fades
     if(heartObj.opacity <= 0)
         hearts.splice(index, 1);
 }
