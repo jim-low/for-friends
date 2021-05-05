@@ -96,14 +96,19 @@ function animate() {
 
 
 function spawnHeart() {
-    const containerX = container.getBoundingClientRect().x;
-    const containerY = container.getBoundingClientRect().y;
-    let x = getRandomNum(HEART_RADIUS*4, canvas.width - (HEART_RADIUS*4));
-    let y = getRandomNum(HEART_HEIGHT + 40, canvas.height - (HEART_HEIGHT + 40));
+    const containerInfo = container.getBoundingClientRect();
+    const containerX = containerInfo.x;
+    const containerY = containerInfo.y;
 
-    while(x >= containerX && x <= containerX + container.clientWidth && y >= containerY && y <= containerY + container.clientHeight) {
-        x = getRandomNum(HEART_RADIUS*4, canvas.width - (HEART_RADIUS*4));
-        y = getRandomNum(HEART_HEIGHT + 40, canvas.height - (HEART_HEIGHT + 40));
+    const X_MARGIN = HEART_RADIUS * 2;
+    const Y_MARGIN = HEART_HEIGHT + 40;
+
+    let x = getRandomNum(X_MARGIN, canvas.width - (X_MARGIN));
+    let y = getRandomNum(Y_MARGIN, canvas.height - (Y_MARGIN));
+
+    while(x >= containerX && x <= containerX + container.clientWidth + X_MARGIN && y >= containerY && y <= containerY + container.clientHeight + Y_MARGIN) {
+        x = getRandomNum(X_MARGIN, canvas.width - (X_MARGIN));
+        y = getRandomNum(Y_MARGIN, canvas.height - (Y_MARGIN));
     }
 
     hearts.push(new Heart(x, y, HEART_HEIGHT, HEART_RADIUS, {x: 0, y: 0}));
