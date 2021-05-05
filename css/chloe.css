@@ -82,3 +82,16 @@
     font-size: 1vw;
 }
 
+@media only screen and (max-width: 450px) {
+
+    :root {
+        --container-height: 5em;
+        --container-width: 80%;
+    }
+
+    .msg {
+        font-size: 7vw;
+    }
+
+}
+
