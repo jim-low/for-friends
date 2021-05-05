@@ -1,14 +1,15 @@
 const canvas = document.getElementById('hearts-canvas');
 const ctx = canvas.getContext('2d');
 
-let hearts = [];
-
-const MIN_TIME = 150;
-const HEART_HEIGHT = 60;
-const HEART_RADIUS = 20;
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
+const MIN_TIME = 150;
+
+let hearts = [];
+
+let heartHeight = canvas.width/20;
+let heightRadius = heartHeight/3;
 
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -100,8 +101,8 @@ function spawnHeart() {
     const containerX = containerInfo.x;
     const containerY = containerInfo.y;
 
-    const X_MARGIN = HEART_RADIUS * 2;
-    const Y_MARGIN = HEART_HEIGHT + 40;
+    const X_MARGIN = heightRadius * 2;
+    const Y_MARGIN = heartHeight + 40;
 
     let x = getRandomNum(X_MARGIN, canvas.width - (X_MARGIN));
     let y = getRandomNum(Y_MARGIN, canvas.height - (Y_MARGIN));
@@ -111,13 +112,24 @@ function spawnHeart() {
         y = getRandomNum(Y_MARGIN, canvas.height - (Y_MARGIN));
     }
 
-    hearts.push(new Heart(x, y, HEART_HEIGHT, HEART_RADIUS, {x: 0, y: 0}));
+    hearts.push(new Heart(x, y, heartHeight, heightRadius, {x: 0, y: 0}));
     setTimeout(spawnHeart, MIN_TIME);
 }
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    heartHeight = canvas.width/20;
+    heightRadius = heartHeight/3;
+
+    if(heartHeight <= 30)
+        heartHeight = 30;
+
+    if(heartRadius <= 15)
+        heartRadius = 15;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
 addEventListener('click', e => {
