@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const MIN_TIME = 150;
+const MIN_TIME = 100;
 
 let hearts = [];
 
