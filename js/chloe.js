@@ -40,7 +40,8 @@ class Trail {
     }
 
     update() {
-        this.y += this.speed;
+        this.hue += 2;
+        this.pos.y -= this.speed;
     }
 }
 
@@ -91,9 +92,8 @@ class Heart {
 }
 
 class Firework extends Heart {
-    constructor(pos, end, height, radius, velocity) {
+    constructor(pos, height, radius, velocity) {
         super(pos, height, radius);
-        this.end = end;
         this.velocity = velocity;
 
         this.velocity.x *= Math.random();
@@ -125,10 +125,21 @@ function init() {
 }
 
 function checkTrail(trailObj, index) {
-    if(trailObj.pos.x == trailObj.end.x && trailObj.pos.y == trailObj.end.y) {
+    if(trailObj.pos.y <= trailObj.end.y) {
+        playFirework(trailObj.end);
+        trails.splice(index, 1);
+    }
+}
+
+function playFirework(coordinates) {
+    const FIREWORK_AMT = 100;
+    const angle = (Math.PI*2)/15
+    const force = 8;
+
+    for(let i = 0; i < FIREWORK_AMT; ++i) {
         fireworks.push(new Firework({
-            x: trailObj.end.x,
-            y: trailObj.end.y
+            x: coordinates.x,
+            y: coordinates.y,
         },
             heartHeight,
             heartRadius,
@@ -137,7 +148,6 @@ function checkTrail(trailObj, index) {
                 y: Math.sin(angle * i) * force,
             }
         ));
-        trails.splice(index, 1);
     }
 }
 
@@ -146,10 +156,31 @@ function checkFirework(fireworkObj, index) {
         fireworks.splice(index, 1);
 }
 
+function spawnTrail() {
+    const MARGIN = 20;
+    const randomX = getRandomNum(MARGIN, canvas.width - MARGIN);
+    let start = {
+        x: randomX,
+        y: canvas.height + MARGIN
+    };
+    let end = {
+        x: randomX,
+        y: getRandomNum(MARGIN, canvas.height - MARGIN),
+    }
+    let speed = getRandomNum(1, 20);
+    trails.push(new Trail(start, end, speed));
+    setTimeout(spawnTrail, 500);
+}
+
 function animate() {
     requestAnimationFrame(animate);
     ctx.fillStyle = 'rgba(0,0,0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    trails.forEach(trail => {
+        trail.draw();
+        trail.update();
+        checkTrail(trail);
+    });
     fireworks.forEach((firework, i) => {
         firework.draw();
         firework.update();
@@ -179,26 +210,10 @@ window.addEventListener('resize', () => {
 });
 
 addEventListener('click', e => {
-    const FIREWORK_AMT = 100;
-    const angle = (Math.PI*2)/15
-    const force = 8;
-
-    for(let i = 0; i < FIREWORK_AMT; ++i) {
-        fireworks.push(new Firework({
-            x: e.clientX,
-            y: e.clientY
-        }, {
-            x: 600,
-            y: 600,
-        },
-            10,
-            10/3,
-            {
-                x: Math.cos(angle * i) * force,
-                y: Math.sin(angle * i) * force,
-            }
-        ));
-    }
+    playFirework({
+        x: e.clientX,
+        y: e.clientY
+    });
 });
 
 document.querySelector('.feature-hint').addEventListener('click', () => {
@@ -206,4 +221,5 @@ document.querySelector('.feature-hint').addEventListener('click', () => {
 });
 
 animate();
+spawnTrail();
 
