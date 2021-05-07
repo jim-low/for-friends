@@ -194,6 +194,9 @@ document.querySelector('.feature-hint').addEventListener('click', () => {
     document.querySelector('.feature-hint').remove();
 });
 
+// start canvas with absolute black background
+ctx.fillStyle = 'black';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 animate();
 setTimeout(spawnTrail, 3000);
 
