@@ -79,10 +79,10 @@ class Firework extends Heart {
         this.color = `hsl(${this.hue}, 50%, 50%)`;
         this.opacity -= 0.01;
 
-        this.velocity.y += gravity;
-
         this.velocity.x *= friction;
         this.velocity.y *= friction;
+
+        this.velocity.y += gravity;
 
         this.pos.x += this.velocity.x;
         this.pos.y += this.velocity.y;
