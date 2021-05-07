@@ -7,6 +7,7 @@ canvas.height = window.innerHeight;
 const gravity = 0.05;
 const friction = 0.99;
 const MIN_TIME = 100;
+const MARGIN = 20;
 
 let fireworks = [];
 let trails = [];
@@ -147,7 +148,6 @@ function checkFirework(fireworkObj, index) {
 }
 
 function spawnTrail() {
-    const MARGIN = 20;
     const randomX = getRandomNum(MARGIN, canvas.width - MARGIN);
     let start = {
         x: randomX,
@@ -184,10 +184,14 @@ window.addEventListener('resize', () => {
 });
 
 addEventListener('click', e => {
-    playFirework({
+    let speed = 10;
+    trails.push(new Trail({
+        x: e.clientX,
+        y: canvas.height + MARGIN
+    }, {
         x: e.clientX,
         y: e.clientY
-    });
+    }, speed));
 });
 
 document.querySelector('.feature-hint').addEventListener('click', () => {
