@@ -169,7 +169,7 @@ function spawnTrail() {
     }
     let speed = getRandomNum(1, 20);
     trails.push(new Trail(start, end, speed));
-    setTimeout(spawnTrail, 500);
+    setTimeout(spawnTrail, 850);
 }
 
 function animate() {
