@@ -64,6 +64,9 @@ class Firework extends Heart {
         super(pos, height, radius, color);
         this.end = end;
         this.velocity = velocity;
+
+        this.velocity.x *= Math.random();
+        this.velocity.y *= Math.random();
     }
 
     update() {
