@@ -139,6 +139,8 @@ window.addEventListener('resize', () => {
 addEventListener('click', e => {
     const FIREWORK_AMT = 15;
     const angle = (Math.PI*2)/15
+    const force = 8;
+
     for(let i = 0; i < FIREWORK_AMT; ++i) {
         fireworks.push(new Firework({
             x: e.clientX,
@@ -150,8 +152,8 @@ addEventListener('click', e => {
             10,
             10/3,
             'red', {
-                x: Math.cos(angle * i),
-                y: Math.sin(angle * i),
+                x: Math.cos(angle * i) * force,
+                y: Math.sin(angle * i) * force,
             }
         ));
     }
