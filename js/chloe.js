@@ -157,7 +157,7 @@ function spawnTrail() {
         x: randomX,
         y: getRandomNum(MARGIN, canvas.height - MARGIN),
     }
-    let speed = getRandomNum(1, 20);
+    let speed = getRandomNum(7, 20);
     trails.push(new Trail(start, end, speed));
     setTimeout(spawnTrail, 750);
 }
