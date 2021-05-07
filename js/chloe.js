@@ -11,7 +11,7 @@ const MIN_TIME = 100;
 let fireworks = [];
 let trails = [];
 
-let heartHeight = canvas.width/20;
+let heartHeight = 13.5;
 let heartRadius = heartHeight/3;
 
 function getRandomNum(min, max) {
@@ -188,25 +188,9 @@ function animate() {
     });
 }
 
-function scaleHeartSize() {
-    const HEIGHT_THRESHOLD = 30;
-    const RADIUS_THRESHOLD = HEIGHT_THRESHOLD/3;
-
-    heartHeight = canvas.width/20;
-    heartRadius = heartHeight/3;
-
-    if(heartHeight <= HEIGHT_THRESHOLD)
-        heartHeight = HEIGHT_THRESHOLD;
-
-    if(heartRadius <= RADIUS_THRESHOLD)
-        heartRadius = RADIUS_THRESHOLD;
-}
-
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
-    scaleHeartSize();
 });
 
 addEventListener('click', e => {
