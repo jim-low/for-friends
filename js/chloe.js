@@ -36,6 +36,9 @@ class Heart {
         ctx.fillStyle = this.color;
         ctx.lineWidth = .5;
 
+        ctx.save()
+        ctx.globalAlpha = this.opacity;
+
         ctx.beginPath();
 
         ctx.moveTo(startX, startY);
@@ -53,9 +56,9 @@ class Heart {
             startX - (this.radius*xCtrlPtRaito), startY + yCtrlPtRaito,
             this.pos.x, this.pos.y
         );
-
-        ctx.fill();
         ctx.closePath();
+        ctx.fill();
+        ctx.restore();
     }
 }
 
@@ -67,9 +70,13 @@ class Firework extends Heart {
 
         this.velocity.x *= Math.random();
         this.velocity.y *= Math.random();
+
+        this.hue = 0;
     }
 
     update() {
+        this.hue += 2;
+        this.color = `hsl(${this.hue}, 50%, 50%)`;
         this.opacity -= 0.01;
 
         this.velocity.y += gravity;
@@ -92,13 +99,19 @@ function init() {
     }, 2500);
 }
 
+function checkState(fireworkObj, index) {
+    if(fireworkObj.opacity <= 0)
+        fireworks.splice(index, 1);
+}
+
 function animate() {
     requestAnimationFrame(animate);
-    ctx.fillStyle = 'rgb(0,0,0)';
+    ctx.fillStyle = 'rgba(0,0,0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    fireworks.forEach(firework => {
+    fireworks.forEach((firework, i) => {
         firework.draw();
         firework.update();
+        checkState(firework, i);
     });
 }
 
