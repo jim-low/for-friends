@@ -1,7 +1,6 @@
 :root {
     --container-width: 50%;
     --container-height: 5em;
-    --initial-pos: -10%;
 }
 
 @keyframes thin {
@@ -51,7 +50,6 @@
 }
 
 .container {
-    top: var(--initial-pos);
     width: var(--container-width);
     height: var(--container-height);
 }
@@ -72,6 +70,8 @@
 
 .block {
     background-color: #000000;
+    animation: thin 2s ease-in-out forwards;
+    animation-delay: 1s;
 }
 
 .feature-hint {
@@ -81,6 +81,7 @@
     text-align: right;
     cursor: pointer;
     font-size: 1vw;
+    color: #DCDCDC;
 }
 
 @media only screen and (max-width: 450px) {
@@ -92,6 +93,10 @@
 
     .msg {
         font-size: 7vw;
+    }
+
+    .feature-hint {
+        font-size: 3vw;
     }
 
 }

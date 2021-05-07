@@ -7,11 +7,12 @@ canvas.height = window.innerHeight;
 const gravity = 0.05;
 const friction = 0.99;
 const MIN_TIME = 100;
+const MARGIN = 20;
 
 let fireworks = [];
 let trails = [];
 
-let heartHeight = canvas.width/20;
+let heartHeight = 13.5;
 let heartRadius = heartHeight/3;
 
 function getRandomNum(min, max) {
@@ -114,16 +115,6 @@ class Firework extends Heart {
     }
 }
 
-const container = document.querySelector('.container')
-const block = document.querySelector('.block')
-function init() {
-    container.style.animation = 'descend 2s linear forwards';
-    setTimeout(() => {
-        // TODO: fix bug where a thin line from block element is still visible after animation
-        block.style.animation = 'thin 2s ease-in-out forwards';
-    }, 2500);
-}
-
 function checkTrail(trailObj, index) {
     if(trailObj.pos.y <= trailObj.end.y) {
         playFirework(trailObj.end);
@@ -157,7 +148,6 @@ function checkFirework(fireworkObj, index) {
 }
 
 function spawnTrail() {
-    const MARGIN = 20;
     const randomX = getRandomNum(MARGIN, canvas.width - MARGIN);
     let start = {
         x: randomX,
@@ -167,19 +157,19 @@ function spawnTrail() {
         x: randomX,
         y: getRandomNum(MARGIN, canvas.height - MARGIN),
     }
-    let speed = getRandomNum(1, 20);
+    let speed = getRandomNum(7, 20);
     trails.push(new Trail(start, end, speed));
-    setTimeout(spawnTrail, 500);
+    setTimeout(spawnTrail, 750);
 }
 
 function animate() {
     requestAnimationFrame(animate);
-    ctx.fillStyle = 'rgba(0,0,0, 0.1)';
+    ctx.fillStyle = 'rgba(0,0,0, 0.2)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    trails.forEach(trail => {
+    trails.forEach((trail, i) => {
         trail.draw();
         trail.update();
-        checkTrail(trail);
+        checkTrail(trail, i);
     });
     fireworks.forEach((firework, i) => {
         firework.draw();
@@ -188,38 +178,29 @@ function animate() {
     });
 }
 
-function scaleHeartSize() {
-    const HEIGHT_THRESHOLD = 30;
-    const RADIUS_THRESHOLD = HEIGHT_THRESHOLD/3;
-
-    heartHeight = canvas.width/20;
-    heartRadius = heartHeight/3;
-
-    if(heartHeight <= HEIGHT_THRESHOLD)
-        heartHeight = HEIGHT_THRESHOLD;
-
-    if(heartRadius <= RADIUS_THRESHOLD)
-        heartRadius = RADIUS_THRESHOLD;
-}
-
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
-    scaleHeartSize();
 });
 
 addEventListener('click', e => {
-    playFirework({
+    let speed = 10;
+    trails.push(new Trail({
+        x: e.clientX,
+        y: canvas.height + MARGIN
+    }, {
         x: e.clientX,
         y: e.clientY
-    });
+    }, speed));
 });
 
 document.querySelector('.feature-hint').addEventListener('click', () => {
     document.querySelector('.feature-hint').remove();
 });
 
+// start canvas with absolute black background
+ctx.fillStyle = 'black';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 animate();
-spawnTrail();
+setTimeout(spawnTrail, 3000);
 
