@@ -71,7 +71,7 @@ class Firework extends Heart {
         this.velocity.x *= Math.random();
         this.velocity.y *= Math.random();
 
-        this.hue = 0;
+        this.hue = getRandomNum(0, 360);
     }
 
     update() {
@@ -137,7 +137,7 @@ window.addEventListener('resize', () => {
 });
 
 addEventListener('click', e => {
-    const FIREWORK_AMT = 15;
+    const FIREWORK_AMT = 100;
     const angle = (Math.PI*2)/15
     const force = 8;
 
