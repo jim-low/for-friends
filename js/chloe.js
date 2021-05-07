@@ -114,16 +114,6 @@ class Firework extends Heart {
     }
 }
 
-const container = document.querySelector('.container')
-const block = document.querySelector('.block')
-function init() {
-    container.style.animation = 'descend 2s linear forwards';
-    setTimeout(() => {
-        // TODO: fix bug where a thin line from block element is still visible after animation
-        block.style.animation = 'thin 2s ease-in-out forwards';
-    }, 2500);
-}
-
 function checkTrail(trailObj, index) {
     if(trailObj.pos.y <= trailObj.end.y) {
         playFirework(trailObj.end);
@@ -205,5 +195,5 @@ document.querySelector('.feature-hint').addEventListener('click', () => {
 });
 
 animate();
-spawnTrail();
+setTimeout(spawnTrail, 3000);
 
