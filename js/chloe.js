@@ -18,11 +18,12 @@ function getRandomNum(min, max) {
 }
 
 class Heart {
-    constructor(pos, height, radius) {
+    constructor(pos, height, radius, color) {
         this.pos = pos;
-
         this.height = height;
         this.radius = radius;
+
+        this.color = color;
     }
 
     draw() {
@@ -31,7 +32,7 @@ class Heart {
         let xCtrlPtRaito = 1.75;
         let yCtrlPtRaito = this.height/2;
 
-        ctx.fillStyle = `rgba(255, 0, 0, ${this.opacity})`;
+        ctx.fillStyle = this.color;
         ctx.lineWidth = .5;
 
         ctx.beginPath();
@@ -58,9 +59,8 @@ class Heart {
 }
 
 class Firework extends Heart {
-    constructor(start, end, height, radius, velocity) {
-        super(start, height, radius);
-
+    constructor(start, end, height, radius, color, velocity) {
+        super(start, height, radius, color);
         this.end = end;
         this.velocity = velocity;
     }
