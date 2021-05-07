@@ -8,7 +8,7 @@ const gravity = 0.5;
 const friction = 0.99;
 const MIN_TIME = 100;
 
-let hearts = [];
+let fireworks = [];
 
 let heartHeight = canvas.width/20;
 let heartRadius = heartHeight/3;
@@ -24,6 +24,7 @@ class Heart {
         this.radius = radius;
 
         this.color = color;
+        this.opacity = 1;
     }
 
     draw() {
@@ -59,8 +60,8 @@ class Heart {
 }
 
 class Firework extends Heart {
-    constructor(start, end, height, radius, color, velocity) {
-        super(start, height, radius, color);
+    constructor(pos, end, height, radius, color, velocity) {
+        super(pos, height, radius, color);
         this.end = end;
         this.velocity = velocity;
     }
@@ -73,8 +74,8 @@ class Firework extends Heart {
         this.velocity.x *= friction;
         this.velocity.y *= friction;
 
-        this.start.x += this.velocity.x;
-        this.start.y += this.velocity.y;
+        this.pos.x += this.velocity.x;
+        this.pos.y += this.velocity.y;
     }
 }
 
@@ -90,14 +91,13 @@ function init() {
 
 function animate() {
     requestAnimationFrame(animate);
-    ctx.fillStyle = 'rgba(248, 131, 121)';
+    ctx.fillStyle = 'rgb(0,0,0)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    hearts.forEach(heart => {
-        heart.draw();
-        heart.update();
+    fireworks.forEach(firework => {
+        firework.draw();
+        firework.update();
     });
 }
-
 
 function scaleHeartSize() {
     const HEIGHT_THRESHOLD = 30;
@@ -120,7 +120,30 @@ window.addEventListener('resize', () => {
     scaleHeartSize();
 });
 
-document.querySelector('.feature-hint').addEventListener('click', _ => {
+addEventListener('click', e => {
+    const FIREWORK_AMT = 15;
+    const angle = (Math.PI*2)/15
+    for(let i = 0; i < FIREWORK_AMT; ++i) {
+        fireworks.push(new Firework({
+            x: e.clientX,
+            y: e.clientY
+        }, {
+            x: 600,
+            y: 600,
+        },
+            10,
+            10/3,
+            'red', {
+                x: Math.cos(angle * i),
+                y: Math.sin(angle * i),
+            }
+        ));
+    }
+});
+
+document.querySelector('.feature-hint').addEventListener('click', () => {
     document.querySelector('.feature-hint').remove();
 });
+
+animate();
 
