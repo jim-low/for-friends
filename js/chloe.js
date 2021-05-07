@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const gravity = 0.5;
+const gravity = 0.05;
 const friction = 0.99;
 const MIN_TIME = 100;
 
