@@ -9,12 +9,39 @@ const friction = 0.99;
 const MIN_TIME = 100;
 
 let fireworks = [];
+let trails = [];
 
 let heartHeight = canvas.width/20;
 let heartRadius = heartHeight/3;
 
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+class Trail {
+    constructor(pos, end, speed) {
+        this.pos = pos;
+        this.end = end;
+        this.radius = 3;
+
+        this.speed = speed;
+
+        this.hue = getRandomNum(0, 360);
+    }
+
+    draw() {
+        ctx.fillStyle = `hsl(${this.hue}, 50%, 50%)`;
+
+        ctx.beginPath();
+        ctx.arc(this.pos.x, this.pos.y, this.radius, 0, Math.PI*2);
+        ctx.closePath();
+
+        ctx.fill();
+    }
+
+    update() {
+        this.y += this.speed;
+    }
 }
 
 class Heart {
@@ -99,7 +126,24 @@ function init() {
     }, 2500);
 }
 
-function checkState(fireworkObj, index) {
+function checkTrail(trailObj, index) {
+    if(trailObj.pos.x == trailObj.end.x && trailObj.pos.y == trailObj.end.y) {
+        fireworks.push(new Firework({
+            x: trailObj.end.x,
+            y: trailObj.end.y
+        },
+            heartHeight,
+            heartRadius,
+            'red', {
+                x: Math.cos(angle * i) * force,
+                y: Math.sin(angle * i) * force,
+            }
+        ));
+        trails.splice(index, 1);
+    }
+}
+
+function checkFirework(fireworkObj, index) {
     if(fireworkObj.opacity <= 0)
         fireworks.splice(index, 1);
 }
@@ -111,7 +155,7 @@ function animate() {
     fireworks.forEach((firework, i) => {
         firework.draw();
         firework.update();
-        checkState(firework, i);
+        checkFirework(firework, i);
     });
 }
 
