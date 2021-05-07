@@ -176,10 +176,10 @@ function animate() {
     requestAnimationFrame(animate);
     ctx.fillStyle = 'rgba(0,0,0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    trails.forEach(trail => {
+    trails.forEach((trail, i) => {
         trail.draw();
         trail.update();
-        checkTrail(trail);
+        checkTrail(trail, i);
     });
     fireworks.forEach((firework, i) => {
         firework.draw();
