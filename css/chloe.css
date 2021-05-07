@@ -67,10 +67,11 @@
     text-align: center;
     font-family: baskerville-italic;
     font-size: 4vw;
+    color: #DCDCDC;
 }
 
 .block {
-    background-color: #F7A9A3;
+    background-color: #000000;
 }
 
 .feature-hint {
