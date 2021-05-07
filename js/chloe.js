@@ -45,12 +45,13 @@ class Trail {
 }
 
 class Heart {
-    constructor(pos, height, radius, color) {
+    constructor(pos, height, radius) {
         this.pos = pos;
         this.height = height;
         this.radius = radius;
 
-        this.color = color;
+        this.hue = getRandomNum(0, 360);
+        this.color = `hsl(${this.hue}, 50%, 50%)`;
         this.opacity = 1;
     }
 
@@ -90,20 +91,17 @@ class Heart {
 }
 
 class Firework extends Heart {
-    constructor(pos, end, height, radius, color, velocity) {
-        super(pos, height, radius, color);
+    constructor(pos, end, height, radius, velocity) {
+        super(pos, height, radius);
         this.end = end;
         this.velocity = velocity;
 
         this.velocity.x *= Math.random();
         this.velocity.y *= Math.random();
-
-        this.hue = getRandomNum(0, 360);
     }
 
     update() {
         this.hue += 2;
-        this.color = `hsl(${this.hue}, 50%, 50%)`;
         this.opacity -= 0.01;
 
         this.velocity.x *= friction;
@@ -134,7 +132,7 @@ function checkTrail(trailObj, index) {
         },
             heartHeight,
             heartRadius,
-            'red', {
+            {
                 x: Math.cos(angle * i) * force,
                 y: Math.sin(angle * i) * force,
             }
@@ -195,7 +193,7 @@ addEventListener('click', e => {
         },
             10,
             10/3,
-            'red', {
+            {
                 x: Math.cos(angle * i) * force,
                 y: Math.sin(angle * i) * force,
             }
