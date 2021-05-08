@@ -12,11 +12,16 @@ const MARGIN = 20;
 let fireworks = [];
 let trails = [];
 
-let heartHeight = 13.5;
+let heartHeight = window.screen.availWidth <= 460 ? 10 : 13.5;
 let heartRadius = heartHeight/3;
 
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function scaleHeartRatio() {
+    heartHeight = window.screen.availWidth <= 460 ? 10 : 13.5;
+    heartRadius = heartHeight/3;
 }
 
 class Trail {
@@ -202,6 +207,7 @@ function animate() {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    scaleHeartRatio();
 });
 
 addEventListener('click', e => {
