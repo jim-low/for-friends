@@ -81,7 +81,7 @@ class Heart {
         this.radius = radius;
 
         this.hue = getRandomNum(0, 360);
-        this.color = `hsl(${this.hue}, 50%, 50%)`;
+        this.color = `hsl(${this.hue}, 60%, 50%)`;
         this.opacity = 1;
     }
 
