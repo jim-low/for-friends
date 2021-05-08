@@ -92,7 +92,6 @@ class Heart {
         let yCtrlPtRaito = this.height/2;
 
         ctx.fillStyle = this.color;
-        ctx.lineWidth = .5;
 
         ctx.save()
         ctx.globalAlpha = this.opacity;
