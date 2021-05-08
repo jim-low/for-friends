@@ -20,12 +20,17 @@ function getRandomNum(min, max) {
 }
 
 class Trail {
-    constructor(pos, end, speed) {
+    constructor(pos, end) {
         this.pos = pos;
         this.end = end;
         this.radius = 3;
 
-        this.speed = speed;
+        this.force = getRandomNum(5, 20);
+
+        this.velocity = {
+            x: null,
+            y: null,
+        };
 
         this.hue = getRandomNum(0, 360);
     }
@@ -40,9 +45,27 @@ class Trail {
         ctx.fill();
     }
 
+    calcVelocity() {
+        const distance = {
+            x: this.pos.x - this.end.x,
+            y: this.pos.y - this.end.y,
+        }
+
+        const angle = Math.atan2(distance.y, distance.x);
+
+        this.velocity = {
+            x: Math.cos(angle) * -1 * this.force,
+            y: Math.sin(angle) * -1 * this.force,
+        };
+    }
+
     update() {
         this.hue += 2;
-        this.pos.y -= this.speed;
+
+        this.calcVelocity();
+
+        this.pos.x += this.velocity.x;
+        this.pos.y += this.velocity.y;
     }
 }
 
@@ -148,17 +171,15 @@ function checkFirework(fireworkObj, index) {
 }
 
 function spawnTrail() {
-    const randomX = getRandomNum(MARGIN, canvas.width - MARGIN);
     let start = {
-        x: randomX,
+        x: getRandomNum(MARGIN * -1, canvas.width + MARGIN),
         y: canvas.height + MARGIN
     };
     let end = {
-        x: randomX,
+        x: getRandomNum(MARGIN, canvas.width - MARGIN),
         y: getRandomNum(MARGIN, canvas.height - MARGIN),
     }
-    let speed = getRandomNum(7, 20);
-    trails.push(new Trail(start, end, speed));
+    trails.push(new Trail(start, end));
     setTimeout(spawnTrail, 750);
 }
 
@@ -184,14 +205,13 @@ window.addEventListener('resize', () => {
 });
 
 addEventListener('click', e => {
-    let speed = 10;
     trails.push(new Trail({
-        x: e.clientX,
+        x: getRandomNum(MARGIN * -1, canvas.width + MARGIN),
         y: canvas.height + MARGIN
     }, {
         x: e.clientX,
         y: e.clientY
-    }, speed));
+    }));
 });
 
 document.querySelector('.feature-hint').addEventListener('click', () => {
