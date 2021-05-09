@@ -63,7 +63,7 @@
     margin: 0;
     height: auto;
     text-align: center;
-    font-family: baskerville-italic;
+    font-family: baskerville-italic, Georgia, sans-serif;
     font-size: 4vw;
     color: #DCDCDC;
 }
