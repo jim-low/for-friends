@@ -10,6 +10,17 @@ const MAX_FORCE = 40;
 const MIN_VELOCITY = 0.02;
 const MAX_VELOCITY = 0.07;
 
+const colors = [
+    "#2D7CD6",
+    "#5ABEC4",
+    "#BB39C2",
+    "#AC44E9",
+    "#D3DD2D",
+    "#2CEC2C",
+    "#98FB98",
+    "#FF8080",
+]
+
 const mouse = {
     x: undefined,
     y: undefined
@@ -35,7 +46,7 @@ function getRandomInt(min, max) {
 }
 
 function getRandomColor(colorArr) {
-    return colorArr[getRandomInt(0, colorArr.length - 1)];
+    return colorArr[getRandomInt(0, colorArr.length)];
 }
 
 class Particle {
@@ -76,7 +87,7 @@ let particles = [];
 
 function refresh() {
     requestAnimationFrame(refresh);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillStyle = 'rgba(7, 8, 8, 0.2)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     particles.forEach(particle => {
         particle.draw();
@@ -92,7 +103,7 @@ clickEvents.forEach(event => {
                 y: -10,
             },
             radius: 5,
-            color: 'red'
+            color: getRandomColor(colors)
         }));
     });
 });
