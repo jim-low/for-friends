@@ -42,7 +42,7 @@ class Particle {
 
         this.radius = props.radius;
 
-        this.velocity = Math.random() * 0.1;
+        this.velocity = (Math.random() * (0.07 - 0.02)) + 0.02;
         this.velocity *= getRandomInt(0, 2) % 2 == 0 ? 1 : -1;
 
         this.radian = Math.random() * 360;
