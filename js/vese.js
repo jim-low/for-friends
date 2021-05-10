@@ -4,6 +4,9 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+const MIN_FORCE = 100;
+const MAX_FORCE = 40;
+
 const mouse = {
     x: undefined,
     y: undefined
@@ -33,10 +36,14 @@ class Particle {
         this.axis = this.pos;
 
         this.radius = props.radius;
-        this.color = props.color;
 
-        this.velocity = 0.05;
-        this.radian = 0;
+        this.velocity = Math.random() * 0.1;
+        this.velocity *= getRandomInt(0, 2) % 2 == 0 ? 1 : -1;
+
+        this.radian = Math.random() * 360;
+        this.force = getRandomInt(MIN_FORCE, MAX_FORCE);
+
+        this.color = props.color;
     }
 
     draw() {
@@ -52,8 +59,8 @@ class Particle {
     update() {
         this.radian += this.velocity;
 
-        this.pos.x = mouse.x + Math.cos(this.radian) * 50;
-        this.pos.y = mouse.y + Math.sin(this.radian) * 50;
+        this.pos.x = mouse.x + Math.cos(this.radian) * this.force;
+        this.pos.y = mouse.y + Math.sin(this.radian) * this.force;
     }
 }
 
@@ -61,7 +68,6 @@ let particles = [];
 
 function refresh() {
     requestAnimationFrame(refresh);
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     particles.forEach(particle => {
