@@ -4,8 +4,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const MAX_FORCE = 180;
-const MIN_FORCE = MAX_FORCE/3;
+let maxForce = canvas.width/7.5;
+let minForce = maxForce/3;
 
 const MIN_VELOCITY = 0.02;
 const MAX_VELOCITY = 0.06;
@@ -39,6 +39,8 @@ moveEvents.forEach(event => {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    maxForce = canvas.width/7.5;
+    minForce = maxForce/3;
 });
 
 function getRandomInt(min, max) {
@@ -60,7 +62,7 @@ class Particle {
         this.velocity *= getRandomInt(0, 2) % 2 == 0 ? 1 : -1;
 
         this.radian = Math.random() * 360;
-        this.force = (Math.random() * (MAX_FORCE - MIN_FORCE)) + MIN_FORCE;
+        this.force = (Math.random() * (maxForce - minForce)) + minForce;
 
         this.color = props.color;
     }
