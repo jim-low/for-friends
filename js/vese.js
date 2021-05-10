@@ -19,6 +19,14 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRandomColor(colorArr) {
+    return colorArr[getRandomInt(0, colorArr.length - 1)];
+}
+
 class Particle {
     constructor(props) {
         this.pos = props.pos;
@@ -50,18 +58,6 @@ class Particle {
 }
 
 let particles = [];
-
-for(let i = 0; i < 50; ++i) {
-    let randRadius = Math.floor(Math.random() * 5);
-    particles.push(new Particle({
-        pos: {
-            x: 0,
-            y: 0,
-        },
-        radius: randRadius,
-        color: 'red'
-    }));
-}
 
 function refresh() {
     requestAnimationFrame(refresh);
