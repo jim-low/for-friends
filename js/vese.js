@@ -12,9 +12,15 @@ const mouse = {
     y: undefined
 }
 
-addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+const moveEvents = ['mousemove', 'touchmove']
+const clickEvents = ['click', 'touchstart']
+
+moveEvents.forEach(event => {
+    console.log(event);
+    addEventListener(event, (e) => {
+        mouse.x = e.clientX ? e.clientX : e.touches[0].pageX;
+        mouse.y = e.clientY ? e.clientY : e.touches[0].pageY;
+    });
 });
 
 window.addEventListener('resize', () => {
@@ -75,6 +81,19 @@ function refresh() {
         particle.update();
     });
 }
+
+clickEvents.forEach(event => {
+    addEventListener(event, () => {
+        particles.push(new Particle({
+            pos: {
+                x: -10,
+                y: -10,
+            },
+            radius: 5,
+            color: 'red'
+        }));
+    });
+});
 
 refresh();
 
