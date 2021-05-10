@@ -8,7 +8,7 @@ const MAX_FORCE = 180;
 const MIN_FORCE = MAX_FORCE/3;
 
 const MIN_VELOCITY = 0.02;
-const MAX_VELOCITY = 0.08;
+const MAX_VELOCITY = 0.06;
 
 const colors = [
     "#2D7CD6",
@@ -85,9 +85,12 @@ class Particle {
 
 let particles = [];
 
+ctx.fillStyle = 'black'
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 function refresh() {
     requestAnimationFrame(refresh);
-    ctx.fillStyle = 'rgba(7, 8, 8, 0.2)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     particles.forEach(particle => {
         particle.draw();
