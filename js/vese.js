@@ -68,7 +68,7 @@ let particles = [];
 
 function refresh() {
     requestAnimationFrame(refresh);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     particles.forEach(particle => {
         particle.draw();
