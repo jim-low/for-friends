@@ -4,11 +4,11 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const MIN_FORCE = 100;
-const MAX_FORCE = 40;
+const MAX_FORCE = 180;
+const MIN_FORCE = MAX_FORCE/3;
 
 const MIN_VELOCITY = 0.02;
-const MAX_VELOCITY = 0.07;
+const MAX_VELOCITY = 0.08;
 
 const colors = [
     "#2D7CD6",
@@ -60,7 +60,7 @@ class Particle {
         this.velocity *= getRandomInt(0, 2) % 2 == 0 ? 1 : -1;
 
         this.radian = Math.random() * 360;
-        this.force = getRandomInt(MIN_FORCE, MAX_FORCE);
+        this.force = (Math.random() * (MAX_FORCE - MIN_FORCE)) + MIN_FORCE;
 
         this.color = props.color;
     }
