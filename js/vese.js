@@ -16,7 +16,6 @@ const moveEvents = ['mousemove', 'touchmove']
 const clickEvents = ['click', 'touchstart']
 
 moveEvents.forEach(event => {
-    console.log(event);
     addEventListener(event, (e) => {
         mouse.x = e.clientX ? e.clientX : e.touches[0].pageX;
         mouse.y = e.clientY ? e.clientY : e.touches[0].pageY;
