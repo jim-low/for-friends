@@ -7,6 +7,9 @@ canvas.height = window.innerHeight;
 const MIN_FORCE = 100;
 const MAX_FORCE = 40;
 
+const MIN_VELOCITY = 0.02;
+const MAX_VELOCITY = 0.07;
+
 const mouse = {
     x: undefined,
     y: undefined
@@ -42,7 +45,7 @@ class Particle {
 
         this.radius = props.radius;
 
-        this.velocity = (Math.random() * (0.07 - 0.02)) + 0.02;
+        this.velocity = (Math.random() * (MAX_VELOCITY - MIN_VELOCITY)) + MIN_VELOCITY;
         this.velocity *= getRandomInt(0, 2) % 2 == 0 ? 1 : -1;
 
         this.radian = Math.random() * 360;
