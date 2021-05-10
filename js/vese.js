@@ -111,5 +111,9 @@ clickEvents.forEach(event => {
     });
 });
 
+document.querySelector('.feature-hint').addEventListener('click', () => {
+    document.querySelector('.feature-hint').remove();
+});
+
 refresh();
 

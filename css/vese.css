@@ -1,0 +1,10 @@
+.feature-hint {
+    position: absolute;
+    bottom: 0;
+    right: 1%;
+    text-align: right;
+    cursor: pointer;
+    font-size: 1vw;
+    color: #DCDCDC;
+}
+
