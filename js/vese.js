@@ -22,8 +22,8 @@ const colors = [
 ]
 
 const mouse = {
-    x: undefined,
-    y: undefined
+    x: canvas.width/2,
+    y: canvas.height/2,
 }
 
 const moveEvents = ['mousemove', 'touchmove']
