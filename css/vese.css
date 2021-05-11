@@ -1,3 +1,25 @@
+.front-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message, .feature-hint {
+    color: #DCDCDC;
+}
+
+.message {
+    font-family: vibes;
+    font-size: 5vw;
+    text-align: center;
+}
+
 .feature-hint {
     position: absolute;
     bottom: 0;
@@ -5,6 +27,16 @@
     text-align: right;
     cursor: pointer;
     font-size: 1vw;
-    color: #DCDCDC;
 }
 
+@media only screen and (max-width: 450px) {
+
+    .message {
+        font-size: 8vw;
+    }
+
+    .feature-hint {
+        font-size: 3vw;
+    }
+
+}
