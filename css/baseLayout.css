@@ -32,6 +32,11 @@ html, body {
     src: url('../fonts/Baskerville/baskerville bold bt.ttf');
 }
 
+@font-face {
+    font-family: vibes;
+    src: url('../fonts/Great Vibes/GreatVibes-Regular.ttf');
+}
+
 /* general styles to use */
 .capitalize {
     text-transform: capitalize;
