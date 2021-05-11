@@ -210,13 +210,15 @@ window.addEventListener('resize', () => {
 });
 
 addEventListener('click', e => {
-    trails.push(new Trail({
-        x: getRandomNum(MARGIN * -1, canvas.width + MARGIN),
+    let start = {
+        x: e.clientX,
         y: canvas.height + MARGIN
-    }, {
+    }
+    let end = {
         x: e.clientX,
         y: e.clientY
-    }));
+    }
+    trails.push(new Trail(start, end));
 });
 
 document.querySelector('.feature-hint').addEventListener('click', () => {
