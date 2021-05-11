@@ -1,3 +1,33 @@
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 20px #2D7CD6;
+    }
+    11% {
+        text-shadow: 0 0 20px #5ABEC4;
+    }
+    22% {
+        text-shadow: 0 0 20px #BB39C2;
+    }
+    33% {
+        text-shadow: 0 0 20px #AC44E9;
+    }
+    44% {
+        text-shadow: 0 0 20px #D3DD2D;
+    }
+    55% {
+        text-shadow: 0 0 20px #2CEC2C;
+    }
+    66% {
+        text-shadow: 0 0 20px #98FB98;
+    }
+    77% {
+        text-shadow: 0 0 20px #FF8080;
+    }
+    100% {
+        text-shadow: 0 0 20px #2D7CD6;
+    }
+}
+
 .front-layer {
     position: absolute;
     top: 0;
@@ -17,6 +47,7 @@
     font-family: vibes;
     font-size: 5vw;
     text-align: center;
+    animation: glow 10s ease-in-out infinite alternate;
 }
 
 .feature-hint {
