@@ -49,7 +49,7 @@ let friendsProjects =
                 link: "firstTry.html"
             },
             {
-                projName: "hearts",
+                projName: "fireworks",
                 dateReleased: "5th May 2021",
                 link: "chloe.html"
             }
