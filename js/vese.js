@@ -4,11 +4,9 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let maxForce = canvas.width/7.5;
-let minForce = maxForce/3;
-
 const MIN_VELOCITY = 0.02;
 const MAX_VELOCITY = 0.06;
+const FORCE_MAX_THRESHOLD = 80;
 
 const colors = [
     "#2D7CD6",
@@ -39,8 +37,8 @@ moveEvents.forEach(event => {
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    maxForce = canvas.width/7.5;
-    minForce = maxForce/3;
+
+    adjustForce();
 });
 
 function getRandomInt(min, max) {
@@ -90,6 +88,16 @@ let particles = [];
 ctx.fillStyle = 'black'
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+let maxForce = 0;
+let minForce = 0;
+function adjustForce() {
+    maxForce = canvas.width/7.5;
+    if(maxForce <= FORCE_MAX_THRESHOLD)
+        maxForce = FORCE_MAX_THRESHOLD
+
+    minForce = maxForce/3;
+}
+
 function refresh() {
     requestAnimationFrame(refresh);
     ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
@@ -118,4 +126,5 @@ document.querySelector('.feature-hint').addEventListener('click', () => {
 });
 
 refresh();
+adjustForce();
 
