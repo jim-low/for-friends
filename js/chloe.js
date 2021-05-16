@@ -28,7 +28,7 @@ class Trail {
     constructor(pos, end) {
         this.pos = pos;
         this.end = end;
-        this.radius = 3;
+        this.radius = 2;
 
         this.force = getRandomNum(5, 20);
 
@@ -40,14 +40,16 @@ class Trail {
         this.hue = getRandomNum(0, 360);
     }
 
-    draw() {
-        ctx.fillStyle = `hsl(${this.hue}, 50%, 50%)`;
+    draw(lastPos) {
+        ctx.strokeStyle = `hsl(${this.hue}, 50%, 50%)`;
+        ctx.lineWidth = this.radius
 
         ctx.beginPath();
-        ctx.arc(this.pos.x, this.pos.y, this.radius, 0, Math.PI*2);
+        ctx.moveTo(lastPos.x, lastPos.y);
+        ctx.lineTo(this.pos.x, this.pos.y);
         ctx.closePath();
 
-        ctx.fill();
+        ctx.stroke();
     }
 
     calcVelocity() {
@@ -65,12 +67,19 @@ class Trail {
     }
 
     update() {
+        const lastPos = {
+            x: this.pos.x,
+            y: this.pos.y,
+        }
+
         this.hue += 2;
 
         this.calcVelocity();
 
         this.pos.x += this.velocity.x;
         this.pos.y += this.velocity.y;
+
+        this.draw(lastPos);
     }
 }
 
@@ -192,7 +201,6 @@ function animate() {
     ctx.fillStyle = 'rgba(0,0,0, 0.2)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     trails.forEach((trail, i) => {
-        trail.draw();
         trail.update();
         checkTrail(trail, i);
     });
