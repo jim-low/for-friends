@@ -9,6 +9,7 @@ const mouse = {
     y: canvas.height/2,
 }
 
+let hue = 0
 let angle = 0
 
 window.addEventListener('resize', () => {
@@ -50,7 +51,7 @@ class Triangle {
             y: this.pos.y + Math.sin(this.angle + (toRadian(240))) * this.lineLength,
         }
 
-        ctx.strokeStyle = this.color
+        ctx.strokeStyle = `hsl(${hue}, 90%, 50%)`
         ctx.beginPath()
         ctx.moveTo(p1.x, p1.y)
         ctx.lineTo(p2.x, p2.y)
@@ -80,6 +81,7 @@ function refresh() {
             triangles.splice(i, 1)
     })
     angle += 0.025
+    hue += 1
 }
 
 addEventListener('mousemove', () => {
