@@ -1,6 +1,15 @@
 body {
-    background-color: black;
+    background-color: #0D0D0D;
 }
+
+.title {
+    color: #3653E3;
+    color: #0E3BFA;
+    color: #9519EA;
+    color: #DE2DDE;
+    color: #15B335;
+}
+
 
 #triangle {
     position: absolute;
