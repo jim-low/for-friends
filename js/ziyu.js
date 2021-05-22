@@ -9,6 +9,8 @@ const mouse = {
     y: canvas.height/2,
 }
 
+let angle = 0
+
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
@@ -29,21 +31,23 @@ class Triangle {
         this.lineLength = props.lineLength
         this.color = props.color
         this.rotateSpeed = props.rotateSpeed
-        this.angle = 0
+        this.shrinkRate = props.shrinkRate
+        this.angle = angle
+        this.followMouse = props.followMouse || false
     }
 
     draw() {
         const p1 = {
-            x: mouse.x + Math.cos(this.angle) * this.lineLength,
-            y: mouse.y + Math.sin(this.angle) * this.lineLength,
+            x: this.pos.x + Math.cos(this.angle) * this.lineLength,
+            y: this.pos.y + Math.sin(this.angle) * this.lineLength,
         }
         const p2 = {
-            x: mouse.x + Math.cos(this.angle + (toRadian(120))) * this.lineLength,
-            y: mouse.y + Math.sin(this.angle + (toRadian(120))) * this.lineLength,
+            x: this.pos.x + Math.cos(this.angle + (toRadian(120))) * this.lineLength,
+            y: this.pos.y + Math.sin(this.angle + (toRadian(120))) * this.lineLength,
         }
         const p3 = {
-            x: mouse.x + Math.cos(this.angle + (toRadian(240))) * this.lineLength,
-            y: mouse.y + Math.sin(this.angle + (toRadian(240))) * this.lineLength,
+            x: this.pos.x + Math.cos(this.angle + (toRadian(240))) * this.lineLength,
+            y: this.pos.y + Math.sin(this.angle + (toRadian(240))) * this.lineLength,
         }
 
         ctx.strokeStyle = this.color
@@ -58,25 +62,50 @@ class Triangle {
 
     update() {
         this.angle += this.rotateSpeed
+        this.lineLength -= this.shrinkRate
+        if(this.followMouse)
+            this.pos = mouse
     }
 }
 
-const triangle = new Triangle({
+const triangles = []
+
+function refresh() {
+    requestAnimationFrame(refresh)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    triangles.forEach((triangle, i) => {
+        triangle.draw()
+        triangle.update()
+        if(triangle.lineLength <= 0)
+            triangles.splice(i, 1)
+    })
+    angle += 0.025
+}
+
+addEventListener('mousemove', () => {
+    triangles.push(new Triangle({
+        pos: {
+            x: mouse.x,
+            y: mouse.y,
+        },
+        lineLength: 150,
+        rotateSpeed: 0.025,
+        shrinkRate: 3,
+        color: 'blue'
+    }))
+})
+
+triangles.push(new Triangle({
     pos: {
         x: mouse.x,
         y: mouse.y,
     },
     lineLength: 150,
     rotateSpeed: 0.025,
-    color: 'blue'
-})
-
-function refresh() {
-    requestAnimationFrame(refresh)
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    triangle.draw()
-    triangle.update()
-}
+    shrinkRate: 0,
+    color: 'blue',
+    followMouse: true
+}))
 
 refresh()
 
