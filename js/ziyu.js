@@ -141,8 +141,7 @@ function spawnTriangle() {
         setTimeout(spawnTriangle)
 }
 
-const touchEvents = ['mousemove', 'touchmove']
-touchEvents.forEach((triggerEvent) => {
+['mousemove', 'touchmove'].forEach((triggerEvent) => {
 	addEventListener(triggerEvent, (e) => {
 		mouse.x = e.clientX ? e.clientX : e.touches[0].pageX
 		mouse.y = e.clientY ? e.clientY : e.touches[0].pageY
