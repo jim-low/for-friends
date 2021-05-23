@@ -8,14 +8,42 @@ const mouse = {
     x: canvas.width/2,
     y: canvas.height/2,
 }
+const MAX_LINE_LENGTH = 150
+const MIN_LINE_LENGTH = 60
+const ROTATE_SPEED = 0.025
 
+let lineLength = MAX_LINE_LENGTH
 let hue = 0
 let angle = 0
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
+    
+    setLineLength()
 })
+
+function setLineLength() {
+	lineLength = canvas.width / 10
+	if (lineLength < MIN_LINE_LENGTH) {
+		lineLength = MIN_LINE_LENGTH
+	} else if (lineLength > MAX_LINE_LENGTH) {
+		lineLength = MAX_LINE_LENGTH
+	}
+
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+	triangles[0] = new Triangle({
+		pos: {
+			x: canvas.width/2,
+			y: canvas.height/2,
+		},
+		lineLength: lineLength,
+		rotateSpeed: 0.025,
+		shrinkRate: 0,
+		followMouse: true,
+	})
+}
 
 function toRadian(degree) {
     return degree/180 * Math.PI
@@ -89,9 +117,9 @@ touchEvents.forEach(triggerEvent =>{
 					x: mouse.x,
 					y: mouse.y,
 				},
-				lineLength: 150,
-				rotateSpeed: 0.025,
-				shrinkRate: 3,
+				lineLength: lineLength,
+				rotateSpeed: ROTATE_SPEED,
+				shrinkRate: lineLength/50,
 			})
 		)
     })
@@ -103,8 +131,8 @@ triangles.push(new Triangle({
         x: mouse.x,
         y: mouse.y,
     },
-    lineLength: 150,
-    rotateSpeed: 0.025,
+    lineLength: lineLength,
+    rotateSpeed: ROTATE_SPEED,
     shrinkRate: 0,
     followMouse: true
 }))
