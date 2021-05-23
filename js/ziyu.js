@@ -17,11 +17,6 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight
 })
 
-addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX
-    mouse.y = e.clientY
-})
-
 function toRadian(degree) {
     return degree/180 * Math.PI
 }
@@ -30,7 +25,6 @@ class Triangle {
     constructor(props) {
         this.pos = props.pos
         this.lineLength = props.lineLength
-        this.color = props.color
         this.rotateSpeed = props.rotateSpeed
         this.shrinkRate = props.shrinkRate
         this.angle = angle
@@ -84,19 +78,26 @@ function refresh() {
     hue += 1
 }
 
-addEventListener('mousemove', () => {
-    triangles.push(new Triangle({
-        pos: {
-            x: mouse.x,
-            y: mouse.y,
-        },
-        lineLength: 150,
-        rotateSpeed: 0.025,
-        shrinkRate: 3,
-        color: 'blue'
-    }))
+const touchEvents = ['mousemove', 'touchmove']
+touchEvents.forEach(triggerEvent =>{
+    addEventListener(triggerEvent, e => {
+        mouse.x = e.clientX ? e.clientX : e.touches[0].pageX
+		mouse.y = e.clientY ? e.clientY : e.touches[0].pageY
+		triangles.push(
+			new Triangle({
+				pos: {
+					x: mouse.x,
+					y: mouse.y,
+				},
+				lineLength: 150,
+				rotateSpeed: 0.025,
+				shrinkRate: 3,
+			})
+		)
+    })
 })
 
+// initial static triangle
 triangles.push(new Triangle({
     pos: {
         x: mouse.x,
@@ -105,7 +106,6 @@ triangles.push(new Triangle({
     lineLength: 150,
     rotateSpeed: 0.025,
     shrinkRate: 0,
-    color: 'blue',
     followMouse: true
 }))
 
