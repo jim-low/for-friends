@@ -66,20 +66,12 @@ class Triangle {
 			y: this.pos.y + Math.sin(this.angle) * this.lineLength,
 		}
 		const p2 = {
-			x:
-				this.pos.x +
-				Math.cos(this.angle + toRadian(120)) * this.lineLength,
-			y:
-				this.pos.y +
-				Math.sin(this.angle + toRadian(120)) * this.lineLength,
+			x: this.pos.x + Math.cos(this.angle + toRadian(120)) * this.lineLength,
+			y: this.pos.y + Math.sin(this.angle + toRadian(120)) * this.lineLength,
 		}
 		const p3 = {
-			x:
-				this.pos.x +
-				Math.cos(this.angle + toRadian(240)) * this.lineLength,
-			y:
-				this.pos.y +
-				Math.sin(this.angle + toRadian(240)) * this.lineLength,
+			x: this.pos.x + Math.cos(this.angle + toRadian(240)) * this.lineLength,
+			y: this.pos.y + Math.sin(this.angle + toRadian(240)) * this.lineLength,
 		}
 
 		ctx.strokeStyle = `hsl(${hue}, 90%, 50%)`
@@ -95,9 +87,10 @@ class Triangle {
 	update() {
 		this.angle += this.rotateSpeed
 		this.lineLength -= this.shrinkRate
-		if (!this.followMouse) {
+
+		if (!this.followMouse)
 			return
-		}
+
 		this.pos.x += (mouse.x - this.pos.x) * 0.05
 		this.pos.y += (mouse.y - this.pos.y) * 0.05
 	}
@@ -111,7 +104,8 @@ function refresh() {
 	triangles.forEach((triangle, i) => {
 		triangle.draw()
 		triangle.update()
-		if (triangle.lineLength <= 5) triangles.splice(i, 1)
+		if (triangle.lineLength <= 5)
+            triangles.splice(i, 1)
 	})
 	angle += 0.025
 	hue += 1
@@ -144,7 +138,7 @@ function spawnTriangle() {
 		})
 	)
 	if(Math.hypot((mouse.y - triangles[0].pos.y), (mouse.x - triangles[0].pos.x)) > mouse.radius)
-	setTimeout(spawnTriangle)
+        setTimeout(spawnTriangle)
 }
 
 const touchEvents = ['mousemove', 'touchmove']
