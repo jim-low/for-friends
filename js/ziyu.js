@@ -34,13 +34,14 @@ function setLineLength() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
+    // change initial triangle size
     triangles[0] = new Triangle({
         pos: {
             x: canvas.width / 2,
             y: canvas.height / 2,
         },
         lineLength: lineLength,
-        rotateSpeed: 0.025,
+        rotateSpeed: ROTATE_SPEED,
         shrinkRate: 0,
         followMouse: true,
     })
@@ -88,11 +89,13 @@ class Triangle {
         this.angle += this.rotateSpeed
         this.lineLength -= this.shrinkRate
 
-        if (!this.followMouse)
+        if (!this.followMouse) {
             return
+        }
 
-        this.pos.x += (mouse.x - this.pos.x) * 0.05
-        this.pos.y += (mouse.y - this.pos.y) * 0.05
+        const delay = 0.05
+        this.pos.x += (mouse.x - this.pos.x) * delay
+        this.pos.y += (mouse.y - this.pos.y) * delay
     }
 }
 
@@ -107,7 +110,7 @@ function refresh() {
         if (triangle.lineLength <= 5)
             triangles.splice(i, 1)
     })
-    angle += 0.025
+    angle += ROTATE_SPEED
     hue += 1
 }
 
