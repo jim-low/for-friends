@@ -75,7 +75,7 @@ class Triangle {
             y: this.pos.y + Math.sin(this.angle + toRadian(240)) * this.lineLength,
         }
 
-        ctx.strokeStyle = `hsl(${hue}, 90%, 50%)`
+        ctx.strokeStyle = `hsl(${hue}, 80%, 50%)`
         ctx.beginPath()
         ctx.moveTo(p1.x, p1.y)
         ctx.lineTo(p2.x, p2.y)
