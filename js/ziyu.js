@@ -111,7 +111,7 @@ function refresh() {
 	triangles.forEach((triangle, i) => {
 		triangle.draw()
 		triangle.update()
-		if (triangle.lineLength <= 0) triangles.splice(i, 1)
+		if (triangle.lineLength <= 5) triangles.splice(i, 1)
 	})
 	angle += 0.025
 	hue += 1
