@@ -4,7 +4,6 @@ const ctx = canvas.getContext('2d')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-const speedInputElement = document.getElementById('spin-rate-input')
 const mouse = {
     x: canvas.width / 2,
     y: canvas.height / 2,
@@ -152,11 +151,6 @@ function spawnTriangle() {
     if(Math.hypot((mouse.y - triangles[0].pos.y), (mouse.x - triangles[0].pos.x)) > mouse.radius)
         setTimeout(spawnTriangle)
 }
-
-speedInputElement.addEventListener('change', () => {
-    rotateSpeed = Number(speedInputElement.value)
-    resetInitialTriangle()
-})
 
 const moveEvents = ['mousemove', 'touchmove']
 moveEvents.forEach((triggerEvent) => {
