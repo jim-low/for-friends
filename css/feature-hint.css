@@ -4,12 +4,6 @@
     right: 1%;
     text-align: right;
     cursor: pointer;
-    font-size: 1vw;
+    font-size: clamp(.7rem, 3vw, 1rem);
     color: #DCDCDC;
-}
-
-@media only screen and (max-width: 450px) {
-    .feature-hint {
-        font-size: 3vw;
-    }
 }
