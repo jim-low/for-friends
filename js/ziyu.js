@@ -7,7 +7,7 @@ canvas.height = window.innerHeight
 const mouse = {
     x: canvas.width / 2,
     y: canvas.height / 2,
-    radius: 30
+    radius: 10
 }
 const MAX_LINE_LENGTH = 150
 const MIN_LINE_LENGTH = 60
