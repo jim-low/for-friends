@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
+const speedInputElement = document.getElementById('spin-rate-input')
 const mouse = {
     x: canvas.width / 2,
     y: canvas.height / 2,
@@ -11,8 +12,8 @@ const mouse = {
 }
 const MAX_LINE_LENGTH = 150
 const MIN_LINE_LENGTH = 60
-const ROTATE_SPEED = 0.025
 
+let rotateSpeed = 0.025
 let lineLength = MAX_LINE_LENGTH
 let hue = 0
 let angle = 0
@@ -23,6 +24,19 @@ window.addEventListener('resize', () => {
 
     setLineLength()
 })
+
+function resetInitialTriangle() {
+    triangles[0] = new Triangle({
+        pos: {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+        },
+        lineLength: lineLength,
+        rotateSpeed: rotateSpeed,
+        shrinkRate: 0,
+        followMouse: true,
+    })
+}
 
 function setLineLength() {
     lineLength = canvas.width / 10
@@ -35,16 +49,7 @@ function setLineLength() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     // change initial triangle size
-    triangles[0] = new Triangle({
-        pos: {
-            x: canvas.width / 2,
-            y: canvas.height / 2,
-        },
-        lineLength: lineLength,
-        rotateSpeed: ROTATE_SPEED,
-        shrinkRate: 0,
-        followMouse: true,
-    })
+    resetInitialTriangle()
 }
 
 function toRadian(degree) {
@@ -114,7 +119,7 @@ function refresh() {
         if (triangle.lineLength <= 5)
             triangles.splice(i, 1)
     })
-    angle += ROTATE_SPEED
+    angle += rotateSpeed
     hue += 1
 }
 
@@ -126,7 +131,7 @@ triangles.push(
             y: mouse.y,
         },
         lineLength: lineLength,
-        rotateSpeed: ROTATE_SPEED,
+        rotateSpeed: rotateSpeed,
         shrinkRate: 0,
         followMouse: true,
     })
@@ -140,7 +145,7 @@ function spawnTriangle() {
                 y: triangles[0].pos.y,
             },
             lineLength: lineLength,
-            rotateSpeed: ROTATE_SPEED,
+            rotateSpeed: rotateSpeed,
             shrinkRate: lineLength / 50,
         })
     )
@@ -148,7 +153,13 @@ function spawnTriangle() {
         setTimeout(spawnTriangle)
 }
 
-['mousemove', 'touchmove'].forEach((triggerEvent) => {
+speedInputElement.addEventListener('change', () => {
+    rotateSpeed = Number(speedInputElement.value)
+    resetInitialTriangle()
+})
+
+const moveEvents = ['mousemove', 'touchmove']
+moveEvents.forEach((triggerEvent) => {
     addEventListener(triggerEvent, (e) => {
         mouse.x = e.clientX ? e.clientX : e.touches[0].pageX
         mouse.y = e.clientY ? e.clientY : e.touches[0].pageY
