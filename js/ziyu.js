@@ -62,17 +62,21 @@ class Triangle {
     }
 
     draw() {
+        const p1Angle = toRadian(0)
+        const p2Angle = toRadian(120)
+        const p3Angle = toRadian(240)
+
         const p1 = {
-            x: this.pos.x + Math.cos(this.angle) * this.lineLength,
-            y: this.pos.y + Math.sin(this.angle) * this.lineLength,
+            x: this.pos.x + Math.cos(this.angle + p1Angle) * this.lineLength,
+            y: this.pos.y + Math.sin(this.angle + p1Angle) * this.lineLength,
         }
         const p2 = {
-            x: this.pos.x + Math.cos(this.angle + toRadian(120)) * this.lineLength,
-            y: this.pos.y + Math.sin(this.angle + toRadian(120)) * this.lineLength,
+            x: this.pos.x + Math.cos(this.angle + p2Angle) * this.lineLength,
+            y: this.pos.y + Math.sin(this.angle + p2Angle) * this.lineLength,
         }
         const p3 = {
-            x: this.pos.x + Math.cos(this.angle + toRadian(240)) * this.lineLength,
-            y: this.pos.y + Math.sin(this.angle + toRadian(240)) * this.lineLength,
+            x: this.pos.x + Math.cos(this.angle + p3Angle) * this.lineLength,
+            y: this.pos.y + Math.sin(this.angle + p3Angle) * this.lineLength,
         }
 
         ctx.strokeStyle = `hsl(${hue}, 80%, 50%)`
@@ -153,3 +157,4 @@ function spawnTriangle() {
 })
 
 refresh()
+writeHint('move or drag around the screen for something fun')
