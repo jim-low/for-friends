@@ -9,6 +9,10 @@ body {
     text-align: center;
     font-family: vibes;
     font-weight: normal;
+    background: linear-gradient(135deg, rgba(9,83,230,1) 20%, rgba(233,143,15,1) 55%, rgba(124,3,210,1) 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #triangle {
