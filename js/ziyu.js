@@ -162,4 +162,5 @@ moveEvents.forEach((triggerEvent) => {
 })
 
 refresh()
+setLineLength()
 writeHint('move or drag around the screen for something fun')
