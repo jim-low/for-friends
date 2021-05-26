@@ -1,0 +1,113 @@
+:root {
+    --blur-rate: 15px;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 var(--blur-rate) #0DF3FF;
+    }
+    20% {
+        text-shadow: 0 0 var(--blur-rate) #FF0D0D;
+    }
+    40% {
+        text-shadow: 0 0 var(--blur-rate) #20FA64;
+    }
+    60% {
+        text-shadow: 0 0 var(--blur-rate) #F1F115;
+    }
+    80% {
+        text-shadow: 0 0 var(--blur-rate) #E502FF;
+    }
+    90% {
+        text-shadow: 0 0 var(--blur-rate) #0DF3FF;
+    }
+    100% {
+        text-shadow: 0 0 var(--blur-rate) #0DF3FF;
+    }
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
+    color: white;
+    background-color: black;
+    font-family: sans-serif;
+}
+.float {
+    position: absolute;
+}
+.msg {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: clamp(1.25rem, 7vw, 3.5rem);
+    user-select: none;
+    font-family: 'Pattaya', sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+    animation: glow 10s linear infinite;
+}
+.hint {
+    bottom: 0;
+    right: 1%;
+    text-align: right;
+    cursor: pointer;
+    font-size: clamp(.75rem, 1vw, 1rem);
+}
+.switch {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 110px;
+    height: auto;
+    top: 1%;
+    right: 1%;
+    cursor: pointer;
+}
+input#autoplay {
+    display: none;
+}
+.slider, .slider::before {
+    transition: .25s;
+}
+.slider {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #686868;
+    border-radius: 50px;
+}
+.slider::before {
+    content: '';
+    position: absolute;
+    margin: 3px;
+    width: 15px;
+    height: 15px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+.switch input:checked + .slider {
+    background-color: #406AF9;
+}
+.switch input:checked + .slider::before {
+    transform: translateX(20px)
+}
+p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+@media only screen and (max-width: 480px) {
+    .hint {
+        right: 5%;
+    }
+}
+
