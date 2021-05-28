@@ -16,6 +16,7 @@ let rotateSpeed = 0.025
 let lineLength = MAX_LINE_LENGTH
 let hue = 0
 let angle = 0
+let intervalId = 0
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth
@@ -148,8 +149,11 @@ function spawnTriangle() {
             shrinkRate: lineLength / 50,
         })
     )
+    clearInterval(intervalId)
     if(Math.hypot((mouse.y - triangles[0].pos.y), (mouse.x - triangles[0].pos.x)) > mouse.radius)
-        setTimeout(spawnTriangle)
+        intervalId = setInterval(spawnTriangle)
+    else
+        intervalId = setInterval(spawnTriangle, 500)
 }
 
 const moveEvents = ['mousemove', 'touchmove']
@@ -161,6 +165,7 @@ moveEvents.forEach((triggerEvent) => {
     })
 })
 
+intervalId = setInterval(spawnTriangle, 500)
 refresh()
 setLineLength()
 writeHint('move or drag around the screen for something fun')
