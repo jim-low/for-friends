@@ -11,8 +11,8 @@ const mouse = {
 }
 const MAX_LINE_LENGTH = 150
 const MIN_LINE_LENGTH = 60
+const ROTATE_SPEED = 0.025
 
-let rotateSpeed = 0.025
 let lineLength = MAX_LINE_LENGTH
 let hue = 0
 let angle = 0
@@ -32,7 +32,7 @@ function resetInitialTriangle() {
             y: canvas.height / 2,
         },
         lineLength: lineLength,
-        rotateSpeed: rotateSpeed,
+        rotateSpeed: ROTATE_SPEED,
         shrinkRate: 0,
         followMouse: true,
     })
@@ -102,9 +102,9 @@ class Triangle {
             return
         }
 
-        const delay = 0.05
-        this.pos.x += (mouse.x - this.pos.x) * delay
-        this.pos.y += (mouse.y - this.pos.y) * delay
+        const DELAY = 0.05
+        this.pos.x += (mouse.x - this.pos.x) * DELAY
+        this.pos.y += (mouse.y - this.pos.y) * DELAY
     }
 }
 
@@ -119,7 +119,7 @@ function refresh() {
         if (triangle.lineLength <= 5)
             triangles.splice(i, 1)
     })
-    angle += rotateSpeed
+    angle += ROTATE_SPEED
     hue += 1
 }
 
@@ -131,7 +131,7 @@ triangles.push(
             y: mouse.y,
         },
         lineLength: lineLength,
-        rotateSpeed: rotateSpeed,
+        rotateSpeed: ROTATE_SPEED,
         shrinkRate: 0,
         followMouse: true,
     })
@@ -145,7 +145,7 @@ function spawnTriangle() {
                 y: triangles[0].pos.y,
             },
             lineLength: lineLength,
-            rotateSpeed: rotateSpeed,
+            rotateSpeed: ROTATE_SPEED,
             shrinkRate: lineLength / 50,
         })
     )
