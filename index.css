@@ -1,33 +1,42 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
 html, body {
+    overflow: visible;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #646464;
+    border-radius: 100px;
 }
 
 body {
-    background: linear-gradient(145deg, rgba(2,0,36,1) 0%, rgba(60,158,191,1) 0%, rgba(8,93,166,1) 100%);
-    width: 80%;
-    margin: 2rem auto;
-    color: rgb(247, 242, 242);
+    background: #272727;
+    color: #C0C0C0;
+    margin: 0 auto;
 }
 
 .pointer {
     cursor: pointer;
-    border-bottom: thin solid white;
+    text-decoration: underline;
 }
 
-h1 {
+.title {
     text-align: center;
-    font-size: 5rem;
     text-transform: capitalize;
+    font-size: clamp(2rem, 4vw, 5rem);
 }
 
 .intro {
-    width: 70%;
-    margin: 0 auto;
+    width: 85%;
+    margin: 0 auto 5% auto;
     text-align: center;
 }
 
@@ -35,109 +44,55 @@ h1 {
     font-size: 2rem;
 }
 
-.intro .init {
+.intro .welcome-msg {
     text-transform: capitalize;
-    display: block;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    margin: 3% auto .75% auto;
     text-align: center;
-    font-size: 3rem;
 }
 
-.intro .p-s {
-    font-size: 1.25rem;
+.intro .intro-para {
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.intro .ps {
+    font-size: clamp(0.75rem, 3vw, 1.25rem);
 }
 
 .selection {
+    width: 80%;
     margin: 0 auto;
     padding: 0;
-    width: 80%;
 }
 
-.opt {
-    text-transform: capitalize;
-    font-size: 2rem;
+.option {
+    font-size: clamp(1rem, 3vw, 2rem);
 }
 
-.projects {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.name a {
+.project-name .project-link {
     color: rgb(218, 213, 213);
 }
 
 .publish {
-    margin-top: 10px;
-    font-size: 1.25rem;
+    margin-top: 1%;
+    font-size: clamp(.75rem, 3vw, 1.25rem);
     text-transform: none;
 }
 
-hr {
-    margin-top: 5em;
-}
-
-.reassure {
-    font-size: 2rem;
+footer {
+    font-size: clamp(.25rem, 4vw, 2rem);
     text-align: center;
-    margin: 3rem auto;
+    margin-bottom: 1%;
 }
 
-@media only screen and (max-width: 768px){
-    h1 {
-        font-size: 4rem;
-    }
-
-    .intro p {
-        font-size: 1.75rem;
-    }
-
-    .intro .init {
-        font-size: 2.5rem;
-    }
-
-    .intro .p-s {
-        font-size: 1rem;
-    }
-
-    .reassure {
-        font-size: 1.5rem;
-    }
+hr {
+    width: 98%;
+    margin: 3% auto 1% auto;
 }
 
-@media only screen and (max-width: 480px){
-    body {
-        width: 100vw;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
+@media only screen and (max-width: 680px) {
     .intro {
-        width: 95%;
-    }
-
-    .intro p {
-        font-size: 1rem;
-    }
-
-    .intro .init {
-        font-size: 1.5rem;
-    }
-
-    .opt {
-        font-size: 1.5rem;
-    }
-
-    .publish {
-        font-size: 1rem;
-    }
-
-    .reassure {
-        width: 90%;
-        margin: 0 auto;
         text-align: justify;
-        font-size: 1rem;
+        width: 90%;
     }
 }

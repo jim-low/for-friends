@@ -117,35 +117,58 @@ let friendsProjects =
     ]
 
 for(let i = 0; i < friendsList.length; i++){
-    let sectionStructure =
-        `
-        <li class="opt opt1">
-        <div class="name">
-        <p>${friendsList[i]}</p>
-        </div>
-        <ul class="projects">
-        </ul>
-        </li>
-        `
+    const optionSection = document.createElement('li')
+    optionSection.classList.add('option', 'capitalize')
 
-    selection.innerHTML += sectionStructure
+    const nameSection = document.createElement('div')
+    nameSection.classList.add('name')
+
+    const name = document.createElement('p')
+    name.innerHTML = friendsList[i]
+
+    const projectsList = document.createElement('ul')
+    projectsList.classList.add('projects')
+
+    nameSection.append(name)
+    optionSection.append(nameSection)
+    optionSection.append(projectsList)
+
+    selection.append(optionSection)
 }
 
 let projects = document.querySelectorAll(".projects")
 
 for(let i = 0; i < projects.length; i++){
     for(let j = 0; j < friendsProjects[i].length; j++){
-        let currentPerson = friendsProjects[i][j]
-        let projectStructure =
-            `<li class="project project${i + 1}">
-            <div class="name">
-            <a href="./html/${currentPerson.link}">${currentPerson.projName}</a>
-            </div>
-            <div class="publish">
-            Published on <span class="date">${currentPerson.dateReleased}</span>
-            </div>
-            </li>
-            `
-        projects[i].innerHTML += projectStructure
+        const currentPerson = friendsProjects[i][j]
+
+        const project = document.createElement('li')
+        project.classList.add('project')
+
+        const projectNameSection = document.createElement('div')
+        projectNameSection.classList.add('project-name')
+
+        const projectNameLink = document.createElement('a')
+        projectNameLink.classList.add('project-link')
+        projectNameLink.href = `./html/${currentPerson.link}`
+        projectNameLink.innerHTML = currentPerson.projName
+
+        const publishSection = document.createElement('div')
+        publishSection.classList.add('publish')
+
+        const publishInformation = document.createElement('p')
+        publishInformation.innerHTML = 'Published on '
+
+        const publishDate = document.createElement('span')
+        publishDate.classList.add('date')
+        publishDate.innerHTML = currentPerson.dateReleased
+
+        projectNameSection.append(projectNameLink)
+        publishInformation.append(publishDate)
+        publishSection.append(publishInformation)
+        project.append(projectNameSection)
+        project.append(publishSection)
+
+        projects[i].append(project)
     }
 }
