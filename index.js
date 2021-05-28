@@ -11,7 +11,7 @@ let friendsList = [
     "zene chew yan zheng",
     "vese lee",
     "kai wen",
-    "zi yu"
+    "zi yu diong"
 ]
 let friendsProjects =
     [
