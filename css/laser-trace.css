@@ -3,3 +3,10 @@ body {
     color: #E6E6E6;
 }
 
+#laser-trace {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
