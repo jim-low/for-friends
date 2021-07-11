@@ -17,6 +17,12 @@ class SparkleEffect {
             x: mouse.x,
             y: mouse.y,
         };
+
+        let randomAngle = (Math.random() * (180))/180 * Math.PI;
+        this.velocity = {
+            x: Math.cos(randomAngle) * (Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1),
+            y: Math.sin(randomAngle) * 10
+        };
     }
 
     draw(lastPos = this.pos) {
@@ -38,7 +44,8 @@ class SparkleEffect {
             y: this.pos.y,
         };
 
-        this.pos.y += 1;
+        this.pos.x += this.velocity.x;
+        this.pos.y += this.velocity.y;
 
         this.draw(lastPos);
         console.log(this.pos);
