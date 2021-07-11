@@ -23,19 +23,25 @@ class SparkleEffect {
             x: Math.cos(randomAngle) * (Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1),
             y: Math.sin(randomAngle) * 10
         };
+
+        this.opacity = 1;
     }
 
     draw(lastPos = this.pos) {
-        ctx.beginPath();
-
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
+
+        ctx.save()
+        ctx.globalAlpha = this.opacity;
+
+        ctx.beginPath();
 
         ctx.moveTo(lastPos.x, lastPos.y);
         ctx.lineTo(this.pos.x, this.pos.y);
         ctx.stroke();
 
         ctx.closePath();
+        ctx.restore();
     }
 
     update() {
@@ -47,8 +53,9 @@ class SparkleEffect {
         this.pos.x += this.velocity.x;
         this.pos.y += this.velocity.y;
 
+        this.opacity -= 0.05;
+
         this.draw(lastPos);
-        console.log(this.pos);
     }
 }
 
@@ -65,7 +72,11 @@ addEventListener("mousemove", (e) => {
 const sparks = [];
 
 function animateSparks() {
-    sparks.forEach(spark => spark.update());
+    sparks.forEach((spark, i) => {
+        spark.update()
+        if (spark.opacity < 0.1)
+            sparks.splice(i, 1);
+    });
 }
 
 function animate() {
