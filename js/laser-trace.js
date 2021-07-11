@@ -20,7 +20,7 @@ class SparkleEffect {
 
         let randomAngle = (Math.random() * (180))/180 * Math.PI;
         this.velocity = {
-            x: Math.cos(randomAngle) * (Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1),
+            x: Math.cos(randomAngle) * (Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1) * 3,
             y: Math.sin(randomAngle) * 10
         };
 
