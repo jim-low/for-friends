@@ -4,7 +4,12 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const mouse = {
+const lastMouse = {
+    x: null,
+    y: null,
+}
+
+const currMouse = {
     x: null,
     y: null,
 }
@@ -14,8 +19,8 @@ let mouseDown = false;
 class SparkleEffect {
     constructor() {
         this.pos = {
-            x: mouse.x,
-            y: mouse.y,
+            x: currMouse.x,
+            y: currMouse.y,
         };
 
         let randomAngle = (Math.random() * (180))/180 * Math.PI;
@@ -63,20 +68,31 @@ class Laser {
     constructor(laserWidth, laserColor) {
         this._laserWidth = laserWidth;
         this._laserColor = laserColor;
+        this._startPos = {
+            x: lastMouse.x,
+            y: lastMouse.y,
+        };
+        this._endPos = {
+            x: currMouse.x,
+            y: currMouse.y,
+        };
         this.opacity = 1;
         this.fadeStart = false;
+
+        this.fade(100);
     }
 
     draw() {
         ctx.lineCap = "round";
+        ctx.lineJoin = "round";
         ctx.lineWidth = this._laserWidth;
         ctx.strokeStyle = this._laserColor;
 
         ctx.save();
         ctx.globalAlpha = this.opacity;
 
-        ctx.moveTo(mouse.x, mouse.y);
-        ctx.lineTo(mouse.x, mouse.y);
+        ctx.moveTo(this._startPos.x, this._startPos.y);
+        ctx.lineTo(this._endPos.x, this._endPos.y);
         ctx.stroke();
 
         ctx.restore();
@@ -84,12 +100,14 @@ class Laser {
 
     update() {
         if (this.fadeStart)
-            this.opacity -= 0.01;
+            this.opacity -= 0.025;
+        this.draw();
     }
 
     fade(secondsTillFade) {
         setTimeout(() => {
             this.fadeStart = true;
+            console.log("IT IS TIME TO FADE MY BOISSSSSSSSS");
         }, secondsTillFade);
     }
 }
@@ -97,15 +115,25 @@ class Laser {
 addEventListener("mousedown", () => mouseDown = true );
 addEventListener("mouseup", () => mouseDown = false );
 addEventListener("mousemove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    lastMouse.x = currMouse.x || e.clientX;
+    lastMouse.y = currMouse.y || e.clientY;
+
+    currMouse.x = e.clientX;
+    currMouse.y = e.clientY;
 });
 
 const sparks = [];
+const laserPositions = [];
 
-function animateSparks() {
+function animateEffects() {
+    laserPositions.forEach((laser, i) => {
+        laser.update();
+        if (laser.opacity < 0.1)
+            laserPositions.splice(i, 1);
+    });
+
     sparks.forEach((spark, i) => {
-        spark.update()
+        spark.update();
         if (spark.opacity < 0.1)
             sparks.splice(i, 1);
     });
@@ -115,9 +143,12 @@ function animate() {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (mouseDown)
+    if (mouseDown) {
+        laserPositions.push(new Laser(5, "#42C0FB"));
         sparks.push(new SparkleEffect());
-    animateSparks();
+    }
+    animateEffects();
+    console.log(laserPositions.length);
 }
 
 animate();
