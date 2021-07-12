@@ -60,6 +60,38 @@ class SparkleEffect {
 }
 
 class Laser {
+    constructor(laserWidth, laserColor) {
+        this._laserWidth = laserWidth;
+        this._laserColor = laserColor;
+        this.opacity = 1;
+        this.fadeStart = false;
+    }
+
+    draw() {
+        ctx.lineCap = "round";
+        ctx.lineWidth = this._laserWidth;
+        ctx.strokeStyle = this._laserColor;
+
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+
+        ctx.moveTo(mouse.x, mouse.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+
+        ctx.restore();
+    }
+
+    update() {
+        if (this.fadeStart)
+            this.opacity -= 0.01;
+    }
+
+    fade(secondsTillFade) {
+        setTimeout(() => {
+            this.fadeStart = true;
+        }, secondsTillFade);
+    }
 }
 
 addEventListener("mousedown", () => mouseDown = true );
