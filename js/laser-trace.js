@@ -23,17 +23,18 @@ class SparkleEffect {
             y: currMouse.y,
         };
 
-        let randomAngle = (Math.random() * (180))/180 * Math.PI;
+        const RAND_ANGLE = (Math.random() * (360))/180 * Math.PI;
+        const FORCE = 7.25;
         this.velocity = {
-            x: Math.cos(randomAngle) * (Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1) * 3,
-            y: Math.sin(randomAngle) * 10
+            x: Math.cos(RAND_ANGLE) * FORCE * (Math.floor(Math.random() * 2) % 2 == 0 ? 1 : -1),
+            y: Math.sin(RAND_ANGLE) * FORCE
         };
 
         this.opacity = 1;
     }
 
     draw(lastPos = this.pos) {
-        ctx.strokeStyle = "white";
+        ctx.strokeStyle = "#F29B2B";
         ctx.lineWidth = 2;
 
         ctx.save()
@@ -139,16 +140,21 @@ function animateEffects() {
     });
 }
 
+function addEffects() {
+    laserPositions.push(new Laser(5, "#42C0FB"));
+
+    for (let i = 0; i < 5; ++i)
+        sparks.push(new SparkleEffect());
+}
+
 function animate() {
     requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (mouseDown) {
-        laserPositions.push(new Laser(5, "#42C0FB"));
-        sparks.push(new SparkleEffect());
-    }
+    if (mouseDown)
+        addEffects();
+
     animateEffects();
-    console.log(laserPositions.length);
 }
 
 animate();
