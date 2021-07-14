@@ -84,7 +84,6 @@ class Laser {
     }
 
     draw() {
-        ctx.lineCap = "round";
         ctx.lineJoin = "round";
         ctx.lineWidth = this._laserWidth;
         ctx.strokeStyle = this._laserColor;
@@ -92,9 +91,11 @@ class Laser {
         ctx.save();
         ctx.globalAlpha = this.opacity;
 
+        ctx.beginPath();
         ctx.moveTo(this._startPos.x, this._startPos.y);
         ctx.lineTo(this._endPos.x, this._endPos.y);
         ctx.stroke();
+        ctx.closePath();
 
         ctx.restore();
     }
