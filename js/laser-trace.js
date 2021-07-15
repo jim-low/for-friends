@@ -157,5 +157,27 @@ function animate() {
     animateEffects();
 }
 
+function setupTextAnimation() {
+    const messageBox = document.getElementById("message");
+    const message = messageBox.textContent;
+    messageBox.innerText = null;
+
+    for (let i = 0; i < message.length; ++i)
+        messageBox.innerHTML += `<span class="effect">${message[i]}</span>`;
+
+    const timer = setInterval(setAnimation, 100);
+    let i = 0;
+    function setAnimation() {
+        const span = document.querySelectorAll("span.effect")[i];
+        span.classList.add("amazingAnimationLmao");
+
+        ++i;
+        if (i == message.length)
+            clearInterval(timer);
+    }
+
+}
+
 animate();
+setupTextAnimation();
 
