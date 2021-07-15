@@ -80,7 +80,7 @@ class Laser {
         this.opacity = 1;
         this.fadeStart = false;
 
-        this.fade(1.5 * 1000);
+        this.fade(3 * 1000);
     }
 
     draw() {
@@ -165,7 +165,7 @@ function setupTextAnimation() {
     for (let i = 0; i < message.length; ++i)
         messageBox.innerHTML += `<span class="effect">${message[i]}</span>`;
 
-    const timer = setInterval(setAnimation, 100);
+    const timer = setInterval(setAnimation, 150);
     let i = 0;
     function setAnimation() {
         const span = document.querySelectorAll("span.effect")[i];
