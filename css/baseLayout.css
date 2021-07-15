@@ -37,6 +37,11 @@ html, body {
     src: url('../fonts/Great Vibes/GreatVibes-Regular.ttf');
 }
 
+@font-face {
+    font-family: painter;
+    src: url('../fonts/Painter/PainterPersonalUseOnly-Br0w.ttf');
+}
+
 /* general styles to use */
 .capitalize {
     text-transform: capitalize;
