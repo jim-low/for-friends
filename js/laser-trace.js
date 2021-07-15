@@ -80,7 +80,7 @@ class Laser {
         this.opacity = 1;
         this.fadeStart = false;
 
-        this.fade(100);
+        this.fade(1.5 * 1000);
     }
 
     draw() {
@@ -109,7 +109,6 @@ class Laser {
     fade(secondsTillFade) {
         setTimeout(() => {
             this.fadeStart = true;
-            console.log("IT IS TIME TO FADE MY BOISSSSSSSSS");
         }, secondsTillFade);
     }
 }
