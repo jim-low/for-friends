@@ -43,5 +43,6 @@ body {
 
 .amazingAnimationLmao {
     animation: fade 2s forwards;
+    animation-delay: .5s;
 }
 
