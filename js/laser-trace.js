@@ -118,15 +118,28 @@ class Laser {
     }
 }
 
-addEventListener("mousedown", () => mouseDown = true );
-addEventListener("mouseup", () => mouseDown = false );
-addEventListener("mousemove", (e) => {
-    lastMouse.x = currMouse.x || e.clientX;
-    lastMouse.y = currMouse.y || e.clientY;
+const pointerMoveEvents = ["mousemove", "touchmove"];
+const pointerUpEvents = ["mouseup", "touchend"];
+const pointerDownEvents = ["mousedown", "touchstart"];
 
-    currMouse.x = e.clientX;
-    currMouse.y = e.clientY;
+pointerUpEvents.forEach(event => {
+    addEventListener(event, () => mouseDown = false );
 });
+
+pointerDownEvents.forEach(event => {
+    addEventListener(event, () => mouseDown = true );
+});
+
+pointerMoveEvents.forEach(event => {
+    addEventListener(event, (e) => {
+        lastMouse.x = currMouse.x || e.clientX || e.touches[0].pageX;
+        lastMouse.y = currMouse.y || e.clientY || e.touches[0].pageY;
+
+        currMouse.x = e.clientX || e.touches[0].pageX;
+        currMouse.y = e.clientY || e.touches[0].pageY;
+    });
+});
+
 
 fadeTimeInput.addEventListener("change", () => {
     laserFade = fadeTimeInput.value;
