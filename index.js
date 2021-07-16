@@ -39,6 +39,11 @@ let friendsProjects =
                 projName: "a little surprise",
                 dateReleased: "29th July 2020",
                 link: "shuetYee.html"
+            },
+            {
+                projName: "Laser Trace",
+                dateReleased: "16th July 2021",
+                link: "laser-trace.html"
             }
         ],
         [
