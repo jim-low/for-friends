@@ -4,6 +4,9 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+const colorInput = document.querySelector(".laser-color");
+const fadeTimeInput = document.querySelector(".fade-time");
+
 const lastMouse = {
     x: null,
     y: null,
@@ -15,6 +18,8 @@ const currMouse = {
 }
 
 let mouseDown = false;
+let laserColor = "#42C0FB";
+let laserFade = 3;
 
 class SparkleEffect {
     constructor() {
@@ -80,7 +85,7 @@ class Laser {
         this.opacity = 1;
         this.fadeStart = false;
 
-        this.fade(3 * 1000);
+        this.fade(laserFade * 1000);
     }
 
     draw() {
@@ -123,6 +128,14 @@ addEventListener("mousemove", (e) => {
     currMouse.y = e.clientY;
 });
 
+fadeTimeInput.addEventListener("change", () => {
+    laserFade = fadeTimeInput.value;
+});
+
+colorInput.addEventListener("change", () => {
+    laserColor = colorInput.value;
+});
+
 const sparks = [];
 const laserPositions = [];
 
@@ -141,7 +154,7 @@ function animateEffects() {
 }
 
 function addEffects() {
-    laserPositions.push(new Laser(5, "#42C0FB"));
+    laserPositions.push(new Laser(5, laserColor));
 
     for (let i = 0; i < 5; ++i)
         sparks.push(new SparkleEffect());
