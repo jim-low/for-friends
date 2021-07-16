@@ -19,7 +19,7 @@ const currMouse = {
 
 let mouseDown = false;
 let laserColor = "#42C0FB";
-let laserFade = 3;
+let laserFadeInSeconds = 3;
 
 class SparkleEffect {
     constructor() {
@@ -71,9 +71,9 @@ class SparkleEffect {
 }
 
 class Laser {
-    constructor(laserWidth, laserColor) {
-        this._laserWidth = laserWidth;
-        this._laserColor = laserColor;
+    constructor(width, color) {
+        this._laserWidth = width;
+        this._laserColor = color;
         this._startPos = {
             x: lastMouse.x,
             y: lastMouse.y,
@@ -85,7 +85,7 @@ class Laser {
         this.opacity = 1;
         this.fadeStart = false;
 
-        this.fade(laserFade * 1000);
+        this.fade(laserFadeInSeconds * 1000);
     }
 
     draw() {
@@ -142,7 +142,7 @@ pointerMoveEvents.forEach(event => {
 
 
 fadeTimeInput.addEventListener("change", () => {
-    laserFade = fadeTimeInput.value;
+    laserFadeInSeconds = fadeTimeInput.value;
 });
 
 colorInput.addEventListener("change", () => {
