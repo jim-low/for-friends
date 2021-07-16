@@ -206,4 +206,5 @@ function setupTextAnimation() {
 
 animate();
 setupTextAnimation();
+writeHint("click and drag around the screen for a surprise");
 
