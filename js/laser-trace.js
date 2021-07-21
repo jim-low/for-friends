@@ -71,9 +71,8 @@ class SparkleEffect {
 }
 
 class Laser {
-    constructor(width, color) {
+    constructor(width) {
         this._laserWidth = width;
-        this._laserColor = color;
         this._startPos = {
             x: lastMouse.x,
             y: lastMouse.y,
@@ -91,7 +90,7 @@ class Laser {
     draw() {
         ctx.lineJoin = "round";
         ctx.lineWidth = this._laserWidth;
-        ctx.strokeStyle = this._laserColor;
+        ctx.strokeStyle = laserColor;
 
         ctx.save();
         ctx.globalAlpha = this.opacity;
@@ -167,7 +166,7 @@ function animateEffects() {
 }
 
 function addEffects() {
-    laserPositions.push(new Laser(5, laserColor));
+    laserPositions.push(new Laser(5));
 
     for (let i = 0; i < 5; ++i)
         sparks.push(new SparkleEffect());
