@@ -141,7 +141,7 @@ pointerMoveEvents.forEach(event => {
 
 
 fadeTimeInput.addEventListener("change", () => {
-    laserFadeInSeconds = fadeTimeInput.value;
+    laserFadeInSeconds = fadeTimeInput.value || 3;
 });
 
 colorInput.addEventListener("change", () => {
