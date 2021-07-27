@@ -146,6 +146,7 @@ fadeTimeInput.addEventListener("change", () => {
 
 colorInput.addEventListener("change", () => {
     laserColor = colorInput.value;
+    document.getElementById("message").style.color = laserColor;
 });
 
 const sparks = [];
