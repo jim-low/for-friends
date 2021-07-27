@@ -194,7 +194,7 @@ function setupTextAnimation() {
     let i = 0;
     function setAnimation() {
         const span = document.querySelectorAll("span.effect")[i];
-        span.classList.add("amazingAnimationLmao");
+        span.classList.add("fadeIn");
 
         ++i;
         if (i == message.length)

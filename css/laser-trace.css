@@ -41,7 +41,7 @@ body {
     opacity: 0;
 }
 
-.amazingAnimationLmao {
+.fadeIn {
     animation: fade 2s forwards;
     animation-delay: .5s;
 }
