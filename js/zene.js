@@ -159,4 +159,3 @@ addEventListener('click', () => {
 
 updateCanvas();
 setTimeout(spawnBubble, 3000);
-
