@@ -133,7 +133,6 @@ class Kirby {
 
     render() {
         if (!this.imageLoaded) return
-
         this.drawKirby()
         this.drawCake()
 
