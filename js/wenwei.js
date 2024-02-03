@@ -41,6 +41,8 @@ class Kirby {
             constructor() {
                 this.img = new Image()
                 this.img.src = '../images/kirby/cake.png'
+                this.imageLoaded = false
+                this.img.onload = () => this.imageLoaded = true
 
                 this.scaleFactor = 0.7
 
@@ -55,6 +57,7 @@ class Kirby {
             }
 
             render() {
+                if (!this.imageLoaded) return
                 ctx.drawImage(this.img, this.position.x, this.position.y, this.width * this.scaleFactor, this.height * this.scaleFactor)
             }
         }
