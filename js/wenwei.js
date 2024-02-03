@@ -5,7 +5,7 @@ canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
 const gravity = 0.01;
-let friction = 0.96;
+const friction = 0.96;
 const mouse = {
     x: 0,
     y: 0
@@ -111,10 +111,23 @@ class Kirby {
         if (!this.canClick || this.animated) return
         this.animated = true
 
+        // play background music
+        const audio = new Audio('../audio/kirby theme.mp3');
+        audio.loop = true
+        audio.play();
+
+        // animate kirby running
         setInterval(() => {
             ++this.frame
             if (this.frame >= this.maxFrame) this.frame = 1
         }, 70);
+
+        setInterval(() => {
+            spawnStar({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height
+            })
+        }, 100);
     }
 
     update() {
@@ -134,7 +147,6 @@ class Kirby {
         this.drawText()
     }
 }
-
 
 class Star {
     constructor(position, size, velocity) {
@@ -221,7 +233,7 @@ function checkEmptyStars() {
     }
 }
 
-function spawnStar() {
+function spawnStar(position) {
     const numberOfStars = 5
     for (let i = 0; i < numberOfStars; ++i) {
         const angle = (Math.PI * 2) / numberOfStars
@@ -231,8 +243,8 @@ function spawnStar() {
             y: Math.sin(angle * i) * force
         }
 
-        const position = { x: mouse.x, y: mouse.y }
-        stars.push(new Star(position, starSize, velocity))
+        const pos = { x: position.x, y: position.y }
+        stars.push(new Star(pos, starSize, velocity))
     }
 }
 
@@ -252,6 +264,6 @@ function animate() {
 animate()
 
 document.addEventListener('click', () => {
-    spawnStar()
+    spawnStar({x: mouse.x, y: mouse.y})
     kirby.startAnimation()
 })
