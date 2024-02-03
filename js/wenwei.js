@@ -15,13 +15,14 @@ document.addEventListener('mousemove', e => {
 })
 
 class Kirby {
-
     constructor() {
         const width = 80
         const height = 80
 
         this.img = new Image()
         this.img.src = './../images/kirby/kirby-slep.png'
+        this.imageLoaded = false
+        this.img.onload = () => this.imageLoaded = true
         this.width = width
         this.height = height
 
@@ -41,6 +42,8 @@ class Kirby {
             constructor() {
                 this.img = new Image()
                 this.img.src = '../images/kirby/cake.png'
+                this.imageLoaded = false
+                this.img.onload = () => this.imageLoaded = true
 
                 this.scaleFactor = 0.7
 
@@ -55,6 +58,7 @@ class Kirby {
             }
 
             render() {
+                if (!this.imageLoaded) return
                 ctx.drawImage(this.img, this.position.x, this.position.y, this.width * this.scaleFactor, this.height * this.scaleFactor)
             }
         }
@@ -128,6 +132,8 @@ class Kirby {
     }
 
     render() {
+        if (!this.imageLoaded) return
+
         this.drawKirby()
         this.drawCake()
 
