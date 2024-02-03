@@ -4,6 +4,8 @@ const ctx = canvas.getContext('2d')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
+const gravity = 0.01;
+let friction = 0.96;
 const mouse = {
     x: 0,
     y: 0
@@ -53,8 +55,6 @@ class Kirby {
                     x: canvas.width / 2 - this.width / 2,
                     y: canvas.height / 2 - this.height / 2 - height - 5
                 }
-
-                console.log()
             }
 
             render() {
@@ -96,10 +96,6 @@ class Kirby {
         ctx.fillText('*kirby otw to giv cake', canvas.width / 2 + this.width + 5, canvas.height / 10 * 4)
     }
 
-    animateKirby() {
-        if (!this.canClick) return
-    }
-
     indicateClick() {
         if (mouse.x >= this.position.x && mouse.x <= this.position.x + this.width && mouse.y >= this.position.y && mouse.y <= this.position.y + this.height) {
             document.body.style.cursor = 'pointer'
@@ -112,11 +108,10 @@ class Kirby {
     }
 
     startAnimation() {
-        if (this.animated) return
+        if (!this.canClick || this.animated) return
         this.animated = true
 
         setInterval(() => {
-
             ++this.frame
             if (this.frame >= this.maxFrame) this.frame = 1
         }, 70);
@@ -142,19 +137,21 @@ class Kirby {
 
 
 class Star {
-    constructor(position, size) {
-        this.position = {
-            x: position.x,
-            y: position.y
+    constructor(position, size, velocity) {
+        this.position = position
+        this.velocity = velocity
+
+        this.velocity = {
+            x: velocity.x * Math.random(),
+            y: velocity.y * Math.random()
         }
         this.size = size
+
         this.opacity = 1.0
         this.fadeSpeed = 0.01
-    }
 
-    update() {
-        // spin it
-        this.opacity -= this.fadeSpeed // fade it
+        this.spinAngle = 0
+        this.spinSpeed = 0.04
     }
 
     drawStar() {
@@ -170,7 +167,7 @@ class Star {
 
         let startPoint = { x: 0, y: 0 }
         for (let i = 0; i < spikes; ++i) {
-            const angle = i * angleIncrement
+            const angle = i * angleIncrement + this.spinAngle
 
             const outerX = this.position.x + this.size * Math.cos(angle)
             const outerY = this.position.y + this.size * Math.sin(angle)
@@ -188,6 +185,22 @@ class Star {
 
         ctx.closePath()
         ctx.stroke()
+    }
+
+    burst() {
+        this.velocity.x *= friction;
+        this.velocity.y *= friction;
+
+        this.velocity.y += gravity;
+
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
+    }
+
+    update() {
+        this.burst() // initial explosion effect
+        this.opacity -= this.fadeSpeed // fade out effect
+        this.spinAngle += this.spinSpeed
     }
 
     render() {
@@ -208,6 +221,21 @@ function checkEmptyStars() {
     }
 }
 
+function spawnStar() {
+    const numberOfStars = 5
+    for (let i = 0; i < numberOfStars; ++i) {
+        const angle = (Math.PI * 2) / numberOfStars
+        const force = 3
+        const velocity = {
+            x: Math.cos(angle * i) * force,
+            y: Math.sin(angle * i) * force
+        }
+
+        const position = { x: mouse.x, y: mouse.y }
+        stars.push(new Star(position, starSize, velocity))
+    }
+}
+
 function animate() {
     requestAnimationFrame(animate)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -224,6 +252,6 @@ function animate() {
 animate()
 
 document.addEventListener('click', () => {
-    stars.push(new Star(mouse, starSize))
+    spawnStar()
     kirby.startAnimation()
 })
