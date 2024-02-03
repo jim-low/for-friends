@@ -1,5 +1,6 @@
 let selection = document.querySelector(".selection")
 let friendsList = [
+    "leong wen wei",
     "bithiah tang kai yuin",
     "cheng yin shing",
     "chong shuet yee",
@@ -15,6 +16,13 @@ let friendsList = [
 ]
 let friendsProjects =
     [
+        [
+            {
+                projName: "kirby birthday",
+                dateReleased: "to be released",
+                link: "wenwei.html"
+            }
+        ],
         [
             {
                 projName: "birthday card",

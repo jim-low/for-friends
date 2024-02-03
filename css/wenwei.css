@@ -1,0 +1,24 @@
+:root {
+    --kirby-pink: #d74894;
+    --pink: #df6da9;
+    --slight-pink: #e791bf;
+    --light-pink: #efb6d4;
+    --white-pink: #f7daea;
+}
+
+html, body, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: var(--pink);
+    overflow: hidden;
+}
+
+#star-canvas {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
