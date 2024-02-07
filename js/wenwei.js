@@ -119,7 +119,7 @@ class Kirby {
         // animate kirby running
         setInterval(() => {
             ++this.frame
-            if (this.frame >= this.maxFrame) this.frame = 1
+            if (this.frame > this.maxFrame) this.frame = 1
         }, 70);
 
         setInterval(() => {
